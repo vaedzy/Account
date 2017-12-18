@@ -33,6 +33,18 @@ public class User implements Serializable  {
             this.username = username == null ? null : username.trim();
         }
 
+        public User(Integer id,String phone,String username){
+            this.id = id;
+            this.phone = phone == null ? null : phone.trim();
+            this.username = username == null ? null : username.trim();
+        }
+
+        public User(String phone){
+            this.phone = phone == null ? null : phone.trim();
+        }
+
+        public User(){}
+
         @Override
         public String toString() {
             StringBuilder sb = new StringBuilder();
