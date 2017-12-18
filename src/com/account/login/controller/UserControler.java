@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -35,7 +36,7 @@ public class UserControler {
     验证手机号与验证码
      */
     @RequestMapping("/login")
-    public String login(@RequestParam("phone")String phone,String code,HttpServletRequest request){
+    public @ResponseBody  String login(@RequestParam("phone")String phone, String code, HttpServletRequest request){
        //判断手机号是否为空
         if (phone == null || phone.equals("")){
             return "error";
