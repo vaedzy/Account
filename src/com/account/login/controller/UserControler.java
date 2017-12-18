@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @Controller
@@ -33,7 +35,7 @@ public class UserControler {
     验证手机号与验证码
      */
     @RequestMapping("/login")
-    public String login(@RequestParam("phone")String phone,String code){
+    public String login(@RequestParam("phone")String phone,String code,HttpServletRequest request){
        //判断手机号是否为空
         if (phone == null || phone.equals("")){
             return "error";
@@ -47,7 +49,11 @@ public class UserControler {
             //是
             if (Ccode==code || Ccode.equals(code)){
                 //是
-                userService.findUser(new User(phone));
+               User user = userService.findUser(new User(phone));
+               //返回user对象
+                HttpSession session = request.getSession();
+                session.setAttribute("user",user);
+                return "login";
             }else{
                 //不是 ? 是否让用户重新获取或者是重新发送
 

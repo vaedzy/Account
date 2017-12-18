@@ -12,7 +12,7 @@ public class UserServiceImpl implements UserService{
     private UserDao userDao;
 
     public User findUser(User user){
-        User newuser=userDao.findUser(user);
+        User newuser = userDao.findUser(user);
         if(newuser!=null){
             return newuser;
         }
