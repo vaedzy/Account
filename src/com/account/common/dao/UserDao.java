@@ -1,5 +1,8 @@
 package com.account.common.dao;
 
-public class UserDao {
+import com.account.bean.User;
 
+public interface UserDao {
+    public User findUser(User user);
+    public void saveUser(User user);
 }
