@@ -7,14 +7,14 @@
     <result column="username" jdbcType="VARCHAR" property="username" />
   </resultMap>
   <insert id="insert" parameterType="com.account.bean.User">
-    insert into person (id, phone, username
+    insert into user (id, phone, username
       )
     values (#{id,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}
       )
   </insert>
   <select id="selectAll" resultMap="BaseResultMap">
     select id, phone, username
-    from person
+    from uesr
   </select>
   <resultMap id="BaseResultMap" type="com.account.bean.User">
     <result column="id" jdbcType="INTEGER" property="id" />
@@ -22,13 +22,13 @@
     <result column="username" jdbcType="VARCHAR" property="username" />
   </resultMap>
   <insert id="insert" parameterType="com.account.bean.User">
-    insert into person (id, phone, username
+    insert into uers (id, phone, username
       )
     values (#{id,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}
       )
   </insert>
   <select id="selectAll" resultMap="BaseResultMap">
     select id, phone, username
-    from person
+    from user
   </select>
 </mapper>
