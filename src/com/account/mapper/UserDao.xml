@@ -13,7 +13,7 @@
       )
   </insert>
   <select id="findUser" parameterType="com.account.bean.User" resultType="com.account.bean.User">
-    select * from uesr where phone=#{phone}
+    select * from user where phone=#{phone}
   </select>
 
 </mapper>

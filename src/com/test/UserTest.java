@@ -1,21 +1,27 @@
 package com.test;
-import com.account.bean.User;
-import com.account.login.service.UserService;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:spring/applicationContext.xml"})
+
+import com.account.bean.User;
+import com.account.mapper.UserDao;
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 public class UserTest{
-    @Autowired
-    UserService userService;
+private ApplicationContext applicationContext;
+
+@Before
+public void setUp() throws Exception {
+    applicationContext = new ClassPathXmlApplicationContext("classpath:spring/applicationContext.xml");
+}
     @Test
-    public void TestUser(){
+    public void testGetUserById() {
+        UserDao userDao = (UserDao) applicationContext.getBean("userDao");
         User user = new User("13241997744");
-        user =  userService.findUser(user);
-        System.out.println(user.getId());
+
+        User user1 = userDao.findUser(user);
+        System.out.println(user1.getPhone());
+
     }
 }
