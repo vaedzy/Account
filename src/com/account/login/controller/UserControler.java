@@ -23,8 +23,8 @@ public class UserControler {
     /*
      获取验证码
      */
-    @RequestMapping("getCode")
-    public Boolean getCode(@RequestParam("phone")String phone){
+    @RequestMapping("/getCode")
+    public @ResponseBody boolean getCode(@RequestParam("phone")String phone){
         //发送短信
         try {
             if (PhoneFormatCheckUtils.isChinaPhoneLegal(phone)){
@@ -64,7 +64,7 @@ public class UserControler {
                 session.setAttribute("user",user);
                 return "login";
             }else{
-                //不是 ? 是否让用户重新输入
+                //不是 ? 是否让用户重新获取或者是重新发送
 
                 return "false";
             }

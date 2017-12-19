@@ -18,7 +18,9 @@
     <link rel="stylesheet" type="text/css" href="css/component.css" />
     <!--[if IE]>
     <script src="js/html5.js"></script>
+    <script src="js/login.js"></script>
     <![endif]-->
+
 </head>
 <body>
 <div class="container demo-1">
@@ -27,17 +29,15 @@
             <canvas id="demo-canvas"></canvas>
             <div class="logo_box">
                 <h3>欢迎您</h3>
-                <form action="/login" name="login" method="post">
-                    <div class="input_outer">
+                    <div class="input_outer" id="phone_outer">
                         <span class="u_user"></span>
-                        <input name="logname" class="text" max="11" maxlength="11" style="color: #FFFFFF !important" type="text" placeholder="请输入手机号">
+                        <input name="logname" id="phone" class="text" max="11" maxlength="11" style="color: #FFFFFF !important" type="text" placeholder="请输入手机号">
                     </div>
-                    <div class="input_outer">
+                    <div class="input_outer" id="code_outer">
                         <span class="us_uer"></span>
-                        <input name="logpass" class="text" style="color: #FFFFFF !important; position:absolute; z-index:100;"value="" type="password" placeholder="请输入验证码">
+                        <input name="logpass" id="code" class="text" max="4" maxlength="4" style="color: #FFFFFF !important; position:absolute; z-index:100;"value="" type="text" placeholder="请输入验证码">
                     </div>
-                    <div class="mb2"><a class="act-but submit" href="javascript:;" style="color: #FFFFFF">登录</a></div>
-                </form>
+                    <div class="mb2" id="login"><a class="act-but submit" href="javascript:;" style="color: #FFFFFF">登录</a></div>
             </div>
         </div>
     </div>
@@ -46,5 +46,8 @@
 <script src="js/EasePack.min.js"></script>
 <script src="js/rAF.js"></script>
 <script src="js/demo-1.js"></script>
+<script src="js/jquery-1.6.4.min.js"></script>
+
+
 </body>
 </html>
