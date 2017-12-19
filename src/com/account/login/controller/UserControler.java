@@ -2,6 +2,7 @@ package com.account.login.controller;
 
 import com.account.bean.User;
 import com.account.common.utils.MobileMessageCheck;
+import com.account.common.utils.PhoneFormatCheckUtils;
 import com.account.login.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,8 +27,11 @@ public class UserControler {
     public void getCode(@RequestParam("phone")String phone){
         //发送短信
         try {
-            Tphone = phone;
-            Ccode = MobileMessageCheck.checkMsg(phone);
+            if (PhoneFormatCheckUtils.isChinaPhoneLegal(phone)){
+                Tphone = phone;
+                Ccode = MobileMessageCheck.checkMsg(phone);
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
