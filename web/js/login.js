@@ -25,7 +25,7 @@ $(function(){
     $("#login").click(function () {
             if(phonezz.test($("#code").val())){
                 $.ajax({
-                    url:"/getCode",
+                    url:"/login",
                     type:"post",
                     dataType:"text",
                     data:"phone="+$("#phone").val()+"&code="+$("#code").val(),
