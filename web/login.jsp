@@ -30,7 +30,7 @@
                 <form action="/login" name="login" method="post">
                     <div class="input_outer">
                         <span class="u_user"></span>
-                        <input name="logname" class="text" style="color: #FFFFFF !important" type="text" placeholder="请输入手机号">
+                        <input name="logname" class="text" max="11" maxlength="11" style="color: #FFFFFF !important" type="text" placeholder="请输入手机号">
                     </div>
                     <div class="input_outer">
                         <span class="us_uer"></span>
