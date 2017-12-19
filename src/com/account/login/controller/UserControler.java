@@ -24,17 +24,21 @@ public class UserControler {
      获取验证码
      */
     @RequestMapping("getCode")
-    public void getCode(@RequestParam("phone")String phone){
+    public Boolean getCode(@RequestParam("phone")String phone){
         //发送短信
         try {
             if (PhoneFormatCheckUtils.isChinaPhoneLegal(phone)){
                 Tphone = phone;
                 Ccode = MobileMessageCheck.checkMsg(phone);
+
+                return true;
             }
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println(phone);
+        return false;
     }
     /*
     验证手机号与验证码
@@ -60,8 +64,9 @@ public class UserControler {
                 session.setAttribute("user",user);
                 return "login";
             }else{
-                //不是 ? 是否让用户重新获取或者是重新发送
+                //不是 ? 是否让用户重新输入
 
+                return "false";
             }
         }
         return "noLogin";
