@@ -9,22 +9,35 @@ $(function(){
                     dataType:"text",
                     data:"phone="+$("#phone").val(),
                     success:function(data){
-                        if(data){
-                            $("#phone").val("该手机号不合法");
+                        if(!data){
+                            $("#phone_outer").css("border","rgba(0,255,0,0.2)");
+                        }else{
+                            $("#phone_outer").css("border","rgba(255,0,0,0.2)");
                         }
                     }
                 });
             }else{
-                $("#phone").val("你电话输错了");
+                $("#phone_outer").css("border","rgba(255,0,0,0.7)");
             }
         }
     });
 
     $("#login").click(function () {
-            if(){
-
+            if(phonezz.test($("#code").val())){
+                $.ajax({
+                    url:"/getCode",
+                    type:"post",
+                    dataType:"text",
+                    data:"phone="+$("#phone").val()+"&code="+$("#code").val(),
+                    success:function(data){
+                        if(data=='false'){
+                            $("#code_outer").css("border","rgba(255,0,0,0.2)");
+                            $("#code").val("");
+                        }
+                    }
+                });
             }else {
-                alert("别瞎JB填");
+                $("#phone_outer").css("border","rgba(255,0,0,0.7)");
             }
         }
     );
