@@ -1,6 +1,8 @@
 package com.test;
 
-import com.account.utils.MobileMessageCheck;
+
+
+import com.account.common.utils.MobileMessageCheck;
 
 import java.io.IOException;
 
