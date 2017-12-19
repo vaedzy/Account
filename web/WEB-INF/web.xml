@@ -98,7 +98,7 @@
 
     <!--欢迎页-->
     <welcome-file-list>
-        <welcome-file>pages/welcome/welcome.jsp</welcome-file>
+        <welcome-file>/login.jsp</welcome-file>
     </welcome-file-list>
 
     <!--<error-page>
