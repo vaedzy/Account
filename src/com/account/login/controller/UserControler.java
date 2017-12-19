@@ -20,6 +20,8 @@ public class UserControler {
     private UserService userService;
     private String Ccode; //用于存储验证码
     private String Tphone; //用于获取验证码的手机号
+
+
     /*
      获取验证码
      */
@@ -30,14 +32,11 @@ public class UserControler {
             if (PhoneFormatCheckUtils.isChinaPhoneLegal(phone)){
                 Tphone = phone;
                 Ccode = MobileMessageCheck.checkMsg(phone);
-
-                return true;
+                    return true;
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println(phone);
         return false;
     }
     /*
@@ -47,16 +46,16 @@ public class UserControler {
     public @ResponseBody  String login(@RequestParam("phone")String phone, String code, HttpServletRequest request){
        //判断手机号是否为空
         if (phone == null || phone.equals("")){
-            return "error";
+            return "errorPhone";
         }
         //判断验证码是否为空
         if (code == null || code.equals("")){
-            return "error";
+            return "errorCode";
         }
         //判断传入的手机号是不是刚才获取验证码的手机号
-        if (phone == Tphone || phone.equals(Tphone)){
+        if (phone.equals(Tphone)){
             //是
-            if (Ccode==code || Ccode.equals(code)){
+            if (Ccode.equals(code)){
                 //是
                User user = userService.findUser(new User(phone));
                //返回user对象
@@ -65,11 +64,11 @@ public class UserControler {
                 return "login";
             }else{
                 //不是 ? 是否让用户重新获取或者是重新发送
-
-                return "false";
+                return "errorCode";
             }
+        }else{
+            return "errorPhone";
         }
-        return "noLogin";
     }
 
 }

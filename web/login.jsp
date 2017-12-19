@@ -18,7 +18,6 @@
     <link rel="stylesheet" type="text/css" href="css/component.css" />
     <!--[if IE]>
     <script src="js/html5.js"></script>
-    <script src="js/login.js"></script>
     <![endif]-->
 
 </head>
@@ -37,7 +36,7 @@
                         <span class="us_uer"></span>
                         <input name="logpass" id="code" class="text" max="4" maxlength="4" style="color: #FFFFFF !important; position:absolute; z-index:100;"value="" type="text" placeholder="请输入验证码">
                     </div>
-                    <div class="mb2" id="login"><a class="act-but submit" href="javascript:;" style="color: #FFFFFF">登录</a></div>
+                    <div class="mb2" id="login">登录</div>
             </div>
         </div>
     </div>
@@ -47,6 +46,7 @@
 <script src="js/rAF.js"></script>
 <script src="js/demo-1.js"></script>
 <script src="js/jquery-1.6.4.min.js"></script>
+<script src="js/login.js"></script>
 
 
 </body>
