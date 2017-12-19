@@ -42,7 +42,6 @@
         </div>
     </div>
 </div><!-- /container -->
-/
 <script src="js/TweenLite.min.js"></script>
 <script src="js/EasePack.min.js"></script>
 <script src="js/rAF.js"></script>
