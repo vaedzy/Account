@@ -58,6 +58,10 @@ public class UserControler {
             if (Ccode.equals(code)){
                 //是
                User user = userService.findUser(new User(phone));
+               if (user.getUsername()==null || user.getUsername().equals("")){
+                   //那么这个人没有注册 是新用户
+                   return "register";
+               }
                //返回user对象
                 HttpSession session = request.getSession();
                 session.setAttribute("user",user);
@@ -68,6 +72,37 @@ public class UserControler {
             }
         }else{
             return "errorPhone";
+        }
+    }
+    /*
+    注册
+     */
+    @RequestMapping("/register")
+    public @ResponseBody String register(@RequestParam("username")String username,String code,HttpServletRequest request){
+        //判断手机号是否为空
+        if (username == null || username.equals("")){
+            return "errorUser";
+        }
+        //判断我同意是否为空
+        if (code == null || code.equals("")){
+            return "errorCode";
+        }
+        String ccode ="我同意";
+        System.out.println(code);
+        System.out.println(ccode.equals(code));
+        if (code.equals(ccode)) {
+            //是我同意
+            User user = userService.registerUser(new User("13241997744"));
+
+            System.out.println(user.getPhone());
+            user.setUsername(username);
+            userService.findUser(user);
+            //返回user对象
+            HttpSession session = request.getSession();
+            session.setAttribute("user", user);
+            return "login";
+        }else{
+           return null;
         }
     }
 

@@ -37,8 +37,8 @@ $(function(){
                             $("#phone_outer").css("border","rgba(255,0,0,0.2) 2px solid");
                         }else if(data=='login'){
                             location.href='/index.jsp';
-                        }else if(data=='noLogin'){
-                            alert("服务器炸了！请重试！");
+                        }else if(data=='register'){
+                            location.href='/register.jsp';
                         }
 
                     }
