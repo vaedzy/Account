@@ -28,16 +28,13 @@
                 <h3>欢迎您</h3>
                 <div class="input_outer" id="phone_outer">
                     <span class="u_user"></span>
-                    <input name="logname" id="phone" class="text" max="11" maxlength="11"
-                           style="color: #FFFFFF !important" type="text" placeholder="请输入手机号">
+                    <input name="logname" id="phone" class="text" max="11" maxlength="11" style="color: #FFFFFF !important" type="text" placeholder="请输入手机号">
                 </div>
                 <div class="input_outer" id="code_outer">
                     <span class="us_uer"></span>
-                    <input name="logpass" id="code" class="text" max="4" maxlength="4"
-                           style="color: #FFFFFF !important; position:absolute; z-index:100;" value="" type="text"
-                           placeholder="请输入验证码">
+                    <input name="logpass" id="code" class="text" max="4" maxlength="4" style="color: #FFFFFF !important; position:absolute; z-index:100;"value="" type="text" placeholder="请输入验证码">
                 </div>
-                <div class="mb2" id="login">登录</div>
+                <div class="mb2" id="login"><a class="act-but submit" href="javascript:;" style="color: #FFFFFF">登录</a></div>
             </div>
         </div>
     </div>
