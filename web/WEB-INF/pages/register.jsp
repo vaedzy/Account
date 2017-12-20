@@ -11,14 +11,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%@include file="/common/jsp/taglibs.jsp" %>
     <title>register</title>
-    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
-    <link rel="stylesheet" type="text/css" href="css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="/common/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/common/css/demo.css" />
     <!--必要样式-->
-    <link rel="stylesheet" type="text/css" href="css/component.css" />
-    <!--[if IE]>
-    <script src="js/html5.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="/common/css/component.css" />
+    <script src="${ctx}/js/register/register.js"></script>
 
 </head>
 <body>
@@ -42,12 +41,6 @@
         </div>
     </div>
 </div><!-- /container -->
-<script src="js/TweenLite.min.js"></script>
-<script src="js/EasePack.min.js"></script>
-<script src="js/rAF.js"></script>
-<script src="js/demo-1.js"></script>
-<script src="js/jquery-1.6.4.min.js"></script>
-<script src="js/register.js"></script>
 
 
 </body>
