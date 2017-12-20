@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="css/demo.css" />
     <!--必要样式-->
     <link rel="stylesheet" type="text/css" href="css/component.css" />
+    <link rel="stylesheet" type="text/css" href="css/register.css" />
     <!--[if IE]>
     <script src="js/html5.js"></script>
     <![endif]-->
@@ -36,9 +37,17 @@
                     <span class="us_uer"></span>
                     <input name="logpass" id="code" class="text" max="3" maxlength="3" style="color: #FFFFFF !important; position:absolute; z-index:100;"value="" type="text" placeholder="同意本网站条款后输入我同意">
                 </div>
-                <a href="#">服务条款</a>
+                <div id="terms">阅读《服务条款》</div>
+
                 <div class="mb2" id="register">注册</div>
+
+                <div id="terms_context">
+                    <div id="terms_close"></div>
+                    <div id="context"></div>
+                </div>
+
             </div>
+
         </div>
     </div>
 </div><!-- /container -->

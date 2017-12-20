@@ -1,4 +1,11 @@
 $(function(){
+    $("#terms_context").css("display","none");
+    $("#terms").click(function () {
+        $("#terms_context").css("display","block");
+    })
+    $("#terms_close").click(function () {
+        $("#terms_context").css("display","none");
+    })
     $("#register").click(function () {
                 $.ajax({
                     url:"/register",
