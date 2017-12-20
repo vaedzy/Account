@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="utf-8" language="java" %>
 <html>
 <head>
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%@include file="/common/jsp/taglibs.jsp" %>
@@ -18,6 +18,9 @@
     <link rel="stylesheet" type="text/css" href="${ctx}/common/css/component.css"/>
     <script src="${ctx}/js/login/login.js"></script>
     <title>login</title>
+    <!--[if IE]>
+    <script src="${ctx}/js/plugin/html5.js"></script>
+    <![endif]-->
 </head>
 <body>
 <div class="container demo-1">

@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
@@ -43,7 +45,7 @@ public class UserControler {
     验证手机号与验证码
      */
     @RequestMapping("/login")
-    public @ResponseBody  String login(@RequestParam("phone")String phone, String code, HttpServletRequest request){
+    public @ResponseBody  String login(@RequestParam("phone")String phone, String code, HttpServletRequest request,HttpServletResponse response){
        //判断手机号是否为空
         if (phone == null || phone.equals("")){
             return "errorPhone";
@@ -63,6 +65,10 @@ public class UserControler {
                    return "register";
                }
                //返回user对象
+                Cookie cookie = new Cookie("user",user.getId().toString());
+                cookie.setMaxAge(24*60*60);
+                cookie.setPath("/");
+                response.addCookie(cookie);
                 HttpSession session = request.getSession();
                 session.setAttribute("user",user);
                 return "login";
@@ -78,7 +84,7 @@ public class UserControler {
     注册
      */
     @RequestMapping("/register")
-    public @ResponseBody String register(@RequestParam("username")String username,String code,HttpServletRequest request){
+    public @ResponseBody String register(@RequestParam("username")String username,String code,HttpServletRequest request,HttpServletResponse response){
         //判断手机号是否为空
         if (username == null || username.equals("")){
             return "errorUser";
@@ -87,15 +93,19 @@ public class UserControler {
         if (code == null || code.equals("")){
             return "errorCode";
         }
-        String ccode ="我同意";
-        if (code.equals(ccode)) {
+        String cCode ="我同意";
+        if (code.equals(cCode)) {
             //是我同意
             User user = userService.registerUser(new User(Tphone));
             user.setUsername(username);
             userService.findUser(user);
             //返回user对象
+            Cookie cookie = new Cookie("user",user.getId().toString());
+            cookie.setMaxAge(24*60*60);
+            cookie.setPath("/");
+            response.addCookie(cookie);
             HttpSession session = request.getSession();
-            session.setAttribute("user", user);
+            session.setAttribute("user",user);
             return "login";
         }else{
            return null;
