@@ -21,9 +21,9 @@ public class MobileMessageCheck {
             SERVER_URL="https://api.netease.im/sms/sendcode.action";
     //网易云信分配的账号，请替换你在管理后台应用下申请的Appkey
     private static final String
-            APP_KEY="771b0eaf5d";
+            APP_KEY="771b0eaf5d45a049b18ae8115130b82d";
     //网易云信分配的密钥，请替换你在管理后台应用下申请的appSecret
-    private static final String APP_SECRET="c728f7a5a5d9";
+    private static final String APP_SECRET="9c7f121e681b";
     //随机数
     private static final String NONCE="123456";
     //验证码长度，范围4～10，默认为4

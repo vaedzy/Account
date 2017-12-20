@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -45,7 +46,7 @@ public class UserControler {
     验证手机号与验证码
      */
     @RequestMapping("/login")
-    public @ResponseBody  String login(@RequestParam("phone")String phone, String code, HttpServletRequest request,HttpServletResponse response){
+    public @ResponseBody  String login(@RequestParam("phone")String phone, String code, HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
        //判断手机号是否为空
         if (phone == null || phone.equals("")){
             return "errorPhone";
@@ -62,6 +63,7 @@ public class UserControler {
                User user = userService.findUser(new User(phone));
                if (user.getUsername()==null || user.getUsername().equals("")){
                    //那么这个人没有注册 是新用户
+                   request.getRequestDispatcher("/WEB-INF/pages/register.jsp").forward(request,response);
                    return "register";
                }
                //返回user对象
@@ -83,7 +85,7 @@ public class UserControler {
     /*
     注册
      */
-    @RequestMapping("/register")
+    @RequestMapping("/register.do")
     public @ResponseBody String register(@RequestParam("username")String username,String code,HttpServletRequest request,HttpServletResponse response){
         //判断手机号是否为空
         if (username == null || username.equals("")){

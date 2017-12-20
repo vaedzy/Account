@@ -8,7 +8,7 @@ $(function(){
     })
     $("#register").click(function () {
                 $.ajax({
-                    url:"/register",
+                    url:"/register.do",
                     type:"post",
                     dataType:"text",
                     data:"username="+$("#username").val()+"&code="+$("#code").val(),
