@@ -18,7 +18,9 @@
     <!--必要样式-->
     <link rel="stylesheet" type="text/css" href="/common/css/component.css" />
     <script src="${ctx}/js/register/register.js"></script>
-
+    <!--[if IE]>
+    <script src="${ctx}/js/plugin/html5.js"></script>
+    <![endif]-->
 </head>
 <body>
 <div class="container demo-1">

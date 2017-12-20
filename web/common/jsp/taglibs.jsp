@@ -11,11 +11,10 @@
 <script>
     var $ctx = "${ctx}";
 </script>
-<script src="${ctx}/common/js/html5.js"></script>
 <script src="${ctx}/common/js/plugin/TweenLite.min.js"></script>
 <script src="${ctx}/common/js/plugin/EasePack.min.js"></script>
 <script src="${ctx}/common/js/plugin/rAF.js"></script>
-<script src="${ctx}/common/js/demo-1.js"></script>
+<script src="${ctx}/js/demo-1.js"></script>
 <script src="${ctx}/common/js/plugin/jquery/jquery-1.9.0.min.js"></script>
 <script src="${ctx}/common/js/utils/moment.js"></script>
 <%--<script src="${ctx}/common/js/plugin/bootstrap-3.3.7-dist/bootstrap.js"></script>--%>
