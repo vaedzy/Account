@@ -88,13 +88,9 @@ public class UserControler {
             return "errorCode";
         }
         String ccode ="我同意";
-        System.out.println(code);
-        System.out.println(ccode.equals(code));
         if (code.equals(ccode)) {
             //是我同意
-            User user = userService.registerUser(new User("13241997744"));
-
-            System.out.println(user.getPhone());
+            User user = userService.registerUser(new User(Tphone));
             user.setUsername(username);
             userService.findUser(user);
             //返回user对象
