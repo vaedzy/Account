@@ -1,0 +1,38 @@
+#terms{
+    margin:-10px 0 0 200px;
+    width: 180px;
+    height: 20px;
+    color: #00eb6d;
+    cursor: pointer;
+}
+#terms:hover{
+    color: yellow;
+}
+#terms_context{
+    position: absolute;
+    top: 1px;
+    width: 350px;
+    height: 450px;
+    z-index: 6;
+    background-color: #0096e6;
+}
+#code_outer{
+    z-index: 4;
+}
+#terms_close{
+    background-color: #ff4940;
+    margin: 5px 0px 0px 285px;
+    width: 60px;
+    height: 30px;
+    z-index: 7;
+    cursor: pointer;
+}
+#terms_close:hover{
+    background-color: #ff7a73;
+}
+#context{
+    width: 340px;
+    height: 410px;
+    margin:0px 5px 5px 5px;
+    background-color: #f6f6f6;
+}
