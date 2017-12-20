@@ -6,9 +6,8 @@ import com.account.common.utils.PhoneFormatCheckUtils;
 import com.account.login.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.portlet.ModelAndView;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -63,11 +62,10 @@ public class UserControler {
                User user = userService.findUser(new User(phone));
                if (user.getUsername()==null || user.getUsername().equals("")){
                    //那么这个人没有注册 是新用户
-                   request.getRequestDispatcher("/WEB-INF/pages/register.jsp").forward(request,response);
                    return "register";
                }
                //返回user对象
-                Cookie cookie = new Cookie("user",user.getId().toString());
+                Cookie cookie = new Cookie("user",user.getPhone().toString());
                 cookie.setMaxAge(24*60*60);
                 cookie.setPath("/");
                 response.addCookie(cookie);
@@ -83,7 +81,14 @@ public class UserControler {
         }
     }
     /*
-    注册
+    进入注册页面
+     */
+    @RequestMapping("/register")
+    public ModelAndView toRegister(){
+        return new ModelAndView("register");
+    }
+    /*
+    注册流程
      */
     @RequestMapping("/register.do")
     public @ResponseBody String register(@RequestParam("username")String username,String code,HttpServletRequest request,HttpServletResponse response){
@@ -110,8 +115,7 @@ public class UserControler {
             session.setAttribute("user",user);
             return "login";
         }else{
-           return null;
+           return "errorCode";
         }
     }
-
 }

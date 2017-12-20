@@ -12,5 +12,7 @@
   </head>
   <body>
   $END$
+  <a href="/WEB-INF/pages/Test.jsp">点我</a>
+  <span style="white-space:pre">  </span>
   </body>
 </html>

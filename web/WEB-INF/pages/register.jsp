@@ -49,7 +49,7 @@
     </div>
 </div><!-- /container -->
 <%@include file="/common/jsp/taglibs.jsp" %>
-<script src="${ctx}/js/login/login.js"></script>
+<script src="${ctx}/js/register/register.js"></script>
 
 </body>
 </html>

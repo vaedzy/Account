@@ -38,7 +38,7 @@ $(function(){
                         }else if(data=='login'){
                             location.href='/index.jsp';
                         }else if(data=='register'){
-                            location.href='/register.jsp';
+                             location.href='/register';
                         }
 
                     }
