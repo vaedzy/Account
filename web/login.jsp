@@ -11,12 +11,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <%@include file="/common/jsp/taglibs.jsp" %>
     <link rel="stylesheet" type="text/css" href="${ctx}/common/css/normalize.css"/>
     <link rel="stylesheet" type="text/css" href="${ctx}/common/css/demo.css"/>
     <!--必要样式-->
     <link rel="stylesheet" type="text/css" href="${ctx}/common/css/component.css"/>
-    <script src="${ctx}/js/login/login.js"></script>
     <title>login</title>
     <!--[if IE]>
     <script src="${ctx}/js/plugin/html5.js"></script>
@@ -42,5 +40,7 @@
         </div>
     </div>
 </div>
+<%@include file="/common/jsp/taglibs.jsp" %>
+<script src="${ctx}/js/login/login.js"></script>
 </body>
 </html>
