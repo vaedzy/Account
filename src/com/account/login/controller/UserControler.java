@@ -96,7 +96,6 @@ public class UserControler {
                 return new ModelAndView("redirect:/index.jsp");
             }
             httpSession.removeAttribute("success");
-            System.out.println("前");
             return new ModelAndView("register");
 
     }
