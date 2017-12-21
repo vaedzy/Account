@@ -7,7 +7,7 @@ import com.account.login.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.portlet.ModelAndView;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -62,6 +62,11 @@ public class UserControler {
                User user = userService.findUser(new User(phone));
                if (user.getUsername()==null || user.getUsername().equals("")){
                    //那么这个人没有注册 是新用户
+                   /*
+                   写入一个session
+                    */
+                   HttpSession session = request.getSession();
+                   session.setAttribute("success","success");
                    return "register";
                }
                //返回user对象
@@ -84,8 +89,16 @@ public class UserControler {
     进入注册页面
      */
     @RequestMapping("/register")
-    public ModelAndView toRegister(){
-        return new ModelAndView("register");
+    public ModelAndView toRegister(HttpServletRequest request){
+        HttpSession httpSession = request.getSession();
+            String success= (String)httpSession.getAttribute("success");
+            if (success==null){
+                return new ModelAndView("redirect:/index.jsp");
+            }
+            httpSession.removeAttribute("success");
+            System.out.println("前");
+            return new ModelAndView("register");
+
     }
     /*
     注册流程
