@@ -30,74 +30,72 @@ public class UserControler {
     @RequestMapping("/getCode")
     public @ResponseBody boolean getCode(@RequestParam("phone")String phone){
         //发送短信
-//        try {
-//            if (PhoneFormatCheckUtils.isChinaPhoneLegal(phone)){
-//                Tphone = phone;
-//                Ccode = MobileMessageCheck.checkMsg(phone);
-//                    return true;
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return false;
-        return true;
+        try {
+            if (PhoneFormatCheckUtils.isChinaPhoneLegal(phone)){
+                Tphone = phone;
+                Ccode = MobileMessageCheck.checkMsg(phone);
+                    return true;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
     /*
     验证手机号与验证码
      */
     @RequestMapping("/login")
     public @ResponseBody  String login(@RequestParam("phone")String phone, String code, HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
-//       //判断手机号是否为空
-//        if (phone == null || phone.equals("")){
-//            return "errorPhone";
-//        }
-//        //判断验证码是否为空
-//        if (code == null || code.equals("")){
-//            return "errorCode";
-//        }
-//        //判断传入的手机号是不是刚才获取验证码的手机号
-//        if (phone.equals(Tphone)){
-//            //是
-//            if (Ccode.equals(code)){
-//                //是
-//               User user = userService.findUser(new User(phone));
-//               if (user.getUsername()==null || user.getUsername().equals("")){
-//                   //那么这个人没有注册 是新用户
-//                   /*
-//                   写入一个session
-//                    */
-//                   HttpSession session = request.getSession();
-//                   session.setAttribute("success","success");
+       //判断手机号是否为空
+        if (phone == null || phone.equals("")){
+            return "errorPhone";
+        }
+        //判断验证码是否为空
+        if (code == null || code.equals("")){
+            return "errorCode";
+        }
+        //判断传入的手机号是不是刚才获取验证码的手机号
+        if (phone.equals(Tphone)){
+            //是
+            if (Ccode.equals(code)){
+                //是
+               User user = userService.findUser(new User(phone));
+               if (user.getUsername()==null || user.getUsername().equals("")){
+                   //那么这个人没有注册 是新用户
+                   /*
+                   写入一个session
+                    */
+                   HttpSession session = request.getSession();
+                   session.setAttribute("success","success");
                    return "register";
-//               }
-//               //返回user对象
-//                Cookie cookie = new Cookie("user",user.getPhone().toString());
-//                cookie.setMaxAge(24*60*60);
-//                cookie.setPath("/");
-//                response.addCookie(cookie);
-//                HttpSession session = request.getSession();
-//                session.setAttribute("user",user);
-//                return "login";
-//            }else{
-//                //不是 ? 是否让用户重新获取或者是重新发送
-//                return "errorCode";
-//            }
-//        }else{
-//            return "errorPhone";
-//        }
+               }
+               //返回user对象
+                Cookie cookie = new Cookie("user",user.getPhone().toString());
+                cookie.setMaxAge(24*60*60);
+                cookie.setPath("/");
+                response.addCookie(cookie);
+                HttpSession session = request.getSession();
+                session.setAttribute("user",user);
+                return "login";
+            }else{
+                //不是 ? 是否让用户重新获取或者是重新发送
+                return "errorCode";
+            }
+        }else{
+            return "errorPhone";
+        }
     }
     /*
     进入注册页面
      */
     @RequestMapping("/register")
     public ModelAndView toRegister(HttpServletRequest request){
-//        HttpSession httpSession = request.getSession();
-//            String success= (String)httpSession.getAttribute("success");
-//            if (success==null){
-//                return new ModelAndView("redirect:/index.jsp");
-//            }
-//            httpSession.removeAttribute("success");
-//            System.out.println("前");
+        HttpSession httpSession = request.getSession();
+            String success= (String)httpSession.getAttribute("success");
+            if (success==null){
+                return new ModelAndView("redirect:/index.jsp");
+            }
+            httpSession.removeAttribute("success");
             return new ModelAndView("register");
 
     }
