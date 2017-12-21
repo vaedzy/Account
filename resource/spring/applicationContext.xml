@@ -72,19 +72,19 @@
             <!-- 密码 -->
             <property name="password" value="${jdbc.password}"/>
         </bean>
-        <!--redis数据源-->
-        <bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
-            <property name="maxIdle" value="${redis.maxIdle}"/>
-            <property name="maxWaitMillis" value="${redis.maxWait}"/>
-            <property name="testOnBorrow" value="${redis.testOnBorrow}"/>
-            <property name="maxTotal" value="${redis.maxActive}"/>
-        </bean>
-        <!--spring-redis连接-->
-        <bean id="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory" p:hostName="${redis.host}" p:port="${redis.port}" p:password="${redis.pass}" p:poolConfig-ref="poolConfig"/>
-        <!--静态注入-->
-        <bean id="redisCacheTransfer" class="com.account.common.utils.RedisUtil">
-            <property name="jedisConnectionFactory" ref="jedisConnectionFactory"/>
-        </bean>
+        <!--&lt;!&ndash;redis数据源&ndash;&gt;-->
+        <!--<bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">-->
+            <!--<property name="maxIdle" value="${redis.maxIdle}"/>-->
+            <!--<property name="maxWaitMillis" value="${redis.maxWait}"/>-->
+            <!--<property name="testOnBorrow" value="${redis.testOnBorrow}"/>-->
+            <!--<property name="maxTotal" value="${redis.maxActive}"/>-->
+        <!--</bean>-->
+        <!--&lt;!&ndash;spring-redis连接&ndash;&gt;-->
+        <!--<bean id="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory" p:hostName="${redis.host}" p:port="${redis.port}" p:password="${redis.pass}" p:poolConfig-ref="poolConfig"/>-->
+        <!--&lt;!&ndash;静态注入&ndash;&gt;-->
+        <!--<bean id="redisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate">-->
+            <!--<property name="connectionFactory" ref="jedisConnectionFactory"></property>-->
+        <!--</bean>-->
 
         <!-- Mybatis  SqlSessionFactory  ibatis -->
         <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

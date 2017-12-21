@@ -20,7 +20,7 @@ import java.io.IOException;
 public class UserControler {
     @Autowired
     private UserService userService;
-    private String Ccode; //用于存储验证码
+    private String Ccode ="1234"; //用于存储验证码
     private String Tphone; //用于获取验证码的手机号
 
 

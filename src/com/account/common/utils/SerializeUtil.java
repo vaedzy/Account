@@ -5,10 +5,11 @@ import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-public class SerializaUtil {
-    public static byte[] seriazlize(Object object){
+public class SerializeUtil {
+    public static byte[] serialize(Object object){
         ObjectOutputStream objectOutputStream = null;
         ByteArrayOutputStream byteArrayOutputStream = null;
+
         try{
             //序列化
             byteArrayOutputStream = new ByteArrayOutputStream();
