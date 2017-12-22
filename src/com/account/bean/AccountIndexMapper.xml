@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--<mapper namespace="com.account.mapper.">-->
+  <!--&lt;!&ndash;<cache type="com.account.common.utils.RedisCache"/>&ndash;&gt;-->
+  <!--<resultMap id="AccountIndexMapper" type="com.account.bean.AccountIndex">-->
+    <!--<id column="accountIndexId" property="accountIndexId" jdbcType="INTEGER"/>-->
+    <!--<result column="applyname" property="applyname" jdbcType="VARCHAR"/>-->
+    <!--&lt;!&ndash;一对多&ndash;&gt;-->
+    <!--<collection property="apply" ofType="com.account.bean.Apply">-->
+      <!--<id column="applyid" property="applyid" jdbcType="INTEGER"/>-->
+      <!--<result column="applyname" property="applyname" jdbcType="VARCHAR"/>-->
+      <!--<result column="area" property="area" jdbcType="VARCHAR"/>-->
+    <!--</collection>-->
+  <!--</resultMap>-->
+  <!--&lt;!&ndash;根据应用名查询应用详情&ndash;&gt;-->
+  <!--<select id="selectApplyByName" parameterType="string" resultMap="AccountIndexMapper">-->
+    <!--select acci.*, app.* from accountIndex acci, apply app where acci.applyname  = o.pid and p.personId = #{id}-->
+  <!--</select>-->
+<!--</mapper>-->

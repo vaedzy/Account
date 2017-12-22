@@ -34,6 +34,7 @@ public class UserControler {
             if (PhoneFormatCheckUtils.isChinaPhoneLegal(phone)){
                 Tphone = phone;
                 Ccode = MobileMessageCheck.checkMsg(phone);
+                System.out.println("发送成功"+Ccode);
                     return true;
             }
         } catch (IOException e) {
@@ -104,7 +105,7 @@ public class UserControler {
      */
     @RequestMapping("/register.do")
     public @ResponseBody String register(@RequestParam("username")String username,String code,HttpServletRequest request,HttpServletResponse response){
-        //判断手机号是否为空
+        //判断用户名是否为空
         if (username == null || username.equals("")){
             return "errorUser";
         }
@@ -117,9 +118,9 @@ public class UserControler {
             //是我同意
             User user = userService.registerUser(new User(Tphone));
             user.setUsername(username);
-            userService.findUser(user);
+            userService.registerUser(user);
             //返回user对象
-            Cookie cookie = new Cookie("user",user.getId().toString());
+            Cookie cookie = new Cookie("user",user.getPhone().toString());
             cookie.setMaxAge(24*60*60);
             cookie.setPath("/");
             response.addCookie(cookie);

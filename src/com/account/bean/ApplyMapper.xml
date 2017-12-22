@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--<mapper namespace="com.account.mapper">-->
+  <!--&lt;!&ndash;<cache type="com.account.common.utils.RedisCache"/>&ndash;&gt;-->
+  <!--<resultMap id="BaseResultMap" type="com.account.bean.User">-->
+    <!--<result column="id" jdbcType="INTEGER" property="id" />-->
+    <!--<result column="phone" jdbcType="VARCHAR" property="phone" />-->
+    <!--<result column="username" jdbcType="VARCHAR" property="username" />-->
+  <!--</resultMap>-->
+  <!--<insert id="saveUser" parameterType="com.account.bean.User">-->
+    <!--insert into user (id, phone, username-->
+      <!--)-->
+    <!--values (#{id,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}-->
+      <!--)-->
+  <!--</insert>-->
+  <!--<select id="findUser" parameterType="com.account.bean.User" resultType="com.account.bean.User">-->
+    <!--select * from user where phone=#{phone}-->
+  <!--</select>-->
+  <!--<update id="registerUser" parameterType="com.account.bean.User" >-->
+    <!--update user set username=#{username.jdbcType=VARCHAR} where phone=#{phone,jdbcType=VARCHAR}-->
+  <!--</update>-->
+
+<!--</mapper>-->

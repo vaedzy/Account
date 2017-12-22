@@ -14,10 +14,16 @@
       )
   </insert>
   <select id="findUser" parameterType="com.account.bean.User" resultType="com.account.bean.User">
-    select * from user where phone=#{phone}
+    select * from user where phone=#{phone,jdbcType=VARCHAR}
   </select>
   <update id="registerUser" parameterType="com.account.bean.User" >
-    update user set username=#{username.jdbcType=VARCHAR} where phone=#{phone,jdbcType=VARCHAR}
+    update user
+      <set>
+        <if test="phone != null">
+            username=#{username,jdbcType=VARCHAR}
+        </if>
+      </set>
+       where phone=#{phone,jdbcType=VARCHAR}
   </update>
 
 </mapper>
