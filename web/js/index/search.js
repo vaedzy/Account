@@ -17,4 +17,8 @@ $(function(){
 //				$("#nav").css({"opacity":"0","width":"0px","height":"0px","top":"30px","left":"30px"}); flag=true;
 //			});
 //	})
+    $("#userlog").click(function () {
+       	 window.location.href = "/toLogin";
+        }
+    );
 })

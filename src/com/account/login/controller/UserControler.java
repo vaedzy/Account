@@ -20,7 +20,7 @@ import java.io.IOException;
 public class UserControler {
     @Autowired
     private UserService userService;
-    private String Ccode ="1234"; //用于存储验证码
+    private String Ccode ; //用于存储验证码
     private String Tphone; //用于获取验证码的手机号
 
     @RequestMapping("/toLogin")
@@ -60,7 +60,7 @@ public class UserControler {
     验证手机号与验证码
      */
     @RequestMapping("/login.do")
-    public @ResponseBody  String login(@RequestParam("phone")String phone, String code, HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+    public @ResponseBody String login(@RequestParam("phone")String phone, String code, HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         //保存连接
         String url = request.getHeader("Referer");//获取上个页面的url
        //判断手机号是否为空
