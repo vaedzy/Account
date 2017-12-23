@@ -25,13 +25,15 @@ public class UserControler {
 
     @RequestMapping("/toLogin")
     public ModelAndView toLogin(HttpServletRequest request,HttpSession httpSession){
+
         //获取session
         HttpSession session = request.getSession();
         //获取访问链接
         String url = request.getHeader("Referer");
         session.setAttribute("redirectUrl", url);//把url放到session
-        //进入登陆页面
+        //如果传入的是toLogin
         return new ModelAndView("login");
+
     }
     /*
      获取验证码
@@ -170,5 +172,13 @@ public class UserControler {
         String url = (String) httpSession.getAttribute("redirectUrl");
         //跳转回去
         return new ModelAndView("redirect:"+url);
+    }
+    @RequestMapping("logout")
+    public ModelAndView logOut(HttpSession httpSession){
+        System.out.println("进来了");
+        //清除user的session
+       httpSession.removeAttribute("user");
+        //跳转到首页
+        return new ModelAndView("redirect:/index.jsp");
     }
 }

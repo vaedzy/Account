@@ -18,7 +18,12 @@ $(function(){
 //			});
 //	})
     $("#userlog").click(function () {
-       	 window.location.href = "/toLogin";
-        }
-    );
+       window.location.href="/toLogin"
+    });
+
+    $("#logout").click(function () {
+        window.location.href="/logout"
+    });
+
+
 })

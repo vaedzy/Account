@@ -42,8 +42,14 @@
                 </c:when>
                 <c:when test="${user!=null}">
                 <span id="uuser">尊敬的:${user.username}</span>
+                    <div id="logout">
+                        <span>退出登录</span>
+                    </div>
                 </c:when>
             </c:choose>
+        </div>
+        <div id="main_box">
+            重叠
         </div>
     </div>
     <div id="nav_btn">+</div>
