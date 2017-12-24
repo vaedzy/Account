@@ -25,7 +25,7 @@ $(function(){
     $("#login").click(function () {
             if(phonezz.test($("#phone").val())){
                 $.ajax({
-                    url:"/login",
+                    url:"/login.do",
                     type:"post",
                     dataType:"text",
                     data:"phone="+$("#phone").val()+"&code="+$("#code").val(),
@@ -36,7 +36,7 @@ $(function(){
                         }else if(data=='errorPhone'){
                             $("#phone_outer").css("border","rgba(255,0,0,0.2) 2px solid");
                         }else if(data=='login'){
-                            location.href='/index.jsp';
+                            location.href='/formTag';
                         }else if(data=='register'){
                              location.href='/register';
                         }

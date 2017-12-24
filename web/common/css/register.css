@@ -1,6 +1,6 @@
 #terms{
     margin:-10px 0 0 200px;
-    width: 180px;
+    width: 150px;
     height: 20px;
     color: #00eb6d;
     cursor: pointer;
@@ -11,6 +11,7 @@
 #terms_context{
     position: absolute;
     top: 1px;
+    left: 25px;
     width: 350px;
     height: 450px;
     z-index: 6;

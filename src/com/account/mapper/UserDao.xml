@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.account.mapper.UserDao">
+  <!--<cache type="com.account.common.utils.RedisCache"/>-->
   <resultMap id="BaseResultMap" type="com.account.bean.User">
     <result column="id" jdbcType="INTEGER" property="id" />
     <result column="phone" jdbcType="VARCHAR" property="phone" />
@@ -13,10 +14,16 @@
       )
   </insert>
   <select id="findUser" parameterType="com.account.bean.User" resultType="com.account.bean.User">
-    select * from user where phone=#{phone}
+    select * from user where phone=#{phone,jdbcType=VARCHAR}
   </select>
   <update id="registerUser" parameterType="com.account.bean.User" >
-    update user set username=#{username.jdbcType=VARCHAR} where phone=#{phone,jdbcType=VARCHAR}
+    update user
+      <set>
+        <if test="phone != null">
+            username=#{username,jdbcType=VARCHAR}
+        </if>
+      </set>
+       where phone=#{phone,jdbcType=VARCHAR}
   </update>
 
 </mapper>

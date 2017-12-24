@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="/common/css/demo.css" />
     <!--必要样式-->
     <link rel="stylesheet" type="text/css" href="/common/css/component.css" />
+    <link rel="stylesheet" type="text/css" href="/common/css/register.css" />
     <!--[if IE]>
     <script src="${ctx}/js/plugin/html5.js"></script>
     <![endif]-->
