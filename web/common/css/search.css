@@ -136,37 +136,24 @@ a:visited{ color:#000;}
 	background-color:#ff9416;
 }
 #main_box{
-    width:200px;
-    height:40px;
-    text-align:center;
-    line-height:40px;
-    color:#FFF;
-    font-size:24px;
-    border-radius:8px 8px 0 0;
-    background-color:#07496c;
-    cursor:pointer;
+	width:200px;
+	height:40px;
+	text-align:center;
+	line-height:40px;
+	color:#FFF;
+	font-size:24px;
+	border-radius:8px 8px 0 0;
+	background-color:#07496c;
+	cursor:pointer;
 }
 #logout{
-    width:200px;
-    height:40px;
-    text-align:center;
-    line-height:40px;
-    color:#FFF;
-    font-size:24px;
-    border-radius:8px 8px 0 0;
-    background-color:#07496c;
-    cursor:pointer;
+	width:200px;
+	height:40px;
+	text-align:center;
+	line-height:40px;
+	color:#FFF;
+	font-size:24px;
+	border-radius:8px 8px 0 0;
+	background-color:#07496c;
+	cursor:pointer;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
