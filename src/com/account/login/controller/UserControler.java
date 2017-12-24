@@ -1,6 +1,6 @@
 package com.account.login.controller;
 
-import com.account.bean.User;
+import com.account.bean.Person;
 import com.account.common.utils.MobileMessageCheck;
 import com.account.common.utils.PhoneFormatCheckUtils;
 import com.account.login.service.UserService;
@@ -38,8 +38,10 @@ public class UserControler {
     /*
      获取验证码
      */
+
+    @ResponseBody
     @RequestMapping("/getCode")
-    public @ResponseBody boolean getCode(@RequestParam("phone")String phone){
+    public  boolean getCode(@RequestParam("phone")String phone){
         //发送短信
         try {
             //判断是否是个合法的手机号
@@ -61,8 +63,9 @@ public class UserControler {
     /*
     验证手机号与验证码
      */
+    @ResponseBody
     @RequestMapping("/login.do")
-    public @ResponseBody String login(@RequestParam("phone")String phone, String code, HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
+    public  String login(@RequestParam("phone")String phone, String code, HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         //保存连接
         String url = request.getHeader("Referer");//获取上个页面的url
        //判断手机号是否为空
@@ -80,7 +83,7 @@ public class UserControler {
             //判断验证码是否正确
             if (Ccode.equals(code)){
                 //执行查询操作
-               User user = userService.findUser(new User(phone));
+               Person user = userService.getUser(phone);
                //如果username为空 则跳转到注册
                if (user.getUsername()==null || user.getUsername().equals("")){
                    //那么这个人没有注册 是新用户 设置一个session 这个session防止了用户访问到注册页面
@@ -143,11 +146,11 @@ public class UserControler {
         String cCode ="我同意";
         if (code.equals(cCode)) {
             //是我同意 执行注册方法 根据phone查询设置username
-            User user = userService.registerUser(new User(Tphone));
+            Person user = userService.getUser(Tphone);
             //保存username
             user.setUsername(username);
             //操作数据库
-            userService.registerUser(user);
+            userService.updatePerson(user);
             //返回user对象
             Cookie cookie = new Cookie("user",user.getPhone().toString());
             //设置cookie一天时间
