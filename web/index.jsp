@@ -1,4 +1,4 @@
-<%@ page import="com.account.bean.User" %>
+<%@ page import="com.account.bean.Person" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -44,6 +44,9 @@
             </c:if>
             <c:if test="${user==null?false:true}">
                 <span id="uuser">尊敬的:${user.username}</span>
+                <div id="logout">
+                    <span>退出登录</span>
+                </div>
             </c:if>
         </div>
         <div id="nav_shoppingcar" class="nav_on_box">购物车</div>

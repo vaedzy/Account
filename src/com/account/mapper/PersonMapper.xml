@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.account.mapper.PersonMapper">
+  <resultMap id="BaseResultMap" type="com.account.bean.Person">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from person
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.account.bean.Person" keyProperty="id" useGeneratedKeys="true">
+    insert into person (id, phone, username
+      )
+    values (#{id,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.account.bean.Person">
+    update person
+    set phone = #{phone,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="getPersonByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select id, phone, username
+    from person
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="getPersonByPhone" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select id, phone, username
+    from person
+    where phone = #{phone,jdbcType=VARCHAR}
+  </select>
+  <select id="listPersons" resultMap="BaseResultMap">
+    select id, phone, username
+    from person
+  </select>
+</mapper>
