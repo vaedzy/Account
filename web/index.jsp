@@ -57,7 +57,6 @@
     <div class="nav_second" id="second_shoppingcar">
     </div>
     <div class="nav_second" id="second_main">
-
         <a href="#">A</a>
         <a href="#">B</a>
         <a href="#">C</a>
@@ -87,7 +86,7 @@
         <hr/>
     </div>
 
-    <div id="nav_btn"></div>   <!-- 导航按钮   ， -->
+    <div id="nav_btn"></div>   <!-- 导航按钮 -->
 
 </div>
 </body>
