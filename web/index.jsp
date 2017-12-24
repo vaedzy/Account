@@ -1,4 +1,4 @@
-<%@ page import="com.account.bean.User" %>
+<%@ page import="com.account.bean.Person" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
