@@ -1,39 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.account.mapper.PersonMapper">
-  <resultMap id="BaseResultMap" type="com.account.bean.Person">
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="phone" jdbcType="VARCHAR" property="phone" />
-    <result column="username" jdbcType="VARCHAR" property="username" />
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from person
-    where id = #{id,jdbcType=INTEGER}
+    <resultMap id="BaseResultMap" type="com.account.bean.Person">
+        <id column="ID" jdbcType="BIGINT" property="id"/>
+        <result column="P_FULLNAME" jdbcType="VARCHAR" property="pFullname"/>
+        <result column="P_SEX" jdbcType="CHAR" property="pSex"/>
+        <result column="P_CERTIFICATE_TYPE" jdbcType="VARCHAR" property="pCertificateType"/>
+        <result column="P_CERTIFICATE_NUMBER" jdbcType="VARCHAR" property="pCertificateNumber"/>
+        <result column="P_PHONE" jdbcType="VARCHAR" property="pPhone"/>
+        <result column="P_BIRTHDAY" jdbcType="TIMESTAMP" property="pBirthday"/>
+        <result column="P_NICKNAME" jdbcType="VARCHAR" property="pNickname"/>
+        <result column="P_EMAIL" jdbcType="VARCHAR" property="pEmail"/>
+        <result column="P_LAST_TIME" jdbcType="TIMESTAMP" property="pLastTime"/>
+        <result column="P_LAST_IP" jdbcType="VARCHAR" property="pLastIp"/>
+        <result column="P_REGISTERED_ADDRESS" jdbcType="VARCHAR" property="pRegisteredAddress"/>
+        <result column="P_REGISTERED_TIME" jdbcType="TIMESTAMP" property="pRegisteredTime"/>
+        <result column="P_REGISTERED_IP" jdbcType="VARCHAR" property="pRegisteredIp"/>
+        <result column="P_IMAGE" jdbcType="BIGINT" property="pImage"/>
+        <result column="P_FORMER_PHONE" jdbcType="VARCHAR" property="pFormerPhone"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from AC_PERSON
+    where ID = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.account.bean.Person" keyProperty="id" useGeneratedKeys="true">
-    insert into person (id, phone, username
-      )
-    values (#{id,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}
-      )
+    <insert id="insert" parameterType="com.account.bean.Person">
+    insert into AC_PERSON (ID, P_FULLNAME, P_SEX, 
+      P_CERTIFICATE_TYPE, P_CERTIFICATE_NUMBER, P_PHONE, 
+      P_BIRTHDAY, P_NICKNAME, P_EMAIL, 
+      P_LAST_TIME, P_LAST_IP, P_REGISTERED_ADDRESS, 
+      P_REGISTERED_TIME, P_REGISTERED_IP, P_IMAGE, 
+      P_FORMER_PHONE)
+    values (#{id,jdbcType=BIGINT}, #{pFullname,jdbcType=VARCHAR}, #{pSex,jdbcType=CHAR}, 
+      #{pCertificateType,jdbcType=VARCHAR}, #{pCertificateNumber,jdbcType=VARCHAR}, #{pPhone,jdbcType=VARCHAR}, 
+      #{pBirthday,jdbcType=TIMESTAMP}, #{pNickname,jdbcType=VARCHAR}, #{pEmail,jdbcType=VARCHAR}, 
+      #{pLastTime,jdbcType=TIMESTAMP}, #{pLastIp,jdbcType=VARCHAR}, #{pRegisteredAddress,jdbcType=VARCHAR}, 
+      #{pRegisteredTime,jdbcType=TIMESTAMP}, #{pRegisteredIp,jdbcType=VARCHAR}, #{pImage,jdbcType=BIGINT}, 
+      #{pFormerPhone,jdbcType=VARCHAR})
   </insert>
-  <update id="updateByPrimaryKey" parameterType="com.account.bean.Person">
-    update person
-    set phone = #{phone,jdbcType=VARCHAR},
-      username = #{username,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
+    <update id="updateByPrimaryKey" parameterType="com.account.bean.Person">
+    update AC_PERSON
+    set P_FULLNAME = #{pFullname,jdbcType=VARCHAR},
+      P_SEX = #{pSex,jdbcType=CHAR},
+      P_CERTIFICATE_TYPE = #{pCertificateType,jdbcType=VARCHAR},
+      P_CERTIFICATE_NUMBER = #{pCertificateNumber,jdbcType=VARCHAR},
+      P_PHONE = #{pPhone,jdbcType=VARCHAR},
+      P_BIRTHDAY = #{pBirthday,jdbcType=TIMESTAMP},
+      P_NICKNAME = #{pNickname,jdbcType=VARCHAR},
+      P_EMAIL = #{pEmail,jdbcType=VARCHAR},
+      P_LAST_TIME = #{pLastTime,jdbcType=TIMESTAMP},
+      P_LAST_IP = #{pLastIp,jdbcType=VARCHAR},
+      P_REGISTERED_ADDRESS = #{pRegisteredAddress,jdbcType=VARCHAR},
+      P_REGISTERED_TIME = #{pRegisteredTime,jdbcType=TIMESTAMP},
+      P_REGISTERED_IP = #{pRegisteredIp,jdbcType=VARCHAR},
+      P_IMAGE = #{pImage,jdbcType=BIGINT},
+      P_FORMER_PHONE = #{pFormerPhone,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
   </update>
-  <select id="getPersonByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select id, phone, username
-    from person
-    where id = #{id,jdbcType=INTEGER}
+    <sql id="Base_Column_List">
+        ID, P_FULLNAME, P_SEX, P_CERTIFICATE_TYPE, P_CERTIFICATE_NUMBER, P_PHONE,
+        P_BIRTHDAY, P_NICKNAME, P_EMAIL, P_LAST_TIME, P_LAST_IP, P_REGISTERED_ADDRESS, P_REGISTERED_TIME,
+        P_REGISTERED_IP, P_IMAGE, P_FORMER_PHONE
+  </sql>
+    <select id="getPersonByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from AC_PERSON
+        where ID = #{id,jdbcType=BIGINT}
+    </select>
+    <select id="listPersons" resultMap="BaseResultMap">
+    select
+        <include refid="Base_Column_List"/>
+    from AC_PERSON
   </select>
-  <select id="getPersonByPhone" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select id, phone, username
-    from person
-    where phone = #{phone,jdbcType=VARCHAR}
-  </select>
-  <select id="listPersons" resultMap="BaseResultMap">
-    select id, phone, username
-    from person
+    <select id="getPersonByPhone" resultMap="BaseResultMap">
+    select
+        <include refid="Base_Column_List"/>
+    from AC_PERSON
+    where P_PHONE =  #{pPhone,jdbcType=VARCHAR}
   </select>
 </mapper>

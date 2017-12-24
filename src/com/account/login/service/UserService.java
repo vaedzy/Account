@@ -9,7 +9,7 @@ public interface UserService {
      * @param phone
      * @return
      */
-   Person  getUser(String phone);
+   Person getUser(String phone);
 
     /**
      * 更新人员信息

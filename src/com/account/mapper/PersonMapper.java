@@ -1,29 +1,23 @@
 package com.account.mapper;
 
-
 import com.account.bean.Person;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 public interface PersonMapper {
-    int deleteByPrimaryKey(Integer id);
+
+    int deleteByPrimaryKey(Long id);
 
     int insert(Person record);
 
-    /**
-     * 通过主键查找人员
-     * @param id
-     * @return
-     */
-    Person getPersonByPrimaryKey(Integer id);
-
+    Person getPersonByPrimaryKey(Long id);
     /**
      * 通过手机号查找人员
-     * @param phone
+     * @param pPhone
      * @return
      */
-    Person getPersonByPhone(@Param("phone") String  phone);
+    Person getPersonByPhone(@Param("pPhone") String  pPhone);
 
     List<Person> listPersons();
 

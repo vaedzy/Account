@@ -85,14 +85,14 @@ public class UserControler {
                 //执行查询操作
                Person user = userService.getUser(phone);
                //如果username为空 则跳转到注册
-               if (user.getUsername()==null || user.getUsername().equals("")){
+               if (user.getpFullname()==null || user.getpFullname().equals("")){
                    //那么这个人没有注册 是新用户 设置一个session 这个session防止了用户访问到注册页面
                    HttpSession session = request.getSession();
                    session.setAttribute("success","success");
                    return "register";
                }
                //返回user对象 设置cookie与session
-                Cookie cookie = new Cookie("user",user.getPhone().toString());
+                Cookie cookie = new Cookie("user",user.getpPhone().toString());
                //一天的cookie有效期
                 cookie.setMaxAge(24*60*60);
                 //cookie的作用域
@@ -148,11 +148,11 @@ public class UserControler {
             //是我同意 执行注册方法 根据phone查询设置username
             Person user = userService.getUser(Tphone);
             //保存username
-            user.setUsername(username);
+            user.setpFullname(username);
             //操作数据库
             userService.updatePerson(user);
             //返回user对象
-            Cookie cookie = new Cookie("user",user.getPhone().toString());
+            Cookie cookie = new Cookie("user",user.getpPhone().toString());
             //设置cookie一天时间
             cookie.setMaxAge(24*60*60);
             //设置cookie的作用域

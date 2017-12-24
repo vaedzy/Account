@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService{
         Person person = personMapper.getPersonByPhone(phone);
         if (person ==null){
             person = new Person();
-            person.setPhone(phone);
+            person.setpPhone(phone);
             personMapper.insert(person);
         }
         return person;
