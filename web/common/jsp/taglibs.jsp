@@ -11,7 +11,7 @@
 <script>
     var $ctx = "${ctx}";
 </script>
-<link rel="stylesheet" href="${ctx}/common/css/bootstrap-3.3.7-dist/bootstrap.css">
+<%--<link rel="stylesheet" href="${ctx}/common/css/bootstrap-3.3.7-dist/bootstrap.css">--%>
 <script src="${ctx}/common/js/plugin/TweenLite.min.js"></script>
 <script src="${ctx}/common/js/plugin/EasePack.min.js"></script>
 <script src="${ctx}/common/js/plugin/rAF.js"></script>
