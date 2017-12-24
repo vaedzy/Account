@@ -86,7 +86,7 @@
         <hr/>
     </div>
 
-    <div id="nav_btn"></div>   <!-- 导航按钮 -->
+    <div id="nav_btn"></div>   <!-- 导航按钮.... -->
 
 </div>
 </body>
