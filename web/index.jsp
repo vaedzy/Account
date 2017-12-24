@@ -34,19 +34,57 @@
 </div>
 
 <div id="nav_box">
+
+
+    <!-- 一级导航 -->
     <div id="nav">
         <div id="user_box">
-            <c:choose>
-                <c:when test="${user==null}">
-               <span id="userlog">登录</span>
-                </c:when>
-                <c:when test="${user!=null}">
+            <c:if test="${user==null?true:false}">
+                <span id="userlog">登录</span>
+            </c:if>
+            <c:if test="${user==null?false:true}">
                 <span id="uuser">尊敬的:${user.username}</span>
-                </c:when>
-            </c:choose>
+            </c:if>
         </div>
+        <div id="nav_shoppingcar" class="nav_on_box">购物车</div>
+        <div id="nav_main" class="nav_on_box">主导航</div>
     </div>
-    <div id="nav_btn">+</div>
+
+    <!-- 二级导航 -->
+    <div class="nav_second" id="second_shoppingcar">
+    </div>
+    <div class="nav_second" id="second_main">
+        <a href="#">A</a>
+        <a href="#">B</a>
+        <a href="#">C</a>
+        <a href="#">D</a>
+        <a href="#">E</a>
+        <a href="#">F</a>
+        <a href="#">G</a>
+        <a href="#">H</a>
+        <a href="#">I</a>
+        <a href="#">J</a>
+        <a href="#">K</a>
+        <a href="#">L</a>
+        <a href="#">M</a>
+        <a href="#">N</a>
+        <a href="#">O</a>
+        <a href="#">P</a>
+        <a href="#">Q</a>
+        <a href="#">R</a>
+        <a href="#">S</a>
+        <a href="#">T</a>
+        <a href="#">U</a>
+        <a href="#">V</a>
+        <a href="#">W</a>
+        <a href="#">X</a>
+        <a href="#">Y</a>
+        <a href="#">Z</a>
+        <hr/>
+    </div>
+
+    <div id="nav_btn"></div>   <!-- 导航按钮 -->
+
 </div>
 </body>
 </html>
