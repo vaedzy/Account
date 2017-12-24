@@ -43,7 +43,7 @@
                 <span id="userlog">登录</span>
             </c:if>
             <c:if test="${user==null?false:true}">
-                <span id="uuser">尊敬的:${user.username}</span>
+                <span id="uuser">尊敬的:${user.pFullname}</span>
                 <div id="logout">
                     <span>退出登录</span>
                 </div>
