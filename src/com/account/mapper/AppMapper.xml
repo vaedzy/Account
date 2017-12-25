@@ -7,8 +7,8 @@
         <result column="aAppIndex" jdbcType="VARCHAR" property="aAppIndex"/>
     </resultMap>
 
-    <select id="getAll" resultMap="com.account.bean.App">
-        select * from App
+    <select id="getAll" resultMap="com.account.bean.App" parameterMap="java.lang.String">
+        select * from App where aAppIndex = #{value}
     </select>
 
 
