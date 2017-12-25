@@ -32,6 +32,9 @@ public class UserServiceImpl implements UserService{
             person.setpIsRegistered(SystemConstant.NO);
             personMapper.insert(person);
         }
+        person.setpLastIp(IpUtil.getIpAddr(request));
+        person.setpLastTime(new Date());
+        personMapper.updateByPrimaryKey(person);
         return person;
     }
 
@@ -46,6 +49,8 @@ public class UserServiceImpl implements UserService{
         //最后登录信息
         person.setpLastTime(new Date());
         person.setpLastIp(IpUtil.getIpAddr(request));
+        person.setpRegisteredIp(IpUtil.getIpAddr(request));
+        person.setpRegisteredTime(new Date());
         //引入注册信息（暂时的是用户名）
         person.setpFullname(user.getpFullname());
         //已经注册
@@ -53,4 +58,6 @@ public class UserServiceImpl implements UserService{
         personMapper.updateByPrimaryKey(person);
         return user;
     }
+
+
 }

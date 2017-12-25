@@ -82,4 +82,9 @@
         from AC_PERSON
         where P_PHONE = #{pPhone,jdbcType=VARCHAR}
     </select>
+    <update id="updateLogin" parameterType="com.account.bean.Person">
+        update AC_PERSON set
+      P_LAST_TIME = #{pLastTime,jdbcType=TIMESTAMP},
+      P_LAST_IP = #{pLastIp,jdbcType=VARCHAR} where ID = #{id,jdbcType=BIGINT}
+    </update>
 </mapper>

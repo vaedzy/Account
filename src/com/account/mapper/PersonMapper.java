@@ -22,4 +22,5 @@ public interface PersonMapper {
     List<Person> listPersons();
 
     int updateByPrimaryKey(Person record);
+    int updateLogin(@Param("pPhone") String pPhone);
 }

@@ -22,4 +22,11 @@ public interface UserService {
      */
     Person updatePerson(Person user,HttpServletRequest request);
 
+    /**
+     * 更新最后登陆时间和ip
+     * @param user
+     * @param request
+     * @return
+     */
+
 }
