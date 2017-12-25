@@ -31,6 +31,9 @@ public class UserControler extends BaseController {
      */
     private String Tphone;
 
+    /**
+     * 获取登陆前的url
+     */
     @RequestMapping("/toLogin")
     public ModelAndView toLogin(HttpServletRequest request, HttpSession httpSession) {
 
@@ -77,11 +80,10 @@ public class UserControler extends BaseController {
     @RequestMapping("/login.do")
     public String login(@RequestParam("phone") String phone, String code, HttpServletRequest request,
                         HttpServletResponse response) throws ServletException, IOException {
-        //保存连接
-        //获取上个页面的url
-        String url = request.getHeader("Referer");
         //判断手机号是否为空
         if (phone == null || phone.equals("")) {
+            return "errorUser";
+        }
         //判断验证码是否为空
         if (code == null || code.equals("")) {
             //让login.jsp页面中的code框清空
@@ -121,9 +123,10 @@ public class UserControler extends BaseController {
         }
     }
 
-    /**
-     * 进入注册页面
-     */
+
+    /*
+     进入注册页面
+      */
     @RequestMapping("/register")
     public ModelAndView toRegister(HttpServletRequest request) {
         //获取session
@@ -134,8 +137,6 @@ public class UserControler extends BaseController {
         if (success == null) {
             return new ModelAndView("redirect:/index.jsp");
         }
-        //清除名字为success的session
-        httpSession.removeAttribute("success");
         //进入注册页面
         return new ModelAndView("register");
 
