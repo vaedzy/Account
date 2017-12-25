@@ -40,7 +40,6 @@ $(function(){
                         }else if(data=='register'){
                              location.href='/register';
                         }
-
                     }
                 });
             }else {

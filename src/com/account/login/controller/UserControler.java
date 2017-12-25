@@ -18,7 +18,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-
 @Controller
 public class UserControler extends BaseController {
     @Autowired
@@ -83,9 +82,6 @@ public class UserControler extends BaseController {
         String url = request.getHeader("Referer");
         //判断手机号是否为空
         if (phone == null || phone.equals("")) {
-            //让login.jsp页面中的phone框变红
-            return "errorPhone";
-        }
         //判断验证码是否为空
         if (code == null || code.equals("")) {
             //让login.jsp页面中的code框清空
@@ -150,7 +146,7 @@ public class UserControler extends BaseController {
      */
     @ResponseBody
     @RequestMapping("/register.do")
-    public String register(Person entity,HttpServletRequest request, HttpServletResponse response) {
+    public String register(Person entity, HttpServletRequest request, HttpServletResponse response) {
         //判断用户名是否为空
         if (StringUtil.isBlank(entity.getpFullname())) {
             return "errorUser";
@@ -164,7 +160,7 @@ public class UserControler extends BaseController {
             //是我同意 执行注册方法 根据phone查询设置username
             entity.setpPhone(Tphone);
             //操作数据库
-            Person person = userService.updatePerson(entity,request);
+            Person person = userService.updatePerson(entity, request);
             //返回user对象
             Cookie cookie = new Cookie("user", entity.getpPhone());
             //设置cookie一天时间
@@ -183,6 +179,9 @@ public class UserControler extends BaseController {
         }
     }
 
+    /**
+     * 登陆后返回之前的页面
+     */
     @RequestMapping("formTag")
     public ModelAndView formTag(HttpSession httpSession) {
         //登陆的验证通过后,在从session里获取前画面的url
@@ -191,9 +190,11 @@ public class UserControler extends BaseController {
         return new ModelAndView("redirect:" + url);
     }
 
+    /**
+     * 退出登陆
+     */
     @RequestMapping("logout")
     public ModelAndView logOut(HttpSession httpSession) {
-        System.out.println("进来了");
         //清除user的session
         httpSession.removeAttribute("user");
         //跳转到首页
