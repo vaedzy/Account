@@ -4,13 +4,22 @@ import java.io.Serializable;
 
 public class App implements Serializable{
 
-    private long aAppname;
+    private String aAppname;
+    private String aAppIndex;
 
-    public long getaAppname() {
+    public void setaAppname(String aAppname) {
+        this.aAppname = aAppname;
+    }
+
+    public String getaAppname() {
         return aAppname;
     }
 
-    public void setaAppname(long aAppname) {
-        this.aAppname = aAppname;
+    public void setaAppIndex(String aAppIndex) {
+        this.aAppIndex = aAppIndex;
+    }
+
+    public String getaAppIndex() {
+        return aAppIndex;
     }
 }
