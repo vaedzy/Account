@@ -1,11 +1,16 @@
 package com.account.login.service.impl;
 
 import com.account.bean.Person;
+import com.account.common.constant.SystemConstant;
+import com.account.common.utils.IpUtil;
 import com.account.login.service.UserService;
 import com.account.mapper.PersonMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 
 @Service("userService")
 @Transactional(rollbackFor = Exception.class)
@@ -19,11 +24,12 @@ public class UserServiceImpl implements UserService{
      * @return
      */
     @Override
-    public Person getUser(String phone)  {
+    public Person getUser(String phone, HttpServletRequest request)  {
         Person person = personMapper.getPersonByPhone(phone);
         if (person ==null){
             person = new Person();
             person.setpPhone(phone);
+            person.setpIsRegistered(SystemConstant.NO);
             personMapper.insert(person);
         }
         return person;
@@ -35,8 +41,16 @@ public class UserServiceImpl implements UserService{
      * @return
      */
     @Override
-    public Person updatePerson(Person user){
-        personMapper.updateByPrimaryKey(user);
+    public Person updatePerson(Person user, HttpServletRequest request){
+        Person person = personMapper.getPersonByPhone(user.getpPhone());
+        //最后登录信息
+        person.setpLastTime(new Date());
+        person.setpLastIp(IpUtil.getIpAddr(request));
+        //引入注册信息（暂时的是用户名）
+        person.setpFullname(user.getpFullname());
+        //已经注册
+        person.setpIsRegistered(SystemConstant.YES);
+        personMapper.updateByPrimaryKey(person);
         return user;
     }
 }

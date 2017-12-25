@@ -11,7 +11,7 @@ $(function(){
                     url:"/register.do",
                     type:"post",
                     dataType:"text",
-                    data:"username="+$("#username").val()+"&code="+$("#code").val(),
+                    data: [{name: "entity.pFullname", value: $("#username").val()},{name:"entity.pDevelop01",value:$("#code").val()}],
                     success:function(data){
                         if(data=='errorCode'){
                             $("#code_outer").css("border","rgba(255,0,0,0.2) 2px solid");

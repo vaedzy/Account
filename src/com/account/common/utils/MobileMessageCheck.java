@@ -16,21 +16,34 @@ import java.util.List;
 
 public class MobileMessageCheck {
 
-    //发送验证码的请求路径URL
+    /**
+     * 发送验证码的请求路径URL
+     */
     private static final String
-            SERVER_URL="https://api.netease.im/sms/sendcode.action";
-    //网易云信分配的账号，请替换你在管理后台应用下申请的Appkey
+            SERVER_URL = "https://api.netease.im/sms/sendcode.action";
+    /**
+     * 网易云信分配的账号，请替换你在管理后台应用下申请的Appkey
+     */
     private static final String
-            APP_KEY="771b0eaf5d45a049b18ae8115130b82d";
-    //网易云信分配的密钥，请替换你在管理后台应用下申请的appSecret
-    private static final String APP_SECRET="481308a1cbad";
-    //随机数
-    private static final String NONCE="123456";
-    //验证码长度，范围4～10，默认为4
-    private static final String CODELEN="4";
-    //短信模版id
-    private static final String TEMPLATEID="3882016";
-    public static String checkMsg(String phone) throws IOException{
+            APP_KEY = "771b0eaf5d45a049b18ae8115130b82d";
+    /**
+     * 网易云信分配的密钥，请替换你在管理后台应用下申请的appSecret
+     */
+    private static final String APP_SECRET = "481308a1cbad";
+    /**
+     * 随机数
+     */
+    private static final String NONCE = "123456";
+    /**
+     * 验证码长度，范围4～10，默认为4
+     */
+    private static final String CODELEN = "4";
+    /**
+     * 短信模版id
+     */
+    private static final String TEMPLATEID = "3882016";
+
+    public static String checkMsg(String phone) throws IOException {
         DefaultHttpClient httpClient = new DefaultHttpClient();
         HttpPost httpPost = new HttpPost(SERVER_URL);
         String curTime = String.valueOf((new Date()).getTime() / 1000L);
@@ -54,10 +67,10 @@ public class MobileMessageCheck {
         // 执行请求
         HttpResponse response = httpClient.execute(httpPost);
 
-        String responseEntity = EntityUtils.toString(response.getEntity(),"utf-8");
+        String responseEntity = EntityUtils.toString(response.getEntity(), "utf-8");
         String code = JSON.parseObject(responseEntity).getString("code");
         System.out.println(code);
-        if(code.equals("200")){
+        if (code.equals("200")) {
             String obj = JSON.parseObject(responseEntity).getString("obj");
             return obj;
         }

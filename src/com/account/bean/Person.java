@@ -1,5 +1,9 @@
 package com.account.bean;
 
+import com.account.common.constant.DateConsts;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -35,6 +39,10 @@ public class Person implements Serializable {
     private Long pImage;
 
     private String pFormerPhone;
+
+    private String pDevelop01;
+
+    private String pIsRegistered;
 
     private static final long serialVersionUID = 1L;
 
@@ -85,7 +93,8 @@ public class Person implements Serializable {
     public void setpPhone(String pPhone) {
         this.pPhone = pPhone == null ? null : pPhone.trim();
     }
-
+    @DateTimeFormat(pattern = DateConsts.TIME_PATTERN)
+    @JsonFormat(pattern = DateConsts.TIME_PATTERN, timezone = DateConsts.TIME_ZERO)
     public Date getpBirthday() {
         return pBirthday;
     }
@@ -109,6 +118,8 @@ public class Person implements Serializable {
     public void setpEmail(String pEmail) {
         this.pEmail = pEmail == null ? null : pEmail.trim();
     }
+    @DateTimeFormat(pattern = DateConsts.TIME_PATTERN)
+    @JsonFormat(pattern = DateConsts.TIME_PATTERN, timezone = DateConsts.TIME_ZERO)
 
     public Date getpLastTime() {
         return pLastTime;
@@ -133,7 +144,8 @@ public class Person implements Serializable {
     public void setpRegisteredAddress(String pRegisteredAddress) {
         this.pRegisteredAddress = pRegisteredAddress == null ? null : pRegisteredAddress.trim();
     }
-
+    @DateTimeFormat(pattern = DateConsts.TIME_PATTERN)
+    @JsonFormat(pattern = DateConsts.TIME_PATTERN, timezone = DateConsts.TIME_ZERO)
     public Date getpRegisteredTime() {
         return pRegisteredTime;
     }
@@ -164,5 +176,21 @@ public class Person implements Serializable {
 
     public void setpFormerPhone(String pFormerPhone) {
         this.pFormerPhone = pFormerPhone == null ? null : pFormerPhone.trim();
+    }
+
+    public String getpDevelop01() {
+        return pDevelop01;
+    }
+
+    public void setpDevelop01(String pDevelop01) {
+        this.pDevelop01 = pDevelop01;
+    }
+
+    public String getpIsRegistered() {
+        return pIsRegistered;
+    }
+
+    public void setpIsRegistered(String pIsRegistered) {
+        this.pIsRegistered = pIsRegistered;
     }
 }

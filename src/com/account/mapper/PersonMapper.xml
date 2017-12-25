@@ -18,6 +18,8 @@
         <result column="P_REGISTERED_IP" jdbcType="VARCHAR" property="pRegisteredIp"/>
         <result column="P_IMAGE" jdbcType="BIGINT" property="pImage"/>
         <result column="P_FORMER_PHONE" jdbcType="VARCHAR" property="pFormerPhone"/>
+        <result column="P_DEVELOP_01" jdbcType="VARCHAR" property="pDevelop01"/>
+        <result column="P_IS_REGISTERED" jdbcType="CHAR" property="pIsRegistered"/>
     </resultMap>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from AC_PERSON
@@ -29,13 +31,13 @@
       P_BIRTHDAY, P_NICKNAME, P_EMAIL, 
       P_LAST_TIME, P_LAST_IP, P_REGISTERED_ADDRESS, 
       P_REGISTERED_TIME, P_REGISTERED_IP, P_IMAGE, 
-      P_FORMER_PHONE)
+      P_FORMER_PHONE,P_DEVELOP_01,P_IS_REGISTERED)
     values (#{id,jdbcType=BIGINT}, #{pFullname,jdbcType=VARCHAR}, #{pSex,jdbcType=CHAR}, 
       #{pCertificateType,jdbcType=VARCHAR}, #{pCertificateNumber,jdbcType=VARCHAR}, #{pPhone,jdbcType=VARCHAR}, 
       #{pBirthday,jdbcType=TIMESTAMP}, #{pNickname,jdbcType=VARCHAR}, #{pEmail,jdbcType=VARCHAR}, 
       #{pLastTime,jdbcType=TIMESTAMP}, #{pLastIp,jdbcType=VARCHAR}, #{pRegisteredAddress,jdbcType=VARCHAR}, 
       #{pRegisteredTime,jdbcType=TIMESTAMP}, #{pRegisteredIp,jdbcType=VARCHAR}, #{pImage,jdbcType=BIGINT}, 
-      #{pFormerPhone,jdbcType=VARCHAR})
+      #{pFormerPhone,jdbcType=VARCHAR},#{pDevelop01,jdbcType=VARCHAR},#{pIsRegistered,jdbcType=CHAR})
   </insert>
     <update id="updateByPrimaryKey" parameterType="com.account.bean.Person">
     update AC_PERSON
@@ -53,13 +55,15 @@
       P_REGISTERED_TIME = #{pRegisteredTime,jdbcType=TIMESTAMP},
       P_REGISTERED_IP = #{pRegisteredIp,jdbcType=VARCHAR},
       P_IMAGE = #{pImage,jdbcType=BIGINT},
-      P_FORMER_PHONE = #{pFormerPhone,jdbcType=VARCHAR}
+      P_FORMER_PHONE = #{pFormerPhone,jdbcType=VARCHAR},
+      P_DEVELOP_01 = #{pDevelop01,jdbcType=VARCHAR},
+      P_IS_REGISTERED =#{pIsRegistered,jdbcType=CHAR}
     where ID = #{id,jdbcType=BIGINT}
   </update>
     <sql id="Base_Column_List">
         ID, P_FULLNAME, P_SEX, P_CERTIFICATE_TYPE, P_CERTIFICATE_NUMBER, P_PHONE,
         P_BIRTHDAY, P_NICKNAME, P_EMAIL, P_LAST_TIME, P_LAST_IP, P_REGISTERED_ADDRESS, P_REGISTERED_TIME,
-        P_REGISTERED_IP, P_IMAGE, P_FORMER_PHONE
+        P_REGISTERED_IP, P_IMAGE, P_FORMER_PHONE,P_DEVELOP_01,P_IS_REGISTERED
   </sql>
     <select id="getPersonByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
         select
@@ -68,14 +72,14 @@
         where ID = #{id,jdbcType=BIGINT}
     </select>
     <select id="listPersons" resultMap="BaseResultMap">
-    select
+        select
         <include refid="Base_Column_List"/>
-    from AC_PERSON
-  </select>
+        from AC_PERSON
+    </select>
     <select id="getPersonByPhone" resultMap="BaseResultMap">
-    select
+        select
         <include refid="Base_Column_List"/>
-    from AC_PERSON
-    where P_PHONE =  #{pPhone,jdbcType=VARCHAR}
-  </select>
+        from AC_PERSON
+        where P_PHONE = #{pPhone,jdbcType=VARCHAR}
+    </select>
 </mapper>
