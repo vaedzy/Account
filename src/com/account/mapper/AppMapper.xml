@@ -6,9 +6,13 @@
         <result column="aAppname" jdbcType="VARCHAR" property="aAppname"/>
         <result column="aAppIndex" jdbcType="VARCHAR" property="aAppIndex"/>
     </resultMap>
-
-    <select id="getAll" resultMap="com.account.bean.App" parameterMap="java.lang.String">
-        select * from App where aAppIndex = #{aAppIndex,jdbcType=VARCHAR}
+    <sql id="Base_Column_List">
+       aAppId,aAppname,aAppIndex
+    </sql>
+    <select id="getAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+         from App where aAppIndex = #{aAppIndex,jdbcType=VARCHAR}
     </select>
 
 

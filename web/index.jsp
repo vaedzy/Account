@@ -26,7 +26,7 @@
 <div id="content">
     <div id="logo">LOGO</div>
     <div id="search_box">
-        <form action="#" method="post">
+        <form action="/souApp" method="post">
             <input type="text" id="search" name="search" placeholder="请输入关键字">
             <input type="submit" id="search_btn" value="GO">
         </form>
