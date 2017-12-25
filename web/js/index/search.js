@@ -67,4 +67,28 @@ $(function(){
     });
 
 
-})
+    $(".nav_AppIndex").click(function () {
+        $.ajax({
+            url:"/mainNav",
+            type:"post",
+            dataType:"text",
+            data:"mainNav="+$(this).html(),
+            success:function(data){
+                data=jQuery.parseJSON(data);
+                $("#fieldApp").html("");
+                var html="";
+                $(data).each(function(i,o){
+                    html=html+"<div class='nr'>"+o.aAppname+"</div>";
+                });
+                $("#fieldApp").html(html);
+                $(".nr").click(function(){
+                    location.href="/preciseApp?AppName="+$(this).html();
+                });
+            }
+        });
+    });
+
+
+
+
+});

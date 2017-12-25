@@ -57,7 +57,7 @@
     <div class="nav_second" id="second_shoppingcar">
     </div>
     <div class="nav_second" id="second_main">
-        <a href="#">A</a>
+        <%--<a href="#">A</a>
         <a href="#">B</a>
         <a href="#">C</a>
         <a href="#">D</a>
@@ -82,8 +82,36 @@
         <a href="#">W</a>
         <a href="#">X</a>
         <a href="#">Y</a>
-        <a href="#">Z</a>
-        <hr/>
+        <a href="#">Z</a>--%>
+        <div class="nav_AppIndex">a</div>
+        <div class="nav_AppIndex">b</div>
+        <div class="nav_AppIndex">c</div>
+        <div class="nav_AppIndex">d</div>
+        <div class="nav_AppIndex">e</div>
+        <div class="nav_AppIndex">f</div>
+        <div class="nav_AppIndex">g</div>
+        <div class="nav_AppIndex">h</div>
+        <div class="nav_AppIndex">i</div>
+        <div class="nav_AppIndex">j</div>
+        <div class="nav_AppIndex">k</div>
+        <div class="nav_AppIndex">l</div>
+        <div class="nav_AppIndex">m</div>
+        <div class="nav_AppIndex">n</div>
+        <div class="nav_AppIndex">o</div>
+        <div class="nav_AppIndex">p</div>
+        <div class="nav_AppIndex">q</div>
+        <div class="nav_AppIndex">r</div>
+        <div class="nav_AppIndex">s</div>
+        <div class="nav_AppIndex">t</div>
+        <div class="nav_AppIndex">u</div>
+        <div class="nav_AppIndex">v</div>
+        <div class="nav_AppIndex">w</div>
+        <div class="nav_AppIndex">x</div>
+        <div class="nav_AppIndex">y</div>
+        <div class="nav_AppIndex">z</div>
+        <br>
+        <br>
+        <div id="fieldApp"></div>
     </div>
 
     <div id="nav_btn"></div>   <!-- 导航按钮.... -->
