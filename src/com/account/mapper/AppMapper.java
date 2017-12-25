@@ -1,14 +1,12 @@
 package com.account.mapper;
 
-<<<<<<< HEAD
-public interface AppMapper {
-}
-=======
 import com.account.bean.App;
+import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 
 public interface AppMapper {
 
-    List<App> getAll(String aAppIndex);
+    List<App> getAll(@Param("aAppIndex") String aAppIndex);
 }
->>>>>>> origin/master
+

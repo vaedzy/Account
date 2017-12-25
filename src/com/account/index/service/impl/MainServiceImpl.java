@@ -16,7 +16,7 @@ public class MainServiceImpl implements MainService{
     private AppMapper appMapper;
     @Override
     public List<App> appList(String aAppIndex) {
-    List<App> appList = null;
+    List<App> appList = appMapper.getAll(aAppIndex);
         return appList;
     }
 }
