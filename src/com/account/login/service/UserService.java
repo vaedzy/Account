@@ -12,7 +12,7 @@ public interface UserService {
      * @param request
      * @return
      */
-   Person getUser(String phone, HttpServletRequest request);
+    Person getUser(String phone, HttpServletRequest request);
 
     /**
      * 更新人员信息

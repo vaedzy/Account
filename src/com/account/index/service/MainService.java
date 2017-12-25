@@ -1,4 +1,9 @@
 package com.account.index.service;
 
-public class MainService {
+import com.account.bean.App;
+
+import java.util.List;
+
+public interface MainService {
+    List<App> appList (String aAppIndex);
 }
