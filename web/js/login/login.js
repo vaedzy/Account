@@ -39,6 +39,8 @@ $(function(){
                             location.href='/formTag';
                         }else if(data=='register'){
                              location.href='/register';
+                        }else if (data=='getDetails'){
+                            location.href='/getDetails';
                         }
 
                     }

@@ -23,6 +23,9 @@ public class UserControler {
     private String Ccode ; //用于存储验证码
     private String Tphone; //用于获取验证码的手机号
 
+   /*
+   获取登陆前的url
+    */
     @RequestMapping("/toLogin")
     public ModelAndView toLogin(HttpServletRequest request,HttpSession httpSession){
 
@@ -66,8 +69,7 @@ public class UserControler {
     @ResponseBody
     @RequestMapping("/login.do")
     public  String login(@RequestParam("phone")String phone, String code, HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
-        //保存连接
-        String url = request.getHeader("Referer");//获取上个页面的url
+
        //判断手机号是否为空
         if (phone == null || phone.equals("")){
             //让login.jsp页面中的phone框变红
@@ -124,8 +126,6 @@ public class UserControler {
             if (success==null){
                 return new ModelAndView("redirect:/index.jsp");
             }
-            //清除名字为success的session
-            httpSession.removeAttribute("success");
             //进入注册页面
             return new ModelAndView("register");
 
@@ -168,7 +168,9 @@ public class UserControler {
            return "errorCode";
         }
     }
-
+    /*
+    登陆后返回之前的页面
+     */
     @RequestMapping("formTag")
     public ModelAndView formTag(HttpSession httpSession){
         //登陆的验证通过后,在从session里获取前画面的url
@@ -176,9 +178,11 @@ public class UserControler {
         //跳转回去
         return new ModelAndView("redirect:"+url);
     }
+    /*
+    退出登陆
+     */
     @RequestMapping("logout")
     public ModelAndView logOut(HttpSession httpSession){
-        System.out.println("进来了");
         //清除user的session
        httpSession.removeAttribute("user");
         //跳转到首页

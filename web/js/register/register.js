@@ -20,6 +20,8 @@ $(function(){
                             $("#phone_outer").css("border","rgba(255,0,0,0.2) 2px solid");
                         }else if(data=='login'){
                             location.href='/index.jsp';
+                        }else if (data=='getDetails'){
+                            location.href='/getDetails';
                         }
                     }
                 });
