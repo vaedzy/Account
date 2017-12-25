@@ -8,7 +8,7 @@
     </resultMap>
 
     <select id="getAll" resultMap="com.account.bean.App" parameterMap="java.lang.String">
-        select * from App where aAppIndex = #{value}
+        select * from App where aAppIndex = #{aAppIndex,jdbcType=VARCHAR}
     </select>
 
 
