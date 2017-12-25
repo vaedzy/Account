@@ -7,6 +7,7 @@ public class App implements Serializable{
     private long aAppId;
     private String aAppname;
     private String aAppIndex;
+    private static final long serialVersionUID = 1L;
 
     public long getaAppId() {
         return aAppId;
@@ -31,4 +32,9 @@ public class App implements Serializable{
     public String getaAppIndex() {
         return aAppIndex;
     }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
 }

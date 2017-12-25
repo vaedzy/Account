@@ -17,7 +17,9 @@ public class MainControler {
      */
     @ResponseBody
     @RequestMapping("mainNav")
-    public String mainNav(@RequestParam("a")String a){
+    public String mainNav(@RequestParam("mainNav")String mainNav){
+        //判断传来的数据是a-z中的哪一个
+
     return "null";
     }
 }
