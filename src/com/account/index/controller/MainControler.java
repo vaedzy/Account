@@ -23,6 +23,7 @@ public class MainControler {
     @ResponseBody
     @RequestMapping("mainNav")
     public List<App> mainNav(@RequestParam("mainNav")String mainNav,HttpServletRequest request){
+        System.out.println(mainNav);
         List<App> appList = mainService.appList(mainNav);
         //是否需要判断传来的数据是a-z中的哪一个
         //将查找到的数据存入session中 从页面获取
