@@ -24,8 +24,9 @@ public class SerializeUtil {
     }
 
     public static Object unserialize(byte[] bytes){
-        if (bytes == null)
-                return null;
+        if (bytes == null) {
+            return null;
+        }
         ByteArrayInputStream byteArrayInputStream = null;
         try{
             //反序列化
