@@ -71,21 +71,15 @@
             <property name="user" value="${jdbc.username}"/>
             <!-- 密码 -->
             <property name="password" value="${jdbc.password}"/>
+            <!--c3p0连接池的私有属性-->
+            <property name="maxPoolSize" value="30"/>
+            <property name="minPoolSize" value="10"/>
+            <!--<property name="poolMaximumIdleConnecti"-->
+            <!--获取连接超时时间-->
+            <property name="checkoutTimeout" value="1000"/>
+            <!--当获取连接失败重试次数-->
+            <property name="acquireRetryAttempts" value="5"/>
         </bean>
-        <!--&lt;!&ndash;redis数据源&ndash;&gt;-->
-        <!--<bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">-->
-            <!--<property name="maxIdle" value="${redis.maxIdle}"/>-->
-            <!--<property name="maxWaitMillis" value="${redis.maxWait}"/>-->
-            <!--<property name="testOnBorrow" value="${redis.testOnBorrow}"/>-->
-            <!--<property name="maxTotal" value="${redis.maxActive}"/>-->
-        <!--</bean>-->
-        <!--&lt;!&ndash;spring-redis连接&ndash;&gt;-->
-        <!--<bean id="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory" p:hostName="${redis.host}" p:port="${redis.port}" p:password="${redis.pass}" p:poolConfig-ref="poolConfig"/>-->
-        <!--&lt;!&ndash;静态注入&ndash;&gt;-->
-        <!--<bean id="redisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate">-->
-            <!--<property name="connectionFactory" ref="jedisConnectionFactory"></property>-->
-        <!--</bean>-->
-
         <!-- Mybatis  SqlSessionFactory  ibatis -->
         <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
             <!-- 数据源 -->
@@ -109,5 +103,22 @@
         </bean>
         <!-- 开启事务注解 -->
         <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <!-- redis数据源 -->
+    <bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <property name="maxIdle" value="${redis.maxIdle}" />
+        <property name="maxTotal" value="${redis.maxActive}" />
+        <property name="maxWaitMillis" value="${redis.maxWait}" />
+        <property name="testOnBorrow" value="${redis.testOnBorrow}" />
+    </bean>
+    <!-- Spring-redis连接池管理工厂 -->
+    <bean id="jedisConnectionFactory"
+          class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
+          p:host-name="${redis.host}" p:port="${redis.port}" p:password="${redis.pass}"
+          p:pool-config-ref="poolConfig" />
+    <!-- 使用中间类解决RedisCache.jedisConnectionFactory的静态注入，从而使MyBatis实现第三方缓存 -->
+    <bean id="redisCacheTransfer" class="com.account.common.utils.RedisCacheTransfer">
+        <property name="jedisConnectionFactory" ref="jedisConnectionFactory" />
+    </bean>
 
 </beans>
