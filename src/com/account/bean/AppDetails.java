@@ -1,13 +1,16 @@
 package com.account.bean;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class AppDetails implements Serializable {
     private Long AppDetailsId;
-    private String pingyin;
-    private String AppName;
-    private String Service;
-    private String CommodityId;
+    private String pingyin;//应用拼音
+    private String AppName;//应用名
+    private String AppType;//类型
+    private String Devel;//等级
+    private List<AppServiceBean> appServiceBeans;//区服
+    private List<Commodity> commodityList;//商品表
     private static final long serialVersionUID = 1L;
 
     public static long getSerialVersionUID() {
@@ -22,10 +25,6 @@ public class AppDetails implements Serializable {
         return AppName;
     }
 
-    public String getCommodityId() {
-        return CommodityId;
-    }
-
     public String getPingyin() {
         return pingyin;
     }
@@ -34,23 +33,12 @@ public class AppDetails implements Serializable {
         AppDetailsId = appDetailsId;
     }
 
-    public String getService() {
-        return Service;
-    }
-
     public void setAppName(String appName) {
         AppName = appName;
-    }
-
-    public void setCommodityId(String commodityId) {
-        CommodityId = commodityId;
     }
 
     public void setPingyin(String pingyin) {
         this.pingyin = pingyin;
     }
 
-    public void setService(String service) {
-        Service = service;
-    }
 }

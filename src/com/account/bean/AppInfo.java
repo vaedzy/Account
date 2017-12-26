@@ -10,9 +10,9 @@ import java.util.Date;
 public class AppInfo implements Serializable {
     private Long id;
 
-    private String aAppName;
+    private String aAppName; //爱奇艺
 
-    private String aAppType;
+    private String aAppType;//视频
 
     private String aPinyin;
 
