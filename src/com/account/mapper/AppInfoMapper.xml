@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.account.mapper.AppInfoMapper">
+  <resultMap id="BaseResultMap" type="com.account.bean.AppInfo">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="A_APP_NAME" jdbcType="VARCHAR" property="aAppName" />
+    <result column="A_APP_TYPE" jdbcType="VARCHAR" property="aAppType" />
+    <result column="A_PINYIN" jdbcType="VARCHAR" property="aPinyin" />
+    <result column="A_DEVELOP_10" jdbcType="VARCHAR" property="aDevelop10" />
+    <result column="A_DEVELOP_09" jdbcType="VARCHAR" property="aDevelop09" />
+    <result column="A_DEVELOP_08" jdbcType="VARCHAR" property="aDevelop08" />
+    <result column="A_DEVELOP_07" jdbcType="VARCHAR" property="aDevelop07" />
+    <result column="A_DEVELOP_06" jdbcType="VARCHAR" property="aDevelop06" />
+    <result column="A_DEVELOP_05" jdbcType="VARCHAR" property="aDevelop05" />
+    <result column="A_DEVELOP_04" jdbcType="VARCHAR" property="aDevelop04" />
+    <result column="A_DEVELOP_03" jdbcType="VARCHAR" property="aDevelop03" />
+    <result column="A_DEVELOP_01" jdbcType="VARCHAR" property="aDevelop01" />
+    <result column="A_DEVELOP_02" jdbcType="VARCHAR" property="aDevelop02" />
+    <result column="A_CREATE_TIME" jdbcType="TIMESTAMP" property="aCreateTime" />
+    <result column="A_CREATOR" jdbcType="VARCHAR" property="aCreator" />
+    <result column="A_MODIFTY_TIME" jdbcType="TIMESTAMP" property="aModiftyTime" />
+    <result column="A_MODIFIER" jdbcType="VARCHAR" property="aModifier" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from AC_APP
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.account.bean.AppInfo">
+    insert into AC_APP (ID, A_APP_NAME, A_APP_TYPE, 
+      A_PINYIN, A_DEVELOP_10, A_DEVELOP_09, 
+      A_DEVELOP_08, A_DEVELOP_07, A_DEVELOP_06, 
+      A_DEVELOP_05, A_DEVELOP_04, A_DEVELOP_03, 
+      A_DEVELOP_01, A_DEVELOP_02, A_CREATE_TIME, 
+      A_CREATOR, A_MODIFTY_TIME, A_MODIFIER
+      )
+    values (#{id,jdbcType=BIGINT}, #{aAppName,jdbcType=VARCHAR}, #{aAppType,jdbcType=VARCHAR}, 
+      #{aPinyin,jdbcType=VARCHAR}, #{aDevelop10,jdbcType=VARCHAR}, #{aDevelop09,jdbcType=VARCHAR}, 
+      #{aDevelop08,jdbcType=VARCHAR}, #{aDevelop07,jdbcType=VARCHAR}, #{aDevelop06,jdbcType=VARCHAR}, 
+      #{aDevelop05,jdbcType=VARCHAR}, #{aDevelop04,jdbcType=VARCHAR}, #{aDevelop03,jdbcType=VARCHAR}, 
+      #{aDevelop01,jdbcType=VARCHAR}, #{aDevelop02,jdbcType=VARCHAR}, #{aCreateTime,jdbcType=TIMESTAMP}, 
+      #{aCreator,jdbcType=VARCHAR}, #{aModiftyTime,jdbcType=TIMESTAMP}, #{aModifier,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.account.bean.AppInfo">
+    update AC_APP
+    set A_APP_NAME = #{aAppName,jdbcType=VARCHAR},
+      A_APP_TYPE = #{aAppType,jdbcType=VARCHAR},
+      A_PINYIN = #{aPinyin,jdbcType=VARCHAR},
+      A_DEVELOP_10 = #{aDevelop10,jdbcType=VARCHAR},
+      A_DEVELOP_09 = #{aDevelop09,jdbcType=VARCHAR},
+      A_DEVELOP_08 = #{aDevelop08,jdbcType=VARCHAR},
+      A_DEVELOP_07 = #{aDevelop07,jdbcType=VARCHAR},
+      A_DEVELOP_06 = #{aDevelop06,jdbcType=VARCHAR},
+      A_DEVELOP_05 = #{aDevelop05,jdbcType=VARCHAR},
+      A_DEVELOP_04 = #{aDevelop04,jdbcType=VARCHAR},
+      A_DEVELOP_03 = #{aDevelop03,jdbcType=VARCHAR},
+      A_DEVELOP_01 = #{aDevelop01,jdbcType=VARCHAR},
+      A_DEVELOP_02 = #{aDevelop02,jdbcType=VARCHAR},
+      A_CREATE_TIME = #{aCreateTime,jdbcType=TIMESTAMP},
+      A_CREATOR = #{aCreator,jdbcType=VARCHAR},
+      A_MODIFTY_TIME = #{aModiftyTime,jdbcType=TIMESTAMP},
+      A_MODIFIER = #{aModifier,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select ID, A_APP_NAME, A_APP_TYPE, A_PINYIN, A_DEVELOP_10, A_DEVELOP_09, A_DEVELOP_08, 
+    A_DEVELOP_07, A_DEVELOP_06, A_DEVELOP_05, A_DEVELOP_04, A_DEVELOP_03, A_DEVELOP_01, 
+    A_DEVELOP_02, A_CREATE_TIME, A_CREATOR, A_MODIFTY_TIME, A_MODIFIER
+    from AC_APP
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, A_APP_NAME, A_APP_TYPE, A_PINYIN, A_DEVELOP_10, A_DEVELOP_09, A_DEVELOP_08, 
+    A_DEVELOP_07, A_DEVELOP_06, A_DEVELOP_05, A_DEVELOP_04, A_DEVELOP_03, A_DEVELOP_01, 
+    A_DEVELOP_02, A_CREATE_TIME, A_CREATOR, A_MODIFTY_TIME, A_MODIFIER
+    from AC_APP
+  </select>
+</mapper>

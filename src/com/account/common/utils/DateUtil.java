@@ -27,9 +27,7 @@ public class DateUtil {
      * @return
      */
     public static Long getMillisecond() {
-        Date date = new Date();
-        long time = date.getTime();
-        return time;
+        return System.currentTimeMillis();
     }
 
     /**
