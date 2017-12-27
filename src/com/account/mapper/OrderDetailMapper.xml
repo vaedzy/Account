@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.account.mapper.OrderDetailMapper">
+  <resultMap id="BaseResultMap" type="com.account.bean.OrderDetail">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="OD_COMMODITY_ID" jdbcType="BIGINT" property="odCommodityId" />
+    <result column="OD_ORDER_ID" jdbcType="BIGINT" property="odOrderId" />
+    <result column="OD_REMARKS" jdbcType="VARCHAR" property="odRemarks" />
+    <result column="OD_CREATE_TIME" jdbcType="TIMESTAMP" property="odCreateTime" />
+    <result column="OD_COMMODITY_NUMBER" jdbcType="INTEGER" property="odCommodityNumber" />
+    <result column="OD_DEVELOP_07" jdbcType="VARCHAR" property="odDevelop07" />
+    <result column="OD_DEVELOP_06" jdbcType="VARCHAR" property="odDevelop06" />
+    <result column="OD_DEVELOP_05" jdbcType="VARCHAR" property="odDevelop05" />
+    <result column="OD_DEVELOP_04" jdbcType="VARCHAR" property="odDevelop04" />
+    <result column="OD_DEVELOP_03" jdbcType="VARCHAR" property="odDevelop03" />
+    <result column="OD_DEVELOP_01" jdbcType="VARCHAR" property="odDevelop01" />
+    <result column="OD_DEVELOP_02" jdbcType="VARCHAR" property="odDevelop02" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from AC_ORDER_DETAIL
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.account.bean.OrderDetail" keyProperty="ID" useGeneratedKeys="true">
+    insert into AC_ORDER_DETAIL (ID, OD_COMMODITY_ID, OD_ORDER_ID, 
+      OD_REMARKS, OD_CREATE_TIME, OD_COMMODITY_NUMBER, 
+      OD_DEVELOP_07, OD_DEVELOP_06, OD_DEVELOP_05, 
+      OD_DEVELOP_04, OD_DEVELOP_03, OD_DEVELOP_01, 
+      OD_DEVELOP_02)
+    values (#{id,jdbcType=BIGINT}, #{odCommodityId,jdbcType=BIGINT}, #{odOrderId,jdbcType=BIGINT}, 
+      #{odRemarks,jdbcType=VARCHAR}, #{odCreateTime,jdbcType=TIMESTAMP}, #{odCommodityNumber,jdbcType=INTEGER}, 
+      #{odDevelop07,jdbcType=VARCHAR}, #{odDevelop06,jdbcType=VARCHAR}, #{odDevelop05,jdbcType=VARCHAR}, 
+      #{odDevelop04,jdbcType=VARCHAR}, #{odDevelop03,jdbcType=VARCHAR}, #{odDevelop01,jdbcType=VARCHAR}, 
+      #{odDevelop02,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.account.bean.OrderDetail">
+    update AC_ORDER_DETAIL
+    set OD_COMMODITY_ID = #{odCommodityId,jdbcType=BIGINT},
+      OD_ORDER_ID = #{odOrderId,jdbcType=BIGINT},
+      OD_REMARKS = #{odRemarks,jdbcType=VARCHAR},
+      OD_CREATE_TIME = #{odCreateTime,jdbcType=TIMESTAMP},
+      OD_COMMODITY_NUMBER = #{odCommodityNumber,jdbcType=INTEGER},
+      OD_DEVELOP_07 = #{odDevelop07,jdbcType=VARCHAR},
+      OD_DEVELOP_06 = #{odDevelop06,jdbcType=VARCHAR},
+      OD_DEVELOP_05 = #{odDevelop05,jdbcType=VARCHAR},
+      OD_DEVELOP_04 = #{odDevelop04,jdbcType=VARCHAR},
+      OD_DEVELOP_03 = #{odDevelop03,jdbcType=VARCHAR},
+      OD_DEVELOP_01 = #{odDevelop01,jdbcType=VARCHAR},
+      OD_DEVELOP_02 = #{odDevelop02,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select ID, OD_COMMODITY_ID, OD_ORDER_ID, OD_REMARKS, OD_CREATE_TIME, OD_COMMODITY_NUMBER, 
+    OD_DEVELOP_07, OD_DEVELOP_06, OD_DEVELOP_05, OD_DEVELOP_04, OD_DEVELOP_03, OD_DEVELOP_01, 
+    OD_DEVELOP_02
+    from AC_ORDER_DETAIL
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, OD_COMMODITY_ID, OD_ORDER_ID, OD_REMARKS, OD_CREATE_TIME, OD_COMMODITY_NUMBER, 
+    OD_DEVELOP_07, OD_DEVELOP_06, OD_DEVELOP_05, OD_DEVELOP_04, OD_DEVELOP_03, OD_DEVELOP_01, 
+    OD_DEVELOP_02
+    from AC_ORDER_DETAIL
+  </select>
+</mapper>
