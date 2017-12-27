@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.account.mapper.AppMapper">
+<mapper namespace="com.account.mapper.AppTypeMapper">
     <cache eviction="LRU" type="com.account.common.utils.RedisCache" />
     <resultMap id="BaseResultMap" type="com.account.bean.AppType">
-        <id column="TypeId" jdbcType="int" property="TypeId"/>
+        <id column="TypeId" jdbcType="INTEGER" property="TypeId"/>
         <result column="TypeName" jdbcType="VARCHAR" property="TypeName"/>
     </resultMap>
     <sql id="Type_List">
-       aAppId,aAppname,aAppIndex
+       TypeId,TypeName
     </sql>
-    <select id="getAll" resultMap="BaseResultMap">
+    <select id="selectAll" resultMap="BaseResultMap">
         select
         <include refid="Type_List"/>
-         from AppType
+         from AppType where TypeName =  #{TypeName,jdbcType=VARCHAR}
     </select>
 
 

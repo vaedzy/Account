@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: duzeyu
@@ -11,6 +12,6 @@
     <title>Title</title>
 </head>
 <body>
-<<a href="/mainNav">点我</a>
+
 </body>
 </html>

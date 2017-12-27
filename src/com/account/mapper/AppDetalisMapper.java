@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface AppDetalisMapper {
     List<AppDetails> selectAll(@Param("AppName")String AppName);
+    public AppDetails select(long id);
 }
