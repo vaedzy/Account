@@ -26,7 +26,7 @@
     delete from AC_PERSON
     where ID = #{id,jdbcType=BIGINT}
   </delete>
-    <insert id="insert" parameterType="com.account.bean.Person">
+    <insert id="insert" parameterType="com.account.bean.Person" keyProperty="ID" useGeneratedKeys="true">
     insert into AC_PERSON (ID, P_FULLNAME, P_SEX, 
       P_CERTIFICATE_TYPE, P_CERTIFICATE_NUMBER, P_PHONE, 
       P_BIRTHDAY, P_NICKNAME, P_EMAIL, 

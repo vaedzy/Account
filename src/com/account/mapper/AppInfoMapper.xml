@@ -25,7 +25,7 @@
     delete from AC_APP
     where ID = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.account.bean.AppInfo">
+  <insert id="insert" parameterType="com.account.bean.AppInfo"  keyProperty="ID" useGeneratedKeys="true">
     insert into AC_APP (ID, A_APP_NAME, A_APP_TYPE, 
       A_PINYIN, A_DEVELOP_10, A_DEVELOP_09, 
       A_DEVELOP_08, A_DEVELOP_07, A_DEVELOP_06, 
