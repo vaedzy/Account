@@ -12,7 +12,7 @@
     <result column="AO_COMMODITY_NUMBER" jdbcType="INTEGER" property="aoCommodityNumber" />
     <result column="AO_EFFECTIVE_TIME" jdbcType="REAL" property="aoEffectiveTime" />
     <result column="AO_DELIVERY_TIME" jdbcType="TIMESTAMP" property="aoDeliveryTime" />
-    <result column="AO_EXORESS_TYPE" jdbcType="VARCHAR" property="aoExoressType" />
+    <result column="AO_EXPRESS_TYPE" jdbcType="VARCHAR" property="aoExpressType" />
     <result column="AO_DEVELOP_01" jdbcType="VARCHAR" property="aoDevelop01" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
@@ -23,12 +23,12 @@
     insert into AC_ACCOUNT_ORDER (ID, AO_PARENT_ID, AO_IS_FINISH, 
       AO_CREATE_TIME, AO_DETAIL_ID, AO_NUMBER, 
       AO_PAY_TYPE, AO_COMMODITY_NUMBER, AO_EFFECTIVE_TIME, 
-      AO_DELIVERY_TIME, AO_EXORESS_TYPE, AO_DEVELOP_01
+      AO_DELIVERY_TIME, AO_EXPRESS_TYPE, AO_DEVELOP_01
       )
     values (#{id,jdbcType=BIGINT}, #{aoParentId,jdbcType=VARCHAR}, #{aoIsFinish,jdbcType=CHAR}, 
       #{aoCreateTime,jdbcType=TIMESTAMP}, #{aoDetailId,jdbcType=BIGINT}, #{aoNumber,jdbcType=VARCHAR}, 
       #{aoPayType,jdbcType=VARCHAR}, #{aoCommodityNumber,jdbcType=INTEGER}, #{aoEffectiveTime,jdbcType=REAL}, 
-      #{aoDeliveryTime,jdbcType=TIMESTAMP}, #{aoExoressType,jdbcType=VARCHAR}, #{aoDevelop01,jdbcType=VARCHAR}
+      #{aoDeliveryTime,jdbcType=TIMESTAMP}, #{aoExpressType,jdbcType=VARCHAR}, #{aoDevelop01,jdbcType=VARCHAR}
       )
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.account.bean.AccountOrder">
@@ -42,19 +42,19 @@
       AO_COMMODITY_NUMBER = #{aoCommodityNumber,jdbcType=INTEGER},
       AO_EFFECTIVE_TIME = #{aoEffectiveTime,jdbcType=REAL},
       AO_DELIVERY_TIME = #{aoDeliveryTime,jdbcType=TIMESTAMP},
-      AO_EXORESS_TYPE = #{aoExoressType,jdbcType=VARCHAR},
+      AO_EXPRESS_TYPE = #{aoExpressType,jdbcType=VARCHAR},
       AO_DEVELOP_01 = #{aoDevelop01,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=BIGINT}
   </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select ID, AO_PARENT_ID, AO_IS_FINISH, AO_CREATE_TIME, AO_DETAIL_ID, AO_NUMBER, AO_PAY_TYPE, 
-    AO_COMMODITY_NUMBER, AO_EFFECTIVE_TIME, AO_DELIVERY_TIME, AO_EXORESS_TYPE, AO_DEVELOP_01
+    AO_COMMODITY_NUMBER, AO_EFFECTIVE_TIME, AO_DELIVERY_TIME, AO_EXPRESS_TYPE, AO_DEVELOP_01
     from AC_ACCOUNT_ORDER
     where ID = #{id,jdbcType=BIGINT}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select ID, AO_PARENT_ID, AO_IS_FINISH, AO_CREATE_TIME, AO_DETAIL_ID, AO_NUMBER, AO_PAY_TYPE, 
-    AO_COMMODITY_NUMBER, AO_EFFECTIVE_TIME, AO_DELIVERY_TIME, AO_EXORESS_TYPE, AO_DEVELOP_01
+    AO_COMMODITY_NUMBER, AO_EFFECTIVE_TIME, AO_DELIVERY_TIME, AO_EXPRESS_TYPE, AO_DEVELOP_01
     from AC_ACCOUNT_ORDER
   </select>
 </mapper>

@@ -24,7 +24,7 @@ public class AccountOrder implements Serializable {
 
     private Date aoDeliveryTime;
 
-    private String aoExoressType;
+    private String aoExpressType;
 
     private String aoDevelop01;
 
@@ -110,12 +110,16 @@ public class AccountOrder implements Serializable {
         this.aoDeliveryTime = aoDeliveryTime;
     }
 
-    public String getAoExoressType() {
-        return aoExoressType;
+    public String getAoExpressType() {
+        return aoExpressType;
     }
 
-    public void setAoExoressType(String aoExoressType) {
-        this.aoExoressType = aoExoressType == null ? null : aoExoressType.trim();
+    public void setAoExpressType(String aoExpressType) {
+        this.aoExpressType = aoExpressType;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
     public String getAoDevelop01() {
