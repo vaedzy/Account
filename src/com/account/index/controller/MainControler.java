@@ -58,19 +58,11 @@ public class MainControler {
                 AppName = app.getAppName();
             }
             System.out.println(AppName);
-            //根据应用名称获取商品
-//            List<GoodsInfo> commodityList = mainService.AllCommodity(AppName);
-//            if (commodityList!=null && !commodityList.isEmpty()){
-//                //不为空 有商品
-//                session.setAttribute("commodityList",commodityList);
-//                return new ModelAndView("");
-//            }else {
-//                return new ModelAndView("");
-//            }
+
         }else{
            //不存在
 
-            return new ModelAndView("");
+            return new ModelAndView("redirect:/index.jsp");
         }
 
         return new ModelAndView("");
