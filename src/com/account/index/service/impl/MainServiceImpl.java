@@ -2,9 +2,11 @@ package com.account.index.service.impl;
 
 import com.account.bean.App;
 import com.account.bean.AppName;
+import com.account.bean.AppQu;
 import com.account.index.service.MainService;
 import com.account.mapper.AppMapper;
 import com.account.mapper.AppNameMapper;
+import com.account.mapper.AppQuMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,7 +20,8 @@ public class MainServiceImpl implements MainService{
     private AppMapper appMapper;
     @Autowired(required = false)
     private AppNameMapper appNameMapper;
-
+    @Autowired(required = false)
+    private AppQuMapper appQuMapper;
     @Override
     public List<App> appList(String aAppIndex) {
     List<App> appList = appMapper.getAll(aAppIndex);
@@ -30,6 +33,12 @@ public class MainServiceImpl implements MainService{
 
         List<AppName> appNameList = appNameMapper.getAppName(search);
         return appNameList;
+    }
+
+    @Override
+    public List<AppQu> getAppQu(long AppId) {
+        List<AppQu> appQuList = appQuMapper.getAppQu(AppId);
+        return appQuList;
     }
 
 

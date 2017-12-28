@@ -8,12 +8,12 @@
         <result column="AppId" jdbcType="BIGINT" property="AppId"/>
     </resultMap>
     <sql id="Base_Column_List">
-       AppId,AppType,AppPinyin,AppName
+       QuId,ParentId,QuName,AppId
     </sql>
     <select id="getAppQu" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-         from AppQu
+         from AppQu where AppId = #{AppId,jdbcType=BIGINT}
     </select>
 
 </mapper>
