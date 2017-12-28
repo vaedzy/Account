@@ -1,6 +1,7 @@
 package com.account.index.controller;
 
 import com.account.bean.App;
+import com.account.bean.GoodsInfo;
 import com.account.index.service.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -50,13 +51,13 @@ public class MainControler {
             //存入应用表数据
             session.setAttribute("appDetailsList",appDetailsList);
             //存储真正的应用名
-            String appname = null;
+            String AppName = null;
             //循环遍历出应用名
             for (AppDetails app : appDetailsList){
                 appname = app.getAppName();
             }
             //根据应用名称获取商品
-            List<Commodity> commodityList = mainService.AllCommodity(appname);
+            List<GoodsInfo> commodityList = mainService.AllCommodity(AppName);
             if (commodityList!=null && !commodityList.isEmpty()){
                 //不为空 有商品
                 session.setAttribute("commodityList",commodityList);
