@@ -1,6 +1,7 @@
 package com.account.index.controller;
 
 import com.account.bean.App;
+import com.account.bean.AppName;
 import com.account.bean.GoodsInfo;
 import com.account.index.service.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,26 +46,27 @@ public class MainControler {
         }
         //如果不是空
         //查询是否存在这个应用
-
+        List<AppName> appNameList = mainService.getAppName(search);
         //如果存在
-        if(appDetailsList!=null && !appDetailsList.isEmpty()){
+        if(appNameList!=null && !appNameList.isEmpty()){
             //存入应用表数据
-            session.setAttribute("appDetailsList",appDetailsList);
+            session.setAttribute("appNameList",appNameList);
             //存储真正的应用名
             String AppName = null;
             //循环遍历出应用名
-            for (AppDetails app : appDetailsList){
-                appname = app.getAppName();
+            for (AppName app : appNameList){
+                AppName = app.getAppName();
             }
+            System.out.println(AppName);
             //根据应用名称获取商品
-            List<GoodsInfo> commodityList = mainService.AllCommodity(AppName);
-            if (commodityList!=null && !commodityList.isEmpty()){
-                //不为空 有商品
-                session.setAttribute("commodityList",commodityList);
-                return new ModelAndView("");
-            }else {
-                return new ModelAndView("");
-            }
+//            List<GoodsInfo> commodityList = mainService.AllCommodity(AppName);
+//            if (commodityList!=null && !commodityList.isEmpty()){
+//                //不为空 有商品
+//                session.setAttribute("commodityList",commodityList);
+//                return new ModelAndView("");
+//            }else {
+//                return new ModelAndView("");
+//            }
         }else{
            //不存在
 
