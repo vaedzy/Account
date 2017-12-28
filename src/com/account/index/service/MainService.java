@@ -2,7 +2,6 @@ package com.account.index.service;
 
 import com.account.bean.App;
 import com.account.bean.AppDetails;
-import com.account.bean.AppType;
 import com.account.bean.Commodity;
 
 import java.util.List;

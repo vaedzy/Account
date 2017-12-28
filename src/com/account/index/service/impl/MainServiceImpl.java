@@ -2,12 +2,10 @@ package com.account.index.service.impl;
 
 import com.account.bean.App;
 import com.account.bean.AppDetails;
-import com.account.bean.AppType;
 import com.account.bean.Commodity;
 import com.account.index.service.MainService;
 import com.account.mapper.AppDetalisMapper;
 import com.account.mapper.AppMapper;
-import com.account.mapper.AppTypeMapper;
 import com.account.mapper.CommodityMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

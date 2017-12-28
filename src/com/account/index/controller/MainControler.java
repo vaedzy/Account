@@ -1,9 +1,6 @@
 package com.account.index.controller;
 
 import com.account.bean.App;
-import com.account.bean.AppDetails;
-import com.account.bean.AppType;
-import com.account.bean.Commodity;
 import com.account.index.service.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -47,13 +44,9 @@ public class MainControler {
         }
         //如果不是空
         //查询是否存在这个应用
-      //  List<AppDetails> appDetailsList = mainService.findApp(search);
-        List<AppType> appDetailsList1 = mainService.appTypeList(search);
-        for (AppType app : appDetailsList1){
-            System.out.println(app.getTypeName());
-        }
+
         //如果存在
-     /*   if(appDetailsList!=null && !appDetailsList.isEmpty()){
+        if(appDetailsList!=null && !appDetailsList.isEmpty()){
             //存入应用表数据
             session.setAttribute("appDetailsList",appDetailsList);
             //存储真正的应用名
@@ -76,7 +69,7 @@ public class MainControler {
 
             return new ModelAndView("");
         }
-        */
+
         return new ModelAndView("");
     }
     /**
