@@ -14,10 +14,7 @@ import java.util.List;
 public class MainServiceImpl implements MainService{
     @Autowired(required = false)
     private AppMapper appMapper;
-    @Autowired(required = false)
-    private AppDetalisMapper appDetalisMapper;
-    @Autowired(required = false)
-    private CommodityMapper commodityMapper;
+
 
 
     @Override
@@ -28,9 +25,5 @@ public class MainServiceImpl implements MainService{
 
 
 
-    @Override
-    public List<Commodity> AllCommodity(String AppName) {
-        List<Commodity> commodityList = commodityMapper.selectAll(AppName);
-        return commodityList;
-    }
+
 }

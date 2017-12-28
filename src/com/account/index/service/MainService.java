@@ -8,5 +8,5 @@ public interface MainService {
 
     List<App> appList (String aAppIndex);
 
-    List<Commodity> AllCommodity(String AppName);
+
 }
