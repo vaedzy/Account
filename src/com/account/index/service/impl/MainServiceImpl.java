@@ -27,6 +27,7 @@ public class MainServiceImpl implements MainService{
 
     @Override
     public List<AppName> getAppName(String search) {
+
         List<AppName> appNameList = appNameMapper.getAppName(search);
         return appNameList;
     }
