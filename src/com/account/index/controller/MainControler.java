@@ -3,6 +3,7 @@ package com.account.index.controller;
 import com.account.bean.App;
 import com.account.bean.AppName;
 import com.account.bean.AppQu;
+import com.account.bean.GoodsInfo;
 import com.account.index.service.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -85,5 +86,16 @@ public class MainControler {
     public ModelAndView preciseApp(@RequestParam("AppName")String AppName){
         System.out.println(AppName);
         return new ModelAndView();
+    }
+
+    /**
+     * 查询商品信息
+     */
+    @RequestMapping("queryGoods")
+    public ModelAndView queryGoods(@RequestParam("AppName")Long AppId){
+        ModelAndView modelAndView = new ModelAndView();
+        List<GoodsInfo> goodsInfo = mainService.getGoodsInfo(AppId);
+
+        return modelAndView;
     }
 }

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.account.mapper.GoodsInfoMapper">
+    <resultMap id="BaseResultMap" type="com.account.bean.GoodsInfo">
+        <id column="gId" jdbcType="BIGINT" property="gId"/>
+        <result column="AppType" jdbcType="VARCHAR" property="AppType"/>
+        <result column="AppId" jdbcType="BIGINT" property="AppId"/>
+        <result column="QuId" jdbcType="BIGINT" property="QuId"/>
+        <result column="gName" jdbcType="VARCHAR" property="gName"/>
+        <result column="gprice" jdbcType="DOUBLE" property="gprice"/>
+        <result column="gphotourl1" jdbcType="VARCHAR" property="gphotourl1"/>
+        <result column="gphotourl2" jdbcType="VARCHAR" property="gphotourl2"/>
+        <result column="gphotourl3" jdbcType="VARCHAR" property="gphotourl3"/>
+        <result column="gphotourl4" jdbcType="VARCHAR" property="gphotourl4"/>
+        <result column="gphotourl5" jdbcType="VARCHAR" property="gphotourl5"/>
+        <result column="gphotourl6" jdbcType="VARCHAR" property="gphotourl6"/>
+        <result column="gphotourl7" jdbcType="VARCHAR" property="gphotourl7"/>
+        <result column="gphotourl8" jdbcType="VARCHAR" property="gphotourl8"/>
+        <result column="gphotourl9" jdbcType="VARCHAR" property="gphotourl9"/>
+        <result column="gphotourl10" jdbcType="VARCHAR" property="gphotourl10"/>
+        <result column="remark" jdbcType="TEXT" property="remark"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        gId,AppType,AppId,QuId,gName,gprice,gphotourl1,gphotourl2,gphotourl3,gphotourl4,gphotourl5,gphotourl6,gphotourl7,gphotourl8,gphotourl9,gphotourl10,remark
+    </sql>
+    <select id="getGoodsByAppId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+         from GoodsInfo where AppId = #{AppId,jdbcType=BIGINT}
+    </select>
+
+<!--    <select id="getByName" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from GoodsInfo where gName = #{gName,jdbcType=VARCHAR}
+    </select>-->
+
+</mapper>
