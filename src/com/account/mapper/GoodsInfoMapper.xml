@@ -18,15 +18,16 @@
         <result column="gphotourl8" jdbcType="VARCHAR" property="gphotourl8"/>
         <result column="gphotourl9" jdbcType="VARCHAR" property="gphotourl9"/>
         <result column="gphotourl10" jdbcType="VARCHAR" property="gphotourl10"/>
-        <result column="remark" jdbcType="TEXT" property="remark"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
     </resultMap>
     <sql id="Base_Column_List">
-        gId,AppType,AppId,QuId,gName,gprice,gphotourl1,gphotourl2,gphotourl3,gphotourl4,gphotourl5,gphotourl6,gphotourl7,gphotourl8,gphotourl9,gphotourl10,remark
+        gId,AppType,AppId,QuId,gName,gprice,gphotourl1,gphotourl2,gphotourl3,gphotourl4,gphotourl5,gphotourl6,gphotourl7,gphotourl8,gphotourl9,gphotourl10,remark,status
     </sql>
     <select id="getGoodsByAppId" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-         from GoodsInfo where AppId = #{AppId,jdbcType=BIGINT}
+         from GoodsInfo where AppId = #{AppId,jdbcType=BIGINT} AND status = 1
     </select>
 
 <!--    <select id="getByName" resultMap="BaseResultMap">

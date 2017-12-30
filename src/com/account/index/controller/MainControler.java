@@ -3,6 +3,7 @@ package com.account.index.controller;
 import com.account.bean.App;
 import com.account.bean.AppName;
 import com.account.bean.AppQu;
+import com.account.bean.GoodsInfo;
 import com.account.index.service.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -51,32 +52,32 @@ public class MainControler {
         if(appNameList!=null && !appNameList.isEmpty()){
             //存入应用表数据
             session.setAttribute("appNameList",appNameList);
-
-            //存储真正的应用名
-            String AppName = null;
+            //给appid赋值
             long AppId = -1;
             //循环遍历出应用名
             for (AppName app : appNameList){
-                //app的名字
-                AppName = app.getAppName();
-                //app的id 用这个搜索区
+                //app的id 用这个去查区服以及商品
                 AppId = app.getAppId();
             }
             List<AppQu> appQuList = mainService.getAppQu(AppId);
-            //测试代码
-            String appqu = null;
-            for (AppQu appQu : appQuList){
-              appqu= appQu.getQuName();
-              System.out.println(appqu);
+            session.setAttribute("appQuList",appQuList);
+            List<GoodsInfo> goodsInfoList = mainService.getGoodsInfo(AppId);
+            session.setAttribute("goodsInfoList",goodsInfoList);
+            for (AppQu app1 : appQuList){
+                //app的id 用这个去查区服以及商品
+                System.out.println(app1.getQuName());
             }
-            System.out.println(AppName+appqu);
+            for (GoodsInfo app2 : goodsInfoList){
+                //app的id 用这个去查区服以及商品
+                System.out.println(app2.getgName());
+            }
+            return new ModelAndView("Browse");
         }else{
            //不存在
-
             return new ModelAndView("redirect:/index.jsp");
         }
 
-        return new ModelAndView("");
+
     }
     /**
      * 精准的应用名 来源于主导航

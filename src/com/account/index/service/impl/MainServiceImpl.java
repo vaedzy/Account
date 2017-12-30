@@ -48,7 +48,8 @@ public class MainServiceImpl implements MainService{
 
     @Override
     public List<GoodsInfo> getGoodsInfo(long AppId) {
-        return goodsInfoMapper.getGoodsByAppId(AppId);
+        List<GoodsInfo> goodsInfoList = goodsInfoMapper.getGoodsByAppId(AppId);
+        return goodsInfoList;
     }
 
 

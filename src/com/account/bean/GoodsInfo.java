@@ -22,6 +22,15 @@ public class GoodsInfo  implements Serializable {
     private String gphotourl9;
     private String gphotourl10;
     private String remark;
+    private Integer status;
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
 
     public long getgId() {
         return gId;
