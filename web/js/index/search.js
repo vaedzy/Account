@@ -82,7 +82,7 @@ $(function(){
                 });
                 $("#fieldApp").html(html);
                 $(".nr").click(function(){
-                    location.href="/preciseApp?AppName="+$(this).html();
+                    location.href="/souApp?search="+$(this).html();
                 });
             }
         });

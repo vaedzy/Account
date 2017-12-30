@@ -62,7 +62,9 @@ public class MainControler {
                 //app的id 用这个搜索区
                 AppId = app.getAppId();
             }
+
             List<AppQu> appQuList = mainService.getAppQu(AppId);
+
             //测试代码
             String appqu = null;
             for (AppQu appQu : appQuList){
@@ -77,13 +79,5 @@ public class MainControler {
         }
 
         return new ModelAndView("");
-    }
-    /**
-     * 精准的应用名 来源于主导航
-     */
-    @RequestMapping("preciseApp")
-    public ModelAndView preciseApp(@RequestParam("AppName")String AppName){
-        System.out.println(AppName);
-        return new ModelAndView();
     }
 }
