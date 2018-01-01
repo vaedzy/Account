@@ -190,6 +190,10 @@ public class Person implements Serializable {
         return pIsRegistered;
     }
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
     public void setpIsRegistered(String pIsRegistered) {
         this.pIsRegistered = pIsRegistered;
     }

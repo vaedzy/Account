@@ -63,15 +63,8 @@ public class MainControler {
             session.setAttribute("appQuList",appQuList);
             List<GoodsInfo> goodsInfoList = mainService.getGoodsInfo(AppId);
             session.setAttribute("goodsInfoList",goodsInfoList);
-            for (AppQu app1 : appQuList){
-                //app的id 用这个去查区服以及商品
-                System.out.println(app1.getQuName());
-            }
-            for (GoodsInfo app2 : goodsInfoList){
-                //app的id 用这个去查区服以及商品
-                System.out.println(app2.getgName());
-            }
-            return new ModelAndView("Browse");
+
+            return new ModelAndView("show");
         }else{
            //不存在
             return new ModelAndView("redirect:/index.jsp");
