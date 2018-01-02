@@ -6,9 +6,9 @@ public class GoodsInfo  implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private long gId;
-    private String AppType;
-    private long AppId;
-    private long QuId;
+    private String appType;
+    private long appId;
+    private long quId;
     private String gName;
     private double gprice;
     private String gphotourl1;
@@ -67,28 +67,32 @@ public class GoodsInfo  implements Serializable {
         this.gId = gId;
     }
 
-    public String getAppType() {
-        return AppType;
-    }
-
-    public void setAppType(String appType) {
-        AppType = appType;
-    }
-
-    public long getAppId() {
-        return AppId;
-    }
-
-    public void setAppId(long appId) {
-        AppId = appId;
+    public void setQuId(long quId) {
+        this.quId = quId;
     }
 
     public long getQuId() {
-        return QuId;
+        return quId;
     }
 
-    public void setQuId(long quId) {
-        QuId = quId;
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public long getAppId() {
+        return appId;
+    }
+
+    public void setAppId(long appId) {
+        this.appId = appId;
+    }
+
+    public String getAppType() {
+        return appType;
+    }
+
+    public void setAppType(String appType) {
+        this.appType = appType;
     }
 
     public String getgName() {

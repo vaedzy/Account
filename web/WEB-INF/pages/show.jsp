@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
@@ -6,7 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 <head>
     <title>商品展示</title>
@@ -35,7 +36,7 @@
         <%-- 应用名 --%>
         <select name="appName" id="appName">
             <c:forEach var="a" items="${appNameList}">
-                <option value="${a.AppId}">${a.AppName}</option>
+                <option value="${a.appId}">${a.appName}</option>
             </c:forEach>
         </select>
 

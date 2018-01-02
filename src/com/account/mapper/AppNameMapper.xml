@@ -3,10 +3,10 @@
 <mapper namespace="com.account.mapper.AppNameMapper">
     <cache eviction="LRU" type="com.account.common.utils.RedisCache" />
     <resultMap id="BaseResultMap" type="com.account.bean.AppName">
-        <id column="AppId" jdbcType="BIGINT" property="AppId"/>
-        <result column="AppType" jdbcType="VARCHAR" property="AppType"/>
-        <result column="AppName" jdbcType="VARCHAR" property="AppName"/>
-        <result column="AppPinyin" jdbcType="VARCHAR" property="AppPinyin"/>
+        <id column="AppId" jdbcType="BIGINT" property="appId"/>
+        <result column="AppType" jdbcType="VARCHAR" property="appType"/>
+        <result column="AppName" jdbcType="VARCHAR" property="appName"/>
+        <result column="AppPinyin" jdbcType="VARCHAR" property="appPinyin"/>
     </resultMap>
     <sql id="Base_Column_List">
        AppId,AppType,AppPinyin,AppName

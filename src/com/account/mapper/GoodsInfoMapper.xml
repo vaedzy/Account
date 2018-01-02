@@ -3,10 +3,10 @@
 <mapper namespace="com.account.mapper.GoodsInfoMapper">
     <resultMap id="BaseResultMap" type="com.account.bean.GoodsInfo">
         <id column="gId" jdbcType="BIGINT" property="gId"/>
-        <result column="AppType" jdbcType="VARCHAR" property="AppType"/>
-        <result column="userId" jdbcType="BIGINT" property="AppId"/>
-        <result column="AppId" jdbcType="BIGINT" property="AppId"/>
-        <result column="QuId" jdbcType="BIGINT" property="QuId"/>
+        <result column="AppType" jdbcType="VARCHAR" property="appType"/>
+        <result column="userId" jdbcType="BIGINT" property="userId"/>
+        <result column="AppId" jdbcType="BIGINT" property="appId"/>
+        <result column="QuId" jdbcType="BIGINT" property="quId"/>
         <result column="gName" jdbcType="VARCHAR" property="gName"/>
         <result column="userName" jdbcType="VARCHAR" property="gName"/>
         <result column="passWord" jdbcType="VARCHAR" property="gName"/>

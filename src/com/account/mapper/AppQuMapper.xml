@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.account.mapper.AppQuMapper">
+    <cache eviction="LRU" type="com.account.common.utils.RedisCache" />
     <resultMap id="BaseResultMap" type="com.account.bean.AppQu">
-        <id column="QuId" jdbcType="BIGINT" property="QuId"/>
-        <result column="ParentId" jdbcType="BIGINT" property="ParentId"/>
-        <result column="QuName" jdbcType="VARCHAR" property="QuName"/>
-        <result column="AppId" jdbcType="BIGINT" property="AppId"/>
+        <id column="QuId" jdbcType="BIGINT" property="quId"/>
+        <result column="ParentId" jdbcType="BIGINT" property="parentId"/>
+        <result column="QuName" jdbcType="VARCHAR" property="quName"/>
+        <result column="AppId" jdbcType="BIGINT" property="appId"/>
     </resultMap>
     <sql id="Base_Column_List">
        QuId,ParentId,QuName,AppId

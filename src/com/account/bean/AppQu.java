@@ -6,41 +6,44 @@ public class AppQu implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private long QuId;
-    private long ParentId;
-    private String QuName;
-    private long AppId;
+    private long quId;
+    private long parentId;
+    private String quName;
+    private long appId;
 
     public void setAppId(long appId) {
-        AppId = appId;
+        this.appId = appId;
     }
 
     public long getAppId() {
-        return AppId;
+        return appId;
+    }
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
     public long getParentId() {
-        return ParentId;
+        return parentId;
     }
 
     public long getQuId() {
-        return QuId;
+        return quId;
     }
 
     public String getQuName() {
-        return QuName;
+        return quName;
     }
 
     public void setParentId(long parentId) {
-        ParentId = parentId;
+        this.parentId = parentId;
     }
 
     public void setQuId(long quId) {
-        QuId = quId;
+        this.quId = quId;
     }
 
     public void setQuName(String quName) {
-        QuName = quName;
+        this.quName = quName;
     }
-
 }

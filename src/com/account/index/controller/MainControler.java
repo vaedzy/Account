@@ -55,11 +55,14 @@ public class MainControler {
             request.setAttribute("appNameList",appNameList);
             //给appid赋值
             long AppId = -1;
+            String AppName = "h";
             //循环遍历出应用名
             for (AppName app : appNameList){
                 //app的id 用这个去查区服以及商品
                 AppId = app.getAppId();
+                AppName = app.getAppName();
             }
+            System.out.println(AppId+AppName);
             List<AppQu> appQuList = mainService.getAppQu(AppId);
            // session.setAttribute("appQuList",appQuList);
             request.setAttribute("appQuList",appQuList);
