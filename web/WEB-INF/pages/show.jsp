@@ -7,7 +7,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>商品展示</title>
@@ -33,20 +32,30 @@
     </div>
     <div id="conditions">
         <div id="conditions_title"></div>
+        <%-- 应用名 --%>
         <select name="appName" id="appName">
-            <c:forEach items="${appNameList}" var="a">
+            <c:forEach var="a" items="${appNameList}">
                 <option value="${a.AppId}">${a.AppName}</option>
             </c:forEach>
         </select>
+
+        <%-- 大区 --%>
+        <select name="appQu" id="appName">
+            <c:forEach var="q" items="${appQuList}">
+                <%--<option value="${a.AppId}">${a.AppName}</option>--%>
+            </c:forEach>
+        </select>
+
+
     </div>
     <div id="goodsinfo">
         <%--<c:forEach var="g" items="${goodsInfoList}">--%>
             <div class="goods_box">
                 <div class="app_img">
-
+                    <%-- 这里放一张截图 --%>
                 </div>
                 <div class="app_text">
-                    <div ></div>
+                    <%-- 这里放所有商品信息  --%>
                 </div>
             </div>
         <%--</c:forEach>--%>

@@ -121,7 +121,7 @@ body{
 	top:120px;
 	left:79.3%;
 	width: 200px;
-	height: 230px;
+	height: 220px;
 	background: #00eb6d;
 	border: 1px solid #000;
 	border-radius:8px;
@@ -142,5 +142,13 @@ body{
 	cursor: pointer;
 }
 .app_img{
-
+	float: left;
+	margin: 10px;
+	width: 180px;
+	height: 180px;
+	background: #5e5e5e;
+	overflow: hidden;
+}
+.app_text{
+	float: left;
 }
