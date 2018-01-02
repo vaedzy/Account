@@ -51,7 +51,8 @@ public class MainControler {
         //如果存在
         if(appNameList!=null && !appNameList.isEmpty()){
             //存入应用表数据
-            session.setAttribute("appNameList",appNameList);
+          //  session.setAttribute("appNameList",appNameList);
+            request.setAttribute("appNameList",appNameList);
             //给appid赋值
             long AppId = -1;
             //循环遍历出应用名
@@ -60,10 +61,11 @@ public class MainControler {
                 AppId = app.getAppId();
             }
             List<AppQu> appQuList = mainService.getAppQu(AppId);
-            session.setAttribute("appQuList",appQuList);
+           // session.setAttribute("appQuList",appQuList);
+            request.setAttribute("appQuList",appQuList);
             List<GoodsInfo> goodsInfoList = mainService.getGoodsInfo(AppId);
-            session.setAttribute("goodsInfoList",goodsInfoList);
-
+           // session.setAttribute("goodsInfoList",goodsInfoList);
+            request.setAttribute("goodsInfoList",goodsInfoList);
             return new ModelAndView("show");
         }else{
            //不存在
