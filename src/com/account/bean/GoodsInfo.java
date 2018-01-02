@@ -23,6 +23,33 @@ public class GoodsInfo  implements Serializable {
     private String gphotourl10;
     private String remark;
     private Integer status;
+    private String userName;
+    private String passWord;
+    private long userId;
+
+    public long getUserId() {
+        return userId;
+    }
+
+    public String getPassWord() {
+        return passWord;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setPassWord(String passWord) {
+        this.passWord = passWord;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
     public Integer getStatus() {
         return status;

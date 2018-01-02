@@ -4,9 +4,12 @@
     <resultMap id="BaseResultMap" type="com.account.bean.GoodsInfo">
         <id column="gId" jdbcType="BIGINT" property="gId"/>
         <result column="AppType" jdbcType="VARCHAR" property="AppType"/>
+        <result column="userId" jdbcType="BIGINT" property="AppId"/>
         <result column="AppId" jdbcType="BIGINT" property="AppId"/>
         <result column="QuId" jdbcType="BIGINT" property="QuId"/>
         <result column="gName" jdbcType="VARCHAR" property="gName"/>
+        <result column="userName" jdbcType="VARCHAR" property="gName"/>
+        <result column="passWord" jdbcType="VARCHAR" property="gName"/>
         <result column="gprice" jdbcType="DOUBLE" property="gprice"/>
         <result column="gphotourl1" jdbcType="VARCHAR" property="gphotourl1"/>
         <result column="gphotourl2" jdbcType="VARCHAR" property="gphotourl2"/>
@@ -22,8 +25,9 @@
         <result column="status" jdbcType="INTEGER" property="status"/>
     </resultMap>
     <sql id="Base_Column_List">
-        gId,AppType,AppId,QuId,gName,gprice,gphotourl1,gphotourl2,gphotourl3,gphotourl4,gphotourl5,gphotourl6,gphotourl7,gphotourl8,gphotourl9,gphotourl10,remark,status
+        gId,AppType,AppId,QuId,gName,userName,passWord,gprice,gphotourl1,gphotourl2,gphotourl3,gphotourl4,gphotourl5,gphotourl6,gphotourl7,gphotourl8,gphotourl9,gphotourl10,remark,status
     </sql>
+    <!--根据AppId查询所有上架的商品 数据交付于搜索后的展示页-->
     <select id="getGoodsByAppId" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
@@ -35,5 +39,71 @@
         <include refid="Base_Column_List"/>
         from GoodsInfo where gName = #{gName,jdbcType=VARCHAR}
     </select>-->
-
+    <!--根据gid查询商品 数据交付于搜索页中用户点击后的商品展示页-->
+    <select id="getGoodsById" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM GoodsInfo WHERE gId = #{gId,jdbcType=BIGINT}
+    </select>
+    <!--插入商品-->
+    <insert id="insert" parameterType="com.account.bean.GoodsInfo" keyProperty="gId" useGeneratedKeys="true" keyColumn="GENERATED_KEY">
+        INSERT INTO GoodsInfo
+        (gId,AppType,userId,AppId,QuId,gName,userName,passWord,gprice,gphotourl1,gphotourl2,gphotourl3,gphotourl4,
+        gphotourl5,gphotourl6,gphotourl7,gphotourl8,gphotourl9,gphotourl10,remark,status)
+         values  (#{gId,jdbcType=BIGINT},#{AppType,jdbcType=VARCHAR},#{userId,jdbcType=BIGINT},#{AppId,jdbcType=BIGINT},#{QuId,jdbcType=BIGINT},#{gName,jdbcType=VARCHAR},#{userName,jdbcType=VARCHAR},#{passWord,jdbcType=VARCHAR},#{gprice,jdbcType=DOUBLE},#{gphotourl1,jdbcType=VARCHAR},#{gphotourl2,jdbcType=VARCHAR},#{gphotourl3,jdbcType=VARCHAR},#{gphotourl4,jdbcType=VARCHAR},
+        #{gphotourl5,jdbcType=VARCHAR},#{gphotourl6,jdbcType=VARCHAR},#{gphotourl7,jdbcType=VARCHAR},#{gphotourl8,jdbcType=VARCHAR},#{gphotourl9,jdbcType=VARCHAR},#{gphotourl10,jdbcType=VARCHAR},#{remark,jdbcType=VARCHAR},#{status,jdbcType=INTEGER})
+    </insert>
+    <!--修改商品-->
+    <update id="updateByPrimaryKey" parameterType="com.account.bean.GoodsInfo">
+        UPDATE GoodsInfo
+        SET
+        gId = #{gId,jdbcType=BIGINT},
+        AppType = #{AppType,jdbcType=VARCHAR},
+        userId = #{userId,jdbcType=BIGINT},
+        AppId = #{AppId,jdbcType=BIGINT},
+        QuId = #{QuId,jdbcType=BIGINT},
+        gName = #{gName,jdbcType=VARCHAR},
+        userName = #{userName,jdbcType=VARCHAR},
+        password = #{passWord,jdbcType=VARCHAR},
+        gprice = #{gprice,jdbcType=DOUBLE},
+        gphotourl1 = #{gphotourl1,jdbcType=VARCHAR},
+        gphotourl2 = #{gphotourl2,jdbcType=VARCHAR},
+        gphotourl3 = #{gphotourl3,jdbcType=VARCHAR},
+        gphotourl4 = #{gphotourl4,jdbcType=VARCHAR},
+        gphotourl5 = #{gphotourl5,jdbcType=VARCHAR},
+        gphotourl6 = #{gphotourl6,jdbcType=VARCHAR},
+        gphotourl7 = #{gphotourl7,jdbcType=VARCHAR},
+        gphotourl8 = #{gphotourl8,jdbcType=VARCHAR},
+        gphotourl9 = #{gphotourl9,jdbcType=VARCHAR},
+        gphotourl10 = #{gphotourl10,jdbcType=VARCHAR},
+        remark = #{remark,jdbcType=VARCHAR},
+        status = #{status,jdbcType=INTEGER})
+         WHERE gId = #{gId,jdbcType=BIGINT}
+    </update>
+    <update id="deleteByPrimaryKey" parameterType="com.account.bean.GoodsInfo">
+         UPDATE GoodsInfo
+        SET
+        gId = #{gId,jdbcType=BIGINT},
+        AppType = #{AppType,jdbcType=VARCHAR},
+        userId = #{userId,jdbcType=BIGINT},
+        AppId = #{AppId,jdbcType=BIGINT},
+        QuId = #{QuId,jdbcType=BIGINT},
+        gName = #{gName,jdbcType=VARCHAR},
+        userName = #{userName,jdbcType=VARCHAR},
+        password = #{passWord,jdbcType=VARCHAR},
+        gprice = #{gprice,jdbcType=DOUBLE},
+        gphotourl1 = #{gphotourl1,jdbcType=VARCHAR},
+        gphotourl2 = #{gphotourl2,jdbcType=VARCHAR},
+        gphotourl3 = #{gphotourl3,jdbcType=VARCHAR},
+        gphotourl4 = #{gphotourl4,jdbcType=VARCHAR},
+        gphotourl5 = #{gphotourl5,jdbcType=VARCHAR},
+        gphotourl6 = #{gphotourl6,jdbcType=VARCHAR},
+        gphotourl7 = #{gphotourl7,jdbcType=VARCHAR},
+        gphotourl8 = #{gphotourl8,jdbcType=VARCHAR},
+        gphotourl9 = #{gphotourl9,jdbcType=VARCHAR},
+        gphotourl10 = #{gphotourl10,jdbcType=VARCHAR},
+        remark = #{remark,jdbcType=VARCHAR},
+        status = #{status,jdbcType=INTEGER})
+        WHERE gId = #{gId,jdbcType=BIGINT}
+    </update>
 </mapper>
