@@ -43,7 +43,7 @@
         <%-- 大区 --%>
         <select name="appQu" id="appName">
             <c:forEach var="q" items="${appQuList}">
-                <%--<option value="${a.AppId}">${a.AppName}</option>--%>
+                <option value="${q.appId}">${q.quName}</option>
             </c:forEach>
         </select>
 
