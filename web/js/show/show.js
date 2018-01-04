@@ -48,5 +48,47 @@ $(function(){
 			
 	});
 
-	
+
+    $(".goods_box").bind("click",function(){
+        $.ajax({
+            url:"",
+            type:"post",
+            dataType:"text",
+            data:"gId="+$(this).attr("id"),
+            success:function(data){
+			// 跳转到新的页面
+
+            }
+        })
+    });
+
+    $("#appName").bind("change",function(){
+        $.ajax({
+            url:"",
+            type:"post",
+            dataType:"text",
+            data:"appId="+$("#appName").val(),
+            success:function(data){
+            	//清空当前页面商品
+                $("goodsinfo").html("");
+				//重新加载页面商品
+
+            }
+        })
+    });
+
+    $("#quName").bind("change",function(){
+        $.ajax({
+            url:"",
+            type:"post",
+            dataType:"text",
+            data:"quId="+$("#quName").val(),
+            success:function(data){
+				//清空当前页面商品
+                $("goodsinfo").html("");
+                //重新加载页面商品
+            }
+        })
+    });
+
 })

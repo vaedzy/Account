@@ -129,17 +129,22 @@ body{
 
 
 #goodsinfo{
-	margin-top: 120px;
+	margin: 120px 0px 0px 14%;
 	height: 1px;
-	width: 100%;
+	width: 800px;
 }
 .goods_box{
-	margin: 20px 0 20px 14%;
-	width: 800px;
-	height: 200px;
+	margin: 20px;
+	width: 200px;
+	height: 300px;
 	background: #bde4f4;
-	box-shadow: #5e5e5e 6px 6px 10px;
 	cursor: pointer;
+	float: left;
+}
+.goods_box:hover{
+	color:#fff;
+	background: #ff7a73;
+	box-shadow: #9d9d9d 0 0 15px;
 }
 .app_img{
 	float: left;
@@ -150,5 +155,17 @@ body{
 	overflow: hidden;
 }
 .app_text{
+	margin:0 10px;
+	font-size: 12px;
 	float: left;
+}
+
+
+#conditions select{
+	margin: 10px;
+	width: 180px;
+	height: 30px;
+	outline: none;
+	cursor: pointer;
+	border-radius: 6px;
 }

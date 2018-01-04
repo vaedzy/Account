@@ -13,7 +13,6 @@
     <title>商品展示</title>
     <link rel="stylesheet" type="text/css" href="common/css/show.css">
     <script src="common/js/plugin/jquery/jquery-1.9.0.min.js"></script>
-    <script src="js/show/show.js"></script>
 </head>
 <body>
 <!-- 顶部 -->
@@ -41,7 +40,7 @@
         </select>
 
         <%-- 大区 --%>
-        <select name="appQu" id="appName">
+        <select name="appQu" id="quName">
             <c:forEach var="q" items="${appQuList}">
                 <option value="${q.appId}">${q.quName}</option>
             </c:forEach>
@@ -50,16 +49,19 @@
 
     </div>
     <div id="goodsinfo">
-        <%--<c:forEach var="g" items="${goodsInfoList}">--%>
-            <div class="goods_box">
+        <c:forEach var="g" items="${goodsInfoList}">
+            <div class="goods_box" id="${g.gId}">
                 <div class="app_img">
                     <%-- 这里放一张截图 --%>
+                    <img src="/${g.gphotourl1}">
                 </div>
                 <div class="app_text">
-                    <%-- 这里放所有商品信息  --%>
+                   账号介绍：
+                    <br/>
+                        ${g.remark}
                 </div>
             </div>
-        <%--</c:forEach>--%>
+        </c:forEach>
     </div>
 </div>
 
@@ -85,4 +87,5 @@
 </div>
 
 </body>
+<script src="js/show/show.js"></script>
 </html>
