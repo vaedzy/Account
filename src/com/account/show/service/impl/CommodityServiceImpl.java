@@ -32,6 +32,7 @@ public class CommodityServiceImpl implements CommodityService{
 
     @Override
     public int deleteByPrimaryKey(GoodsInfo record) {
+        record.setStatus(0);
        int delete =  goodsInfoMapper.deleteByPrimaryKey(record);
         return delete;
     }
