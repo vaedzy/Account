@@ -78,15 +78,14 @@ public class MainControler {
      */
     @ResponseBody
     @RequestMapping("souAppQu")
-    public String souAppQu(@RequestParam("quName")String quName,HttpServletRequest request){
+    public List<GoodsInfo> souAppQu(@RequestParam("quName")String quName,HttpServletRequest request){
         List<AppQu> appQuList = mainService.getAppQuName(quName);
         long AppId = -1;
         for (AppQu appQu : appQuList){
             AppId = appQu.getQuId();
         }
         List<GoodsInfo> goodsInfoList = mainService.getGoodsInfo(AppId);
-        request.setAttribute("goodsInfoList",goodsInfoList);
-        return "success";
+        return goodsInfoList;
     }
     /**
      * 精准的应用名 来源于主导航
