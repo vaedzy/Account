@@ -50,12 +50,13 @@ $(function(){
 
 
     $(".goods_box").bind("click",function(){
-        $.ajax({
-            url:"/show.do",
-            type:"post",
-            dataType:"text",
-            data:"gId="+$(this).attr("id")
-        })
+        href.location="/show.do?gId="+$(this).attr("id");
+        // $.ajax({
+        //     url:"/show.do",
+        //     type:"post",
+        //     dataType:"text",
+        //     data:"gId="+$(this).attr("id")
+        // })
     });
 
     $("#appName").bind("change",function(){
