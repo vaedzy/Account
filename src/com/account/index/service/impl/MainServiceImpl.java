@@ -52,5 +52,9 @@ public class MainServiceImpl implements MainService{
         return goodsInfoList;
     }
 
+    public List<AppQu> getAppQuName(String quName){
+        List<AppQu> appQuList = appQuMapper.getAppQuName(quName);
+        return appQuList;
+    }
 
 }

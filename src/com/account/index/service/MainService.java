@@ -13,5 +13,6 @@ public interface MainService {
     List<AppName> getAppName(String search);
     List<AppQu> getAppQu(long AppId);
     List<GoodsInfo> getGoodsInfo(long AppId);
+    List<AppQu> getAppQuName(String quName);
 
 }

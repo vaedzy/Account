@@ -37,7 +37,7 @@ $(function(){
 
 	$("#search_btn").bind("click",function(){
 		$.ajax({
-			url:"",
+			url:"/souApp",
 			type:"post",
 			dataType:"text",
 			data:"search="+$("#search").val(),
@@ -51,23 +51,19 @@ $(function(){
 
     $(".goods_box").bind("click",function(){
         $.ajax({
-            url:"",
+            url:"/show.do",
             type:"post",
             dataType:"text",
-            data:"gId="+$(this).attr("id"),
-            success:function(data){
-			// 跳转到新的页面
-
-            }
+            data:"gId="+$(this).attr("id")
         })
     });
 
     $("#appName").bind("change",function(){
         $.ajax({
-            url:"",
+            url:"/souApp",
             type:"post",
             dataType:"text",
-            data:"appId="+$("#appName").val(),
+            data:"search="+$("#appName").val(),
             success:function(data){
             	//清空当前页面商品
                 $("goodsinfo").html("");
@@ -79,10 +75,10 @@ $(function(){
 
     $("#quName").bind("change",function(){
         $.ajax({
-            url:"",
+            url:"/souAppQu",
             type:"post",
             dataType:"text",
-            data:"quId="+$("#quName").val(),
+            data:"quName="+$("#quName").val(),
             success:function(data){
 				//清空当前页面商品
                 $("goodsinfo").html("");

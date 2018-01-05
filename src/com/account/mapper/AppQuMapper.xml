@@ -17,4 +17,9 @@
          from AppQu where AppId = #{AppId,jdbcType=BIGINT}
     </select>
 
+    <select id="getAppQuName" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from AppQu where QuName = #{QuName,jdbcType=VARCHAR}
+    </select>
 </mapper>

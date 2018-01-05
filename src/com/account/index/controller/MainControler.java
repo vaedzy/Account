@@ -55,14 +55,11 @@ public class MainControler {
             request.setAttribute("appNameList",appNameList);
             //给appid赋值
             long AppId = -1;
-            String AppName = "h";
             //循环遍历出应用名
             for (AppName app : appNameList){
                 //app的id 用这个去查区服以及商品
                 AppId = app.getAppId();
-                AppName = app.getAppName();
             }
-            System.out.println(AppId+AppName);
             List<AppQu> appQuList = mainService.getAppQu(AppId);
            // session.setAttribute("appQuList",appQuList);
             request.setAttribute("appQuList",appQuList);
@@ -74,8 +71,22 @@ public class MainControler {
            //不存在
             return new ModelAndView("redirect:/index.jsp");
         }
+    }
 
-
+    /**
+     * 查询app区下的商品
+     */
+    @ResponseBody
+    @RequestMapping("souAppQu")
+    public String souAppQu(@RequestParam("quName")String quName,HttpServletRequest request){
+        List<AppQu> appQuList = mainService.getAppQuName(quName);
+        long AppId = -1;
+        for (AppQu appQu : appQuList){
+            AppId = appQu.getQuId();
+        }
+        List<GoodsInfo> goodsInfoList = mainService.getGoodsInfo(AppId);
+        request.setAttribute("goodsInfoList",goodsInfoList);
+        return "success";
     }
     /**
      * 精准的应用名 来源于主导航
