@@ -35,14 +35,16 @@
         <%-- 应用名 --%>
         <select name="appName" id="appName">
             <c:forEach var="a" items="${appNameList}">
-                <option value="${a.appId}">${a.appName}</option>
+                <%--<option value="${a.appId}">${a.appName}</option>--%>
+                <option>${a.appName}</option>
             </c:forEach>
         </select>
 
         <%-- 大区 --%>
         <select name="appQu" id="quName">
             <c:forEach var="q" items="${appQuList}">
-                <option value="${q.appId}">${q.quName}</option>
+                <%--<option value="${q.appId}">${q.quName}</option>--%>
+                <option>${q.quName}</option>
             </c:forEach>
         </select>
 
