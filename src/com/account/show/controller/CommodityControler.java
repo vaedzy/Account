@@ -1,16 +1,22 @@
 package com.account.show.controller;
 
 import com.account.bean.GoodsInfo;
+import com.account.bean.Person;
 import com.account.show.service.CommodityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 
 @Controller
@@ -51,7 +57,7 @@ public class CommodityControler {
     @ResponseBody
     @RequestMapping("addGoods.do")
     public String addGoods(GoodsInfo goodsInfo,HttpSession httpSession,HttpServletRequest request){
-       goodsInfo.setGphotourl1("");
+
 
         return "success";
     }
@@ -66,4 +72,36 @@ public class CommodityControler {
         return "404";
     }
 
+    /**
+     * 文件上传？
+     * @param person
+     * @param file
+     * @param request
+     * @return
+     * @throws Exception
+     */
+
+    private String fildUpload(Person person, @RequestParam(value="file",required=false) MultipartFile[] file,
+                              HttpServletRequest request)throws Exception{
+        //获得物理路径webapp所在路径
+        String pathRoot = request.getSession().getServletContext().getRealPath("");
+        String path="";
+        List<String> listImagePath=new ArrayList<>();
+        for (MultipartFile mf : file) {
+            if(!mf.isEmpty()){
+                //生成uuid作为文件名称
+                String uuid = UUID.randomUUID().toString().replaceAll("-","");
+                //获得文件类型（可以判断如果不是图片，禁止上传）
+                String contentType=mf.getContentType();
+                //获得文件后缀名称
+                String imageName=contentType.substring(contentType.indexOf("/")+1);
+                path="/static/images/"+uuid+"."+imageName;
+                mf.transferTo(new File(pathRoot+path));
+                listImagePath.add(path);
+            }
+        }
+        System.out.println(path);
+        request.setAttribute("imagesPathList", listImagePath);
+        return "success";
+    }
 }
