@@ -54,13 +54,13 @@ public class CommodityControler {
      *  确认登陆 发布后存数据库操作
      * @return
      */
-    @ResponseBody
-    @RequestMapping("addGoods.do")
-    public String addGoods(GoodsInfo goodsInfo,HttpSession httpSession,HttpServletRequest request){
-
-
-        return "success";
-    }
+//    @ResponseBody
+//    @RequestMapping("addGoods.do")
+//    public String addGoods(GoodsInfo goodsInfo,HttpSession httpSession,HttpServletRequest request){
+//
+//
+//        return "success";
+//    }
 
     @ResponseBody
     @RequestMapping("deleteGoods")
@@ -73,7 +73,7 @@ public class CommodityControler {
     }
 
     /**
-     * 文件上传？
+     * 确认登陆 发布后存数据库操作
      * @param person
      * @param file
      * @param request
@@ -81,6 +81,7 @@ public class CommodityControler {
      * @throws Exception
      */
 
+    @RequestMapping("addGoods.do")
     private String fildUpload(Person person, @RequestParam(value="file",required=false) MultipartFile[] file,
                               HttpServletRequest request)throws Exception{
         //获得物理路径webapp所在路径
@@ -100,7 +101,7 @@ public class CommodityControler {
                 listImagePath.add(path);
             }
         }
-        System.out.println(path);
+
         request.setAttribute("imagesPathList", listImagePath);
         return "success";
     }
