@@ -12,10 +12,7 @@
     <title>Title</title>
 </head>
 <body>
-<c:forEach var="g" items="${goodsInfoList}">
-    ${g.gId}
-    ${g.gName}
-
-</c:forEach>
+    ${goodsInfo.gId}
+    ${goodsInfo.gName}
 </body>
 </html>

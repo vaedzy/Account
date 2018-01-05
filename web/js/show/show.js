@@ -50,7 +50,7 @@ $(function(){
 
 
     $(".goods_box").bind("click",function(){
-        href.location="/show.do?gId="+$(this).attr("id");
+        window.location.href="/show.do?gId="+$(this).attr("id");
         // $.ajax({
         //     url:"/show.do",
         //     type:"post",
@@ -60,7 +60,6 @@ $(function(){
     });
 
     $("#appName").bind("change",function(){
-        alert($("#appName").val());
         $.ajax({
             url:"/souApp",
             type:"post",

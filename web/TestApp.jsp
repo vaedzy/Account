@@ -12,6 +12,11 @@
     <title>Title</title>
 </head>
 <body>
-
+    <div>
+    ${goodsInfo.gId}
+    <br>
+    ${goodsInfo.gName}
+    <br>
+    asdasd</div>
 </body>
 </html>
