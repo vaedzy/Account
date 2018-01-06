@@ -12,11 +12,6 @@
     <title>Title</title>
 </head>
 <body>
-    <div>
-    ${goodsInfo.gId}
-    <br>
-    ${goodsInfo.gName}
-    <br>
-    asdasd</div>
+    <a href="/addGoods">测试</a>
 </body>
 </html>
