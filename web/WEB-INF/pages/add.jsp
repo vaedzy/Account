@@ -11,12 +11,12 @@
     <title>Title</title>
 </head>
 <body>
-<form action="/attachment/insertAttachments.do" enctype="multipart/form-data" method='post'>
+<form action="/addGoods.do" enctype="multipart/form-data" method='post'>
     <input name="userId" type="text">
     <input name="userName" type="text">
 <<<<<<< HEAD
-    <label>头 像1</label><input type="file" name="gphotourl1"/><br/>
-    <label>头 像2</label><input type="file" name="gphotourl2"/><br/>
+    <label>头 像1</label><input type="file" name="file"/><br/>
+    <label>头 像2</label><input type="file" name="file"/><br/>
 =======
     <input type='hidden' id='atLinkId' name='entity.atLinkId' value='1'>
     <input type='hidden' id='atLinkTable' name='entity.atLinkTable' value='AC_PERSON'>

@@ -1,8 +1,13 @@
 $(function(){
     var phonezz=/^1[345789]\d{9}$/;
+    var flag=true;
     $("#phone").bind("input propertychange",function(){
+        if($("#phone").val().length<=11){
+            flag=true;
+        }
         if($("#phone").val().length==11){
-            if(phonezz.test($("#phone").val())){
+            if(phonezz.test($("#phone").val())&&flag){
+                flag=false;
                 $.ajax({
                     url:"/getCode",
                     type:"post",
