@@ -27,6 +27,7 @@ public class GoodsInfo  implements Serializable {
     private String passWord;
     private long userId;
 
+
     public long getUserId() {
         return userId;
     }

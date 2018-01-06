@@ -99,9 +99,9 @@ public class CommodityControler {
                     }
                     mf.transferTo(new File(pathRoot + path));
                     listImagePath.add(path);
-                    System.out.println(path);
                 }
             }
+
         }
     System.out.println(goodsInfo.getGphotourl1());
 
