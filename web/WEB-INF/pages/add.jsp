@@ -11,11 +11,10 @@
     <title>Title</title>
 </head>
 <body>
-<form action="/addGoods.do" enctype="multipart/form-data" >
+<form action="/addGoods.do" enctype="multipart/form-data" method='post'>
     <input name="userId" type="text">
     <input name="userName" type="text">
     <label>头 像1</label><input type="file" name="file"/><br/>
-    <label>头 像2</label><input type="file" name="file"/><br/>
     <input type="submit" value="测试">
 </form>
 </body>

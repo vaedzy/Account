@@ -93,6 +93,10 @@ public class CommodityControler {
                     //获得文件后缀名称
                     String imageName = contentType.substring(contentType.indexOf("/") + 1);
                     path = "/static/images/" + uuid + "." + imageName;
+                    //如果没有该目录则新建目录
+                    if (!new File(pathRoot+ "/static/images/").isDirectory()) {
+                        new File(pathRoot+ "/static/images/").mkdirs();
+                    }
                     mf.transferTo(new File(pathRoot + path));
                     listImagePath.add(path);
                     System.out.println(path);
