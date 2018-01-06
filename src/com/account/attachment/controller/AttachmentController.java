@@ -104,10 +104,12 @@ public class AttachmentController extends BaseController {
                     .getRealPath(ConfigConsts.ATTACHMENT_ROOT_PATH)
                     + File.separatorChar;
             for (MultipartFile fi:file){
-                Attachment attachment = new Attachment();
-                attachment.setAtLinkTable(entity.getAtLinkTable());
-                attachment.setAtLinkId(entity.getAtLinkId());
-                attachmentService.insertAttachment(attachment, getUser(), fi, rootPath);
+                if(!fi.isEmpty()){
+                    Attachment attachment = new Attachment();
+                    attachment.setAtLinkTable(entity.getAtLinkTable());
+                    attachment.setAtLinkId(entity.getAtLinkId());
+                    attachmentService.insertAttachment(attachment, getUser(), fi, rootPath);
+                }
             }
             view.addObject("code", 1);
         } catch (Exception e) {
