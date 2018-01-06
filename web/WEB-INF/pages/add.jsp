@@ -25,5 +25,10 @@
 >>>>>>> origin/master
     <input type="submit" value="测试">
 </form>
+
+<form action="/fildUpload.do" enctype="multipart/form-data">
+    <label>头 像1</label><input type="file" name="file"/><br/>
+    <input type="submit" value="提交">
+</form>
 </body>
 </html>

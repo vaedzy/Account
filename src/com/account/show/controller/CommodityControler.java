@@ -1,5 +1,6 @@
 package com.account.show.controller;
 
+import com.account.bean.Attachment;
 import com.account.bean.GoodsInfo;
 
 import com.account.show.service.CommodityService;
@@ -77,13 +78,14 @@ public class CommodityControler {
      */
 
     @RequestMapping("addGoods.do")
-    private String fildUpload(GoodsInfo goodsInfo, @RequestParam(value="file",required=false) MultipartFile[] file,
+    private String addGoods(GoodsInfo goodsInfo, @RequestParam(value="file",required=false) MultipartFile[] file,
                               HttpServletRequest request)throws Exception{
         if (file!=null) {
             //获得物理路径webapp所在路径
             String pathRoot = request.getSession().getServletContext().getRealPath("");
             String path = "";
             List<String> listImagePath = new ArrayList<>();
+            int i =1;
             for (MultipartFile mf : file) {
                 if (!mf.isEmpty()) {
                     //生成uuid作为文件名称
@@ -99,12 +101,64 @@ public class CommodityControler {
                     }
                     mf.transferTo(new File(pathRoot + path));
                     listImagePath.add(path);
+                    if (i==1){
+                        goodsInfo.setGphotourl1(path);
+                        i++;
+                    }
+                    if (i==2){
+                        goodsInfo.setGphotourl2(path);
+                        i++;
+                    }
+                    if (i==3){
+                        goodsInfo.setGphotourl3(path);
+                        i++;
+                    }
+                    if (i==4){
+                        goodsInfo.setGphotourl4(path);
+                        i++;
+                    }
+                    if (i==5){
+                        goodsInfo.setGphotourl5(path);
+                        i++;
+                    }
+                    if (i==6){
+                        goodsInfo.setGphotourl6(path);
+                        i++;
+                    }
+                    if (i==7){
+                        goodsInfo.setGphotourl7(path);
+                        i++;
+                    }
+                    if (i==8){
+                        goodsInfo.setGphotourl8(path);
+                        i++;
+                    }
+                    if (i==9){
+                        goodsInfo.setGphotourl9(path);
+                        i++;
+                    }
+                    if (i==10){
+                        goodsInfo.setGphotourl10(path);
+                       System.gc();
+                    }
                 }
             }
-
+            commodityService.insert(goodsInfo);
         }
-    System.out.println(goodsInfo.getGphotourl1());
 
+        return "success";
+    }
+
+    /**
+     * 预留接口
+     * @param goodsInfo
+     * @param attachment
+     * @param request
+     * @return
+     */
+    @RequestMapping("addGoodsInfo")
+    public String addGoodsInfo (GoodsInfo goodsInfo, Attachment attachment,HttpServletRequest request){
+        commodityService.insert(goodsInfo);
         return "success";
     }
 }
