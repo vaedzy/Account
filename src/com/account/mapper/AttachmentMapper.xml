@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.account.mapper.AttachmentMapper">
+    <resultMap id="BaseResultMap" type="com.account.bean.Attachment">
+        <id column="ID" jdbcType="BIGINT" property="id"/>
+        <result column="AT_LINK_TABLE" jdbcType="VARCHAR" property="atLinkTable"/>
+        <result column="AT_LINK_ID" jdbcType="BIGINT" property="atLinkId"/>
+        <result column="AT_PATH" jdbcType="VARCHAR" property="atPath"/>
+        <result column="AT_NAME" jdbcType="VARCHAR" property="atName"/>
+        <result column="AT_TYPE" jdbcType="VARCHAR" property="atType"/>
+        <result column="AT_MIME_TYPE" jdbcType="VARCHAR" property="atMimeType"/>
+        <result column="AT_UPLOAD_TIME" jdbcType="TIMESTAMP" property="atUploadTime"/>
+        <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="MODIFIER" jdbcType="VARCHAR" property="modifier"/>
+        <result column="MODIFY_TIME" jdbcType="TIMESTAMP" property="modifyTime"/>
+        <result column="CREATOR" jdbcType="VARCHAR" property="creator"/>
+        <result column="AT_DEVELOP_05" jdbcType="VARCHAR" property="atDevelop05"/>
+        <result column="AT_DEVELOP_04" jdbcType="VARCHAR" property="atDevelop04"/>
+        <result column="AT_DEVELOP_03" jdbcType="VARCHAR" property="atDevelop03"/>
+        <result column="AT_DEVELOP_02" jdbcType="VARCHAR" property="atDevelop02"/>
+        <result column="AT_DEVELOP_01" jdbcType="VARCHAR" property="atDevelop01"/>
+        <result column="AT_DESC" jdbcType="LONGVARCHAR" property="atDesc"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from ATTACHMENT
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+    <insert id="insert" parameterType="com.account.bean.Attachment" useGeneratedKeys="true" keyProperty="id">
+    insert into ATTACHMENT (ID, AT_LINK_TABLE, AT_LINK_ID, 
+      AT_PATH, AT_NAME, AT_TYPE, 
+      AT_MIME_TYPE, AT_UPLOAD_TIME, CREATE_TIME, 
+      MODIFIER, MODIFY_TIME, CREATOR, 
+      AT_DEVELOP_05, AT_DEVELOP_04, AT_DEVELOP_03, 
+      AT_DEVELOP_02, AT_DEVELOP_01, AT_DESC
+      )
+    values (#{id,jdbcType=BIGINT}, #{atLinkTable,jdbcType=VARCHAR}, #{atLinkId,jdbcType=BIGINT}, 
+      #{atPath,jdbcType=VARCHAR}, #{atName,jdbcType=VARCHAR}, #{atType,jdbcType=VARCHAR}, 
+      #{atMimeType,jdbcType=VARCHAR}, #{atUploadTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{modifier,jdbcType=VARCHAR}, #{modifyTime,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR}, 
+      #{atDevelop05,jdbcType=VARCHAR}, #{atDevelop04,jdbcType=VARCHAR}, #{atDevelop03,jdbcType=VARCHAR}, 
+      #{atDevelop02,jdbcType=VARCHAR}, #{atDevelop01,jdbcType=VARCHAR}, #{atDesc,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+    <update id="updateByPrimaryKey" parameterType="com.account.bean.Attachment">
+    update ATTACHMENT
+    set AT_LINK_TABLE = #{atLinkTable,jdbcType=VARCHAR},
+      AT_LINK_ID = #{atLinkId,jdbcType=BIGINT},
+      AT_PATH = #{atPath,jdbcType=VARCHAR},
+      AT_NAME = #{atName,jdbcType=VARCHAR},
+      AT_TYPE = #{atType,jdbcType=VARCHAR},
+      AT_MIME_TYPE = #{atMimeType,jdbcType=VARCHAR},
+      AT_UPLOAD_TIME = #{atUploadTime,jdbcType=TIMESTAMP},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      MODIFIER = #{modifier,jdbcType=VARCHAR},
+      MODIFY_TIME = #{modifyTime,jdbcType=TIMESTAMP},
+      CREATOR = #{creator,jdbcType=VARCHAR},
+      AT_DEVELOP_05 = #{atDevelop05,jdbcType=VARCHAR},
+      AT_DEVELOP_04 = #{atDevelop04,jdbcType=VARCHAR},
+      AT_DEVELOP_03 = #{atDevelop03,jdbcType=VARCHAR},
+      AT_DEVELOP_02 = #{atDevelop02,jdbcType=VARCHAR},
+      AT_DEVELOP_01 = #{atDevelop01,jdbcType=VARCHAR},
+      AT_DESC = #{atDesc,jdbcType=LONGVARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+    <sql id="Base_Column_List">
+    ID, AT_LINK_TABLE, AT_LINK_ID, AT_PATH, AT_NAME, AT_TYPE, AT_MIME_TYPE, AT_UPLOAD_TIME,
+    CREATE_TIME, MODIFIER, MODIFY_TIME, CREATOR, AT_DEVELOP_05, AT_DEVELOP_04, AT_DEVELOP_03,
+    AT_DEVELOP_02, AT_DEVELOP_01, AT_DESC
+  </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from ATTACHMENT
+        where ID = #{id,jdbcType=BIGINT}
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from ATTACHMENT
+    </select>
+
+    <select id="listAttachmentByPrimaryKeys" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from attachment
+        where ID IN
+        <foreach collection="list" item="item" index="index" open="(" close=")" separator=",">
+            ${item}
+        </foreach>
+    </select>
+</mapper>
