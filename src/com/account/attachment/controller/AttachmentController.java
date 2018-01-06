@@ -86,6 +86,38 @@ public class AttachmentController extends BaseController {
     }
 
     /**
+     * 保存单条附件
+     *
+     * @param entity   附件实体
+     * @param file     上传文件
+     * @param request
+     * @param response
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/insertAttachments")
+    public ModelAndView insertAttachments(Attachment entity, MultipartFile[] file,
+                                         HttpServletRequest request, HttpServletResponse response) {
+        ModelAndView view = new ModelAndView("callback_resume");
+        try {
+            String rootPath = request.getSession().getServletContext()
+                    .getRealPath(ConfigConsts.ATTACHMENT_ROOT_PATH)
+                    + File.separatorChar;
+            for (MultipartFile fi:file){
+                Attachment attachment = new Attachment();
+                attachment.setAtLinkTable(entity.getAtLinkTable());
+                attachment.setAtLinkId(entity.getAtLinkId());
+                attachmentService.insertAttachment(attachment, getUser(), fi, rootPath);
+            }
+            view.addObject("code", 1);
+        } catch (Exception e) {
+            log.error("保存附件失败", e);
+            view.addObject("code", 0);
+        }
+        return view;
+    }
+
+    /**
      * 删除单条附件
      *
      * @param entity  附件信息
