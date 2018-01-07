@@ -30,6 +30,7 @@
                 <div class="input_outer" id="phone_outer">
                     <span class="u_user"></span>
                     <input name="logname" id="phone" class="text" max="11" maxlength="11" style="color: #FFFFFF !important" type="text" placeholder="请输入手机号">
+                    <%--<div id="loading" style="float: right; width: 40px; height: 40px; background-color: red;"></div>--%>
                 </div>
                 <div class="input_outer" id="code_outer">
                     <span class="us_uer"></span>

@@ -3,10 +3,12 @@ $(function(){
     var flag=true;
     $("#phone").bind("input propertychange",function(){
         if($("#phone").val().length<=11){
+            $("#phone_outer").css("border","rgba(255,255,255,0.2) 2px solid");
             flag=true;
         }
         if($("#phone").val().length==11){
             if(phonezz.test($("#phone").val())&&flag){
+                $("#phone_outer").css("border","rgba(255,255,0,0.2) 2px solid");
                 flag=false;
                 $.ajax({
                     url:"/getCode",

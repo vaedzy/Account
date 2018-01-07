@@ -11,8 +11,8 @@
 <html>
 <head>
     <title>商品展示</title>
-    <link rel="stylesheet" type="text/css" href="common/css/show.css">
-    <script src="common/js/plugin/jquery/jquery-1.9.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/common/css/show.css">
+    <script src="/common/js/plugin/jquery/jquery-1.9.0.min.js"></script>
 </head>
 <body>
 <!-- 顶部 -->
@@ -31,7 +31,7 @@
 
     </div>
     <div id="conditions">
-        <div id="conditions_title"></div>
+        <div id="conditions_title">条件查找</div>
         <%-- 应用名 --%>
         <select name="appName" id="appName">
             <c:forEach var="a" items="${appNameList}">
