@@ -70,6 +70,10 @@ $(function(){
         window.location.href="/addGoods"
     });
 
+
+    /**
+     *  点击字母搜索
+     */
     $(".nav_AppIndex").click(function () {
         $.ajax({
             url:"/mainNav",

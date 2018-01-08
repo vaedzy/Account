@@ -12,9 +12,21 @@
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="/common/css/add.css">
     <script src="/common/js/plugin/jquery/jquery-1.9.0.min.js"></script>
+    <script src="/js/add/add.js"></script>
 </head>
 <body>
-<form action="/addGoods.do" enctype="multipart/form-data" method='post'>
+<!-- 顶部 -->
+<div id="top">
+    <div id="logo">LOGO</div>
+    <div id="search_border">
+        <input type="text" autocomplete="off" name="search" id="search" placeholder="请输入应用名..."/>
+        <div id="search_btn"></div>
+    </div>
+</div>
+
+
+<div id="context">
+    <form action="/addGoods.do" enctype="multipart/form-data" method='post'>
         <div class="nav_second" id="second_main">
             <div class="nav_AppIndex">a</div>
             <div class="nav_AppIndex">b</div>
@@ -47,36 +59,50 @@
             <div id="fieldApp"></div>
         </div>
 
-   <!--账号名字-->
-    <input type="text" name="gName" placeholder="请起一个名字">
-    <!--用户名-->
-    <input type="text" name="userName" placeholder="请输入您要共享的账号"><br/>
-    <!--密码-->
-    <input type="password" name="passWord" placeholder="请输入您要共享的账号密码"><br/>
-    <!--简介-->
-    <input type="text" name="remark" placeholder="务必要输入一些关于此账号的信息"><br/>
-    <!--上传功能-->
-    <input type="file" name="file"/><br/>
-    <input type="file" name="file"/><br/>
-    <input type="file" name="file"/><br/>
-    <input type="file" name="file"/><br/>
-    <input type="file" name="file"/><br/>
-    <input type="file" name="file"/><br/>
-    <input type="file" name="file"/><br/>
-    <input type="file" name="file"/><br/>
-    <input type="file" name="file"/><br/>
-    <input type="file" name="file"/><br/>
-    <!--用户名-->
-    <input type='hidden' name='userId' value='${user.id}'>
-    <!--App类型-->
-    <input type='hidden' name='appType' value='<c:forEach var="appName" items="${appNameList}">${appName.appType}</c:forEach>'>
-    <!--AppId-->
-    <input type='hidden' name='appId' value='<c:forEach var="appName" items="${appNameList}">${appName.appId}</c:forEach>'>
-    <input type="submit" value="上传商品">
-</form>
+        <!--  上传图片显示 -->
+    <%--    <input type="file" class="myUpload" />
+        <img src="../images/close.jpg" class="close hide"/>
+        <img src="../images/add.png" class="add "/>
+        <img class="show hide"/>--%>
+
+
+        <!--账号名字-->
+        <input type="text" name="gName" placeholder="请起一个名字">
+        <!--用户名-->
+        <input type="text" name="userName" placeholder="请输入您要共享的账号"><br/>
+        <!--密码-->
+        <input type="password" name="passWord" placeholder="请输入您要共享的账号密码"><br/>
+        <!--简介-->
+        <input type="text" name="remark" placeholder="务必要输入一些关于此账号的信息"><br/>
+        <!-- 应用id -->
+        <input type="text" name="appId" id="addId">
+        <!-- 选区 -->
+        <div id="aQu"></div>
+        <!--上传功能-->
+        <input type="file" name="file"/><br/>
+        <input type="file" name="file"/><br/>
+        <input type="file" name="file"/><br/>
+        <input type="file" name="file"/><br/>
+        <input type="file" name="file"/><br/>
+        <input type="file" name="file"/><br/>
+        <input type="file" name="file"/><br/>
+        <input type="file" name="file"/><br/>
+        <input type="file" name="file"/><br/>
+        <input type="file" name="file"/><br/>
+        ....................
+        <!--用户名-->
+        <input type='hidden' name='userId' value='${user.id}'>
+        <!--App类型-->
+        <input type='hidden' name='appType' value='<c:forEach var="appName" items="${appNameList}">${appName.appType}</c:forEach>'>
+        <!--AppId-->
+        <input type='hidden' name='appType' value='<c:forEach var="appName" items="${appNameList}">${appName.appId}</c:forEach>'>
+        <input type="submit" value="上传商品">
+    </form>
+</div>
+
+
+
 <div id="nav_box">
-
-
     <!-- 一级导航 -->
     <div id="nav">
         <div id="user_box">
@@ -90,31 +116,11 @@
                 </div>
             </c:if>
         </div>
-        <div id="nav_shoppingcar" class="nav_on_box">购物车</div>
-        <div id="nav_main" class="nav_on_box">主导航</div>
     </div>
 
 <div id="nav_btn"></div>   <!-- 导航按钮.... -->
 
 </div>
-<%--<form action="/addGoods.do" enctype="multipart/form-data" method='post'>--%>
-    <%--<input name="userId" type="text">--%>
-    <%--<input name="userName" type="text">--%>
-<%--<<<<<<< HEAD--%>
-    <%--<label>头 像1</label><input type="file" name="file"/><br/>--%>
-    <%--<label>头 像2</label><input type="file" name="file"/><br/>--%>
-<%--=======--%>
-    <%--<input type='hidden' id='atLinkId' name='entity.atLinkId' value='1'>--%>
-    <%--<input type='hidden' id='atLinkTable' name='entity.atLinkTable' value='AC_PERSON'>--%>
-    <%--<label>头 像1</label><input type="file" name="file"/><br/>--%>
-    <%--<label>头 像2</label><input type="file" name="file"/><br/>--%>
-<%-->>>>>>> origin/master--%>
-    <%--<input type="submit" value="测试">--%>
-<%--</form>--%>
 
-<%--<form action="/fildUpload.do" enctype="multipart/form-data">--%>
-    <%--<label>头 像1</label><input type="file" name="file"/><br/>--%>
-    <%--<input type="submit" value="提交">--%>
-<%--</form>--%>
 </body>
 </html>

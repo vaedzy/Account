@@ -27,9 +27,6 @@
 
 
 <div id="context">
-    <div id="nav_app">
-
-    </div>
     <div id="conditions">
         <div id="conditions_title">条件查找</div>
         <%-- 应用名 --%>
@@ -89,5 +86,5 @@
 </div>
 
 </body>
-<script src="js/show/show.js"></script>
+<script src="/js/show/show.js"></script>
 </html>

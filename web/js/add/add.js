@@ -1,16 +1,9 @@
 // JavaScript Document
 $(function(){
 	var nav_flag=false; //true为展开  false为关闭
-	var second_flag=true;
-	$("html").bind("click",function(){
-		if(second_flag){
-			$(".nav_second").css("display","none");
-		}
-	});
 	
 	$("#nav_btn").bind("click",function(){
 		$("#nav").stop(true);
-		$(".nav_second").css("display","none");
 		if(nav_flag){
 			nav_flag=false;
 			$("#nav").animate({"opacity":"0","width":"0px","height":"0px","top":"30px","left":"30px"},350,function(){
@@ -49,52 +42,87 @@ $(function(){
 	});
 
 
-    $(".goods_box").bind("click",function(){
-        window.location.href="/show.do?gId="+$(this).attr("id");
-        // $.ajax({
-        //     url:"/show.do",
-        //     type:"post",
-        //     dataType:"text",
-        //     data:"gId="+$(this).attr("id")
-        // })
-    });
-
-    $("#appName").bind("change",function(){
+    /**
+     *  点击字母搜索
+     */
+    $(".nav_AppIndex").click(function () {
         $.ajax({
-            url:"/souApp",
+            url:"/searchTypeAndAppName",
             type:"post",
             dataType:"text",
-            data:"search="+$("#appName").val(),
+            data:"mainNav="+$(this).html(),
             success:function(data){
                 data=jQuery.parseJSON(data);
-            	//清空当前页面商品
-                $("#goodsinfo").html("");
-				//重新加载页面商品
+                $("#fieldApp").html("");
+                var html="";
                 $(data).each(function(i,o){
-                    $("#goodsinfo").append("<div class='goods_box' id='"+o.gId+"'><div class='app_img'><img src='/"+o.gphotourl1+"'></div><div class='app_text'><br/>"+o.remark+"</div></div>");
+                    html=html+"<div class='nr' id="+o.aAppId+">"+o.aAppname+"</div>";
+                });
+                alert(html)
+                $("#fieldApp").html(html);
+                $(".nr").click(function(){
+                    $(this).css("color","blue");
+                    $("#addId").val($(this).attr("id"));
+                    $.ajax({
+                        url:"/searchTypeAndAppName",
+                        type:"post",
+                        dataType:"text",
+                        data:"AppId="+$(this).attr("id"),
+                        success:function(data){
+                            data=jQuery.parseJSON(data);
+                            var htm='';
+                            $(data).each(function(i,o){
+                            htm=htm+"<option value='"+o.quId+"'>"+o.quName+"</option>";
+                            });
+                            $("#aQu").append("<select name='appQu' id='quName'>"+htl+"</select>");
+                        }
+                    });
+                    //location.href="/souApp?search="+$(this).html();
                 });
             }
-        })
+        });
     });
 
-    $("#quName").bind("change",function(){
-        alert($("#quName").val());
-        $.ajax({
-            url:"/souAppQu",
-            type:"post",
-            dataType:"text",
-            data:"quName="+$("#quName").val(),
-            success:function(data){
-                data=jQuery.parseJSON(data);
-                //清空当前页面商品
-                $("#goodsinfo").html("");
-                //重新加载页面商品
-                $(data).each(function(i,o){
-                    $("#goodsinfo").append("<div class='goods_box' id='"+o.gId+"'><div class='app_img'><img src='/"+o.gphotourl1+"'></div><div class='app_text'><br/>"+o.remark+"</div></div>");
-                });
-            }
-        })
+
+    $(document).ready(function()
+    {
+        //点击上传时实时显示图片
+        $(".myUpload").change(function()
+        {
+            var src=getObjectURL(this.files[0]);//获取上传文件的路径
+            $(".close").removeClass('hide');
+            $(".add").addClass('hide');
+            $(".show").removeClass('hide');
+            $(".show").attr('src',src);//把路径赋值给img标签
+        });
+
+        //点击关闭按钮时恢复初始状态
+        $(".close").click(function()
+        {
+            $(".close").addClass('hide');
+            $(".add").removeClass('hide');
+            $(".show").addClass('hide');
+        });
     });
+
+    //获取上传文件的url
+    function getObjectURL(file)
+    {
+        var url = null;
+        if (window.createObjectURL != undefined)
+        {
+            url = window.createObjectURL(file);
+        }
+        else if (window.URL != undefined)
+        {
+            url = window.URL.createObjectURL(file);
+        }
+        else if (window.webkitURL != undefined)
+        {
+            url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+    }
 
     
 })
