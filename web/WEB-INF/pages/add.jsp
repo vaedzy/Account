@@ -71,7 +71,7 @@
     <!--App类型-->
     <input type='hidden' name='appType' value='<c:forEach var="appName" items="${appNameList}">${appName.appType}</c:forEach>'>
     <!--AppId-->
-    <input type='hidden' name='appType' value='<c:forEach var="appName" items="${appNameList}">${appName.appId}</c:forEach>'>
+    <input type='hidden' name='appId' value='<c:forEach var="appName" items="${appNameList}">${appName.appId}</c:forEach>'>
     <input type="submit" value="上传商品">
 </form>
 <div id="nav_box">

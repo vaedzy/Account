@@ -6,7 +6,6 @@ public class GoodsInfo  implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private long gId;
-    private String appType;
     private long appId;
     private long quId;
     private String gName;
@@ -88,13 +87,6 @@ public class GoodsInfo  implements Serializable {
         this.appId = appId;
     }
 
-    public String getAppType() {
-        return appType;
-    }
-
-    public void setAppType(String appType) {
-        this.appType = appType;
-    }
 
     public String getgName() {
         return gName;

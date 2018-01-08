@@ -97,23 +97,14 @@ public class MainControler {
         return new ModelAndView();
     }
 
+    @ResponseBody
     @RequestMapping("searchTypeAndAppName")
-    public String searchTypeAndAppName(@RequestParam("AppName")String AppName,HttpServletRequest request){
-        //传入的是appname 所以能确定是那一款app
-        List<AppName> appNameList = mainService.getAppName(AppName);
-        //存入request中
-        request.setAttribute("appNameList",appNameList);
-        long AppId = -1;
-        //循环遍历出应用名
-        for (AppName app : appNameList){
-            //app的id 用这个去查区服以及商品
-            AppId = app.getAppId();
-        }
+    public List<AppQu> searchTypeAndAppName(@RequestParam("AppId")long AppId,HttpServletRequest request){
         //根据id查询区
         List<AppQu> appQuList = mainService.getAppQu(AppId);
-        //存入request中
-        request.setAttribute("appQuList",appQuList);
-
-        return "success";
+        if (appQuList !=null && !appQuList.isEmpty()){
+            return appQuList;
+        }
+       return null;
     }
 }
