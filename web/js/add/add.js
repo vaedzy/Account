@@ -47,7 +47,7 @@ $(function(){
      */
     $(".nav_AppIndex").click(function () {
         $.ajax({
-            url:"/searchTypeAndAppName",
+            url:"/mainNav",
             type:"post",
             dataType:"text",
             data:"mainNav="+$(this).html(),
