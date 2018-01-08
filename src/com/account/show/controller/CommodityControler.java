@@ -44,10 +44,10 @@ public class CommodityControler {
      */
     @RequestMapping("addGoods")
     public ModelAndView loginAddGoods(HttpServletRequest request, HttpSession httpSession){
-        if (httpSession.getAttribute("user")==null){
-
-            return new ModelAndView("redirect:/toLogin");
-        }
+//        if (httpSession.getAttribute("user")==null){
+//
+//            return new ModelAndView("redirect:/toLogin");
+//        }
         return new ModelAndView("add");
 
     }
@@ -149,16 +149,5 @@ public class CommodityControler {
         return "success";
     }
 
-    /**
-     * 预留接口
-     * @param goodsInfo
-     * @param attachment
-     * @param request
-     * @return
-     */
-    @RequestMapping("addGoodsInfo")
-    public String addGoodsInfo (GoodsInfo goodsInfo, Attachment attachment,HttpServletRequest request){
-        commodityService.insert(goodsInfo);
-        return "success";
-    }
+
 }

@@ -66,6 +66,9 @@ $(function(){
         window.location.href="/logout"
     });
 
+    $("#addGoods").click(function () {
+        window.location.href="/addGoods"
+    });
 
     $(".nav_AppIndex").click(function () {
         $.ajax({

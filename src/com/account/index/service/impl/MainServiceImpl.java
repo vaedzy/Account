@@ -27,34 +27,59 @@ public class MainServiceImpl implements MainService{
     @Autowired(required = false)
     private GoodsInfoMapper goodsInfoMapper;
 
+    /**
+     * 主导航
+     * @param aAppIndex
+     * @return
+     */
     @Override
     public List<App> appList(String aAppIndex) {
     List<App> appList = appMapper.getAll(aAppIndex);
         return appList;
     }
 
+    /**
+     * 获取应用名字 可以根据拼音 类型查询
+     * @param search
+     * @return
+     */
     @Override
     public List<AppName> getAppName(String search) {
-
         List<AppName> appNameList = appNameMapper.getAppName(search);
         return appNameList;
     }
 
+    /**
+     * 根据AppId查询区
+     * @param AppId
+     * @return
+     */
     @Override
     public List<AppQu> getAppQu(long AppId) {
         List<AppQu> appQuList = appQuMapper.getAppQu(AppId);
         return appQuList;
     }
 
+    /**
+     * 根据AppId查询商品
+     * @param AppId
+     * @return
+     */
     @Override
     public List<GoodsInfo> getGoodsInfo(long AppId) {
         List<GoodsInfo> goodsInfoList = goodsInfoMapper.getGoodsByAppId(AppId);
         return goodsInfoList;
     }
 
+    /**
+     * 获取App区
+     * @param quName
+     * @return
+     */
     public List<AppQu> getAppQuName(String quName){
         List<AppQu> appQuList = appQuMapper.getAppQuName(quName);
         return appQuList;
     }
+
 
 }

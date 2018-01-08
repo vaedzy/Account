@@ -51,6 +51,7 @@
         </div>
         <div id="nav_shoppingcar" class="nav_on_box">购物车</div>
         <div id="nav_main" class="nav_on_box">主导航</div>
+        <div id="addGoods" class="nav_on_box">添加商品</div>
     </div>
 
     <!-- 二级导航 -->

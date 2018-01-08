@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: duzeyu
@@ -46,8 +47,31 @@
             <div id="fieldApp"></div>
         </div>
 
-
-
+   <!--账号名字-->
+    <input type="text" name="gName" placeholder="请起一个名字">
+    <!--用户名-->
+    <input type="text" name="userName" placeholder="请输入您要共享的账号"><br/>
+    <!--密码-->
+    <input type="password" name="passWord" placeholder="请输入您要共享的账号密码"><br/>
+    <!--简介-->
+    <input type="text" name="remark" placeholder="务必要输入一些关于此账号的信息"><br/>
+    <!--上传功能-->
+    <input type="file" name="file"/><br/>
+    <input type="file" name="file"/><br/>
+    <input type="file" name="file"/><br/>
+    <input type="file" name="file"/><br/>
+    <input type="file" name="file"/><br/>
+    <input type="file" name="file"/><br/>
+    <input type="file" name="file"/><br/>
+    <input type="file" name="file"/><br/>
+    <input type="file" name="file"/><br/>
+    <input type="file" name="file"/><br/>
+    <!--用户名-->
+    <input type='hidden' name='userId' value='${user.id}'>
+    <!--App类型-->
+    <input type='hidden' name='appType' value='<c:forEach var="appName" items="${appNameList}">${appName.appType}</c:forEach>'>
+    <!--AppId-->
+    <input type='hidden' name='appType' value='<c:forEach var="appName" items="${appNameList}">${appName.appId}</c:forEach>'>
     <input type="submit" value="上传商品">
 </form>
 <div id="nav_box">
