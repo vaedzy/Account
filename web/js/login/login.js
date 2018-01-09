@@ -7,9 +7,7 @@ $(function(){
             flag=true;
         }
         if($("#phone").val().length==11){
-            alert(flag)
             if(phonezz.test($("#phone").val()) && flag){
-                alert(phonezz.test($("#phone").val()) && flag)
                 $("#phone_outer").css("border","rgba(255,255,0,0.2) 2px solid");
                 flag=false;
                 $.ajax({
