@@ -58,7 +58,6 @@ $(function(){
                 $(data).each(function(i,o){
                     html=html+"<div class='nr' id="+o.aAppId+">"+o.aAppname+"</div>";
                 });
-                alert(html)
                 $("#fieldApp").html(html);
                 $(".nr").click(function(){
                     $(this).css("color","blue");
@@ -69,12 +68,13 @@ $(function(){
                         dataType:"text",
                         data:"AppId="+$(this).attr("id"),
                         success:function(data){
+                            alert(data);
                             data=jQuery.parseJSON(data);
                             var htm='';
                             $(data).each(function(i,o){
                             htm=htm+"<option value='"+o.quId+"'>"+o.quName+"</option>";
                             });
-                            $("#aQu").append("<select name='appQu' id='quName'>"+htl+"</select>");
+                            $("#aQu").append("<select name='appQu' id='quName'>"+htm+"</select>");
                         }
                     });
                     //location.href="/souApp?search="+$(this).html();

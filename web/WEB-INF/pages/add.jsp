@@ -65,7 +65,7 @@
         <img src="../images/add.png" class="add "/>
         <img class="show hide"/>--%>
 
-
+        <!--价格-->
         <!--账号名字-->
         <input type="text" name="gName" placeholder="请起一个名字">
         <!--用户名-->
@@ -75,7 +75,7 @@
         <!--简介-->
         <input type="text" name="remark" placeholder="务必要输入一些关于此账号的信息"><br/>
         <!-- 应用id -->
-        <input type="text" name="appId" id="addId">
+        <input type="hidden" name="appId" id="addId">
         <!-- 选区 -->
         <div id="aQu"></div>
         <!--上传功能-->
@@ -90,12 +90,8 @@
         <input type="file" name="file"/><br/>
         <input type="file" name="file"/><br/>
         ....................
-        <!--用户名-->
-        <input type='hidden' name='userId' value='${user.id}'>
-        <!--App类型-->
-        <input type='hidden' name='appType' value='<c:forEach var="appName" items="${appNameList}">${appName.appType}</c:forEach>'>
-        <!--AppId-->
-        <input type='hidden' name='appType' value='<c:forEach var="appName" items="${appNameList}">${appName.appId}</c:forEach>'>
+        <!--用户Id-->
+        <input type="hidden" name="userId" id="userId" value="${user.id}">
         <input type="submit" value="上传商品">
     </form>
 </div>
