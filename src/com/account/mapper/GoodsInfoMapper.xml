@@ -33,7 +33,12 @@
         <include refid="Base_Column_List"/>
          from GoodsInfo where AppId = #{AppId,jdbcType=BIGINT} AND status = 1
     </select>
-
+    <!--根据AppId查询所有上架的商品 数据交付于搜索后的展示页-->
+    <select id="getGoodsInfoQu" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from GoodsInfo where QuId = #{quId,jdbcType=BIGINT} AND status = 1
+    </select>
     <!--根据gid查询商品 数据交付于搜索页中用户点击后的商品展示页-->
     <select id="getGoodsById" resultMap="BaseResultMap">
         SELECT

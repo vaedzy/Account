@@ -14,5 +14,5 @@ public interface MainService {
     List<AppQu> getAppQu(long AppId);
     List<GoodsInfo> getGoodsInfo(long AppId);
     List<AppQu> getAppQuName(String quName);
-
+    List<GoodsInfo> getGoodsInfoQu(long quId);
 }

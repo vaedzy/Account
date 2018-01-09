@@ -80,11 +80,11 @@ public class MainControler {
     @RequestMapping("souAppQu")
     public List<GoodsInfo> souAppQu(@RequestParam("quName")String quName,HttpServletRequest request){
         List<AppQu> appQuList = mainService.getAppQuName(quName);
-        long AppId = -1;
+        long quId = -1;
         for (AppQu appQu : appQuList){
-            AppId = appQu.getQuId();
+            quId = appQu.getQuId();
         }
-        List<GoodsInfo> goodsInfoList = mainService.getGoodsInfo(AppId);
+        List<GoodsInfo> goodsInfoList = mainService.getGoodsInfoQu(quId);
         return goodsInfoList;
     }
 

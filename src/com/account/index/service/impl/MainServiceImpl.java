@@ -81,5 +81,9 @@ public class MainServiceImpl implements MainService{
         return appQuList;
     }
 
-
+    @Override
+    public List<GoodsInfo> getGoodsInfoQu(long quId) {
+        List<GoodsInfo> goodsInfoQu = goodsInfoMapper.getGoodsInfoQu(quId);
+        return goodsInfoQu;
+    }
 }

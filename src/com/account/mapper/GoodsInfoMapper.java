@@ -8,6 +8,7 @@ import java.util.List;
 public interface GoodsInfoMapper {
     List<GoodsInfo> getGoodsByAppId(long AppId);
     List<GoodsInfo> getByName();
+    List<GoodsInfo> getGoodsInfoQu(long quId);
     GoodsInfo getGoodsById(long gId);
     int updateByPrimaryKey(GoodsInfo record);
     int insert(GoodsInfo record);
