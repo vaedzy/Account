@@ -44,9 +44,10 @@ public class CommodityControler {
      */
     @RequestMapping("addGoods")
     public ModelAndView loginAddGoods(HttpServletRequest request, HttpSession httpSession){
-        if (httpSession.getAttribute("user")==null){
-            return new ModelAndView("redirect:/toLogin");
-        }
+//        if (httpSession.getAttribute("user")==null){
+//
+//            return new ModelAndView("redirect:/toLogin");
+//        }
         return new ModelAndView("add");
 
     }
@@ -79,16 +80,16 @@ public class CommodityControler {
     @RequestMapping("addGoods.do")
     private String addGoods(GoodsInfo goodsInfo, @RequestParam(value="file",required=false) MultipartFile[] file,
                               HttpServletRequest request)throws Exception{
-
         if (file!=null) {
             //获得物理路径webapp所在路径
             String pathRoot = request.getSession().getServletContext().getRealPath("");
             String path = "";
-            int i =1;
+            List<String> listImagePath = new ArrayList<>();
+            int i = 1;
             for (MultipartFile mf : file) {
-                System.out.println(mf.getOriginalFilename());
+                System.out.println(mf.getName());
+                System.out.println(mf.isEmpty());
                 if (!mf.isEmpty()) {
-                    System.out.println(i);
                     //生成uuid作为文件名称
                     String uuid = UUID.randomUUID().toString().replaceAll("-", "");
                     //获得文件类型（可以判断如果不是图片，禁止上传）
@@ -101,59 +102,42 @@ public class CommodityControler {
                         new File(pathRoot+ "/static/images/").mkdirs();
                     }
                     mf.transferTo(new File(pathRoot + path));
-
+                    listImagePath.add(path);
                     if (i==1){
                         goodsInfo.setGphotourl1(path);
                         i++;
-                        System.out.println(i);
                     }
                     if (i==2){
                         goodsInfo.setGphotourl2(path);
                         i++;
-                        System.out.println(i);
                     }
                     if (i==3){
                         goodsInfo.setGphotourl3(path);
                         i++;
-                        System.out.println(i);
-                    }
-                    if (i==4){
+                    }else if (i==4){
                         goodsInfo.setGphotourl4(path);
                         i++;
-                        System.out.println(i);
-                    }
-                    if (i==5){
+                    }else if (i==5){
                         goodsInfo.setGphotourl5(path);
                         i++;
-                        System.out.println(i);
-                    }
-                    if (i==6){
+                    }else if (i==6){
                         goodsInfo.setGphotourl6(path);
                         i++;
-                        System.out.println(i);
-                    }
-                    if (i==7){
+                    }else if (i==7){
                         goodsInfo.setGphotourl7(path);
                         i++;
-                        System.out.println(i);
-                    }
-                    if (i==8){
+                    }else if (i==8){
                         goodsInfo.setGphotourl8(path);
                         i++;
-                        System.out.println(i);
-                    }
-                    if (i==9){
+                    }else if (i==9){
                         goodsInfo.setGphotourl9(path);
                         i++;
-                        System.out.println(i);
-                    }
-                    if (i==10){
+                    }else if (i==10){
                         goodsInfo.setGphotourl10(path);
-                        System.out.println(i);
+                       System.gc();
                     }
                 }
             }
-            System.out.println(goodsInfo.getGphotourl2());
             commodityService.insert(goodsInfo);
         }
 

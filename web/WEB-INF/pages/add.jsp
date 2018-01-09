@@ -79,16 +79,16 @@
         <!-- 选区 -->
         <div id="aQu"></div>
         <!--上传功能-->
-        <input type="file" name="file"/><br/>
-        <input type="file" name="file"/><br/>
-        <input type="file" name="file"/><br/>
-        <input type="file" name="file"/><br/>
-        <input type="file" name="file"/><br/>
-        <input type="file" name="file"/><br/>
-        <input type="file" name="file"/><br/>
-        <input type="file" name="file"/><br/>
-        <input type="file" name="file"/><br/>
-        <input type="file" name="file"/><br/>
+        <input type="file" name="file" id="file1"/><br/>
+        <input type="file" name="file" id="file1"/><br/>
+        <input type="file" name="file" id="file1"/><br/>
+        <input type="file" name="file" id="file1"/><br/>
+        <input type="file" name="file" id="file1"/><br/>
+        <input type="file" name="file" id="file1"/><br/>
+        <input type="file" name="file" id="file1"/><br/>
+        <input type="file" name="file" id="file1"/><br/>
+        <input type="file" name="file" id="file1"/><br/>
+        <input type="file" name="file" id="file1"/><br/>
         ....................
         <!--用户Id-->
         <input type="hidden" name="userId" id="userId" value="${user.id}">
