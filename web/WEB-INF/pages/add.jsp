@@ -92,6 +92,7 @@
         ....................
         <!--用户Id-->
         <input type="hidden" name="userId" id="userId" value="${user.id}">
+        <input type="hidden" name="status" id="status" value="1">
         <input type="submit" value="上传商品">
     </form>
 </div>

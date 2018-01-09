@@ -43,9 +43,7 @@
     <!--插入商品-->
     <insert id="insert" parameterType="com.account.bean.GoodsInfo" keyProperty="gId" useGeneratedKeys="true" keyColumn="GENERATED_KEY">
         INSERT INTO GoodsInfo
-        (gId,userId,AppId,QuId,gName,userName,passWord,gprice,gphotourl1,gphotourl2,gphotourl3,gphotourl4,
-        gphotourl5,gphotourl6,gphotourl7,gphotourl8,gphotourl9,gphotourl10,remark,status)
-         values  (#{gId,jdbcType=BIGINT},#{userId,jdbcType=BIGINT},#{AppId,jdbcType=BIGINT},#{QuId,jdbcType=BIGINT},#{gName,jdbcType=VARCHAR},#{userName,jdbcType=VARCHAR},#{passWord,jdbcType=VARCHAR},#{gprice,jdbcType=DOUBLE},#{gphotourl1,jdbcType=VARCHAR},#{gphotourl2,jdbcType=VARCHAR},#{gphotourl3,jdbcType=VARCHAR},#{gphotourl4,jdbcType=VARCHAR},
+        (gId,userId,AppId,QuId,gName,userName,passWord,gprice,gphotourl1,gphotourl2,gphotourl3,gphotourl4,gphotourl5,gphotourl6,gphotourl7,gphotourl8,gphotourl9,gphotourl10,remark,status)values(#{gId,jdbcType=BIGINT},#{userId,jdbcType=BIGINT},#{appId,jdbcType=BIGINT},#{quId,jdbcType=BIGINT},#{gName,jdbcType=VARCHAR},#{userName,jdbcType=VARCHAR},#{passWord,jdbcType=VARCHAR},#{gprice,jdbcType=DOUBLE},#{gphotourl1,jdbcType=VARCHAR},#{gphotourl2,jdbcType=VARCHAR},#{gphotourl3,jdbcType=VARCHAR},#{gphotourl4,jdbcType=VARCHAR},
         #{gphotourl5,jdbcType=VARCHAR},#{gphotourl6,jdbcType=VARCHAR},#{gphotourl7,jdbcType=VARCHAR},#{gphotourl8,jdbcType=VARCHAR},#{gphotourl9,jdbcType=VARCHAR},#{gphotourl10,jdbcType=VARCHAR},#{remark,jdbcType=VARCHAR},#{status,jdbcType=INTEGER})
     </insert>
     <!--修改商品-->
@@ -54,8 +52,8 @@
         SET
         gId = #{gId,jdbcType=BIGINT},
         userId = #{userId,jdbcType=BIGINT},
-        AppId = #{AppId,jdbcType=BIGINT},
-        QuId = #{QuId,jdbcType=BIGINT},
+        AppId = #{appId,jdbcType=BIGINT},
+        QuId = #{quId,jdbcType=BIGINT},
         gName = #{gName,jdbcType=VARCHAR},
         userName = #{userName,jdbcType=VARCHAR},
         password = #{passWord,jdbcType=VARCHAR},
@@ -79,8 +77,8 @@
         SET
         gId = #{gId,jdbcType=BIGINT},
         userId = #{userId,jdbcType=BIGINT},
-        AppId = #{AppId,jdbcType=BIGINT},
-        QuId = #{QuId,jdbcType=BIGINT},
+        AppId = #{appId,jdbcType=BIGINT},
+        QuId = #{quId,jdbcType=BIGINT},
         gName = #{gName,jdbcType=VARCHAR},
         userName = #{userName,jdbcType=VARCHAR},
         password = #{passWord,jdbcType=VARCHAR},

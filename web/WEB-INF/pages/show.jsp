@@ -52,7 +52,7 @@
             <div class="goods_box" id="${g.gId}">
                 <div class="app_img">
                     <%-- 这里放一张截图 --%>
-                    <img src="/${g.gphotourl1}">
+                    <img src="${g.gphotourl1}">
                 </div>
                 <div class="app_text">
                    账号介绍：
