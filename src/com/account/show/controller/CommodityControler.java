@@ -87,6 +87,8 @@ public class CommodityControler {
             List<String> listImagePath = new ArrayList<>();
             int i =1;
             for (MultipartFile mf : file) {
+                System.out.println(mf.getName());
+                System.out.println(mf.isEmpty());
                 if (!mf.isEmpty()) {
                     //生成uuid作为文件名称
                     String uuid = UUID.randomUUID().toString().replaceAll("-", "");

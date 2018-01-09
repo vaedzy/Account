@@ -68,13 +68,13 @@ $(function(){
                         dataType:"text",
                         data:"AppId="+$(this).attr("id"),
                         success:function(data){
-                            alert(data);
                             data=jQuery.parseJSON(data);
                             var htm='';
                             $(data).each(function(i,o){
                             htm=htm+"<option value='"+o.quId+"'>"+o.quName+"</option>";
                             });
-                            $("#aQu").append("<select name='appQu' id='quName'>"+htm+"</select>");
+                            $("#aQu").append("<select name='quId' id='quName'>"+htm+"</select>");
+                            alert($("#quName").val());
                         }
                     });
                     //location.href="/souApp?search="+$(this).html();
