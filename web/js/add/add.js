@@ -92,8 +92,9 @@ $(function(){
             var src=getObjectURL(this.files[0]);//获取上传文件的路径
             $(".close").removeClass('hide');
             $(".add").addClass('hide');
-            $(".show").removeClass('hide');
-            $(".show").attr('src',src);//把路径赋值给img标签
+            $(this).parent().append("<img src='"+src+"' class='show'>");
+            // $(".show").removeClass('hide');
+            // $(this.id: last-child).attr('src',src);//把路径赋值给img标签
         });
 
         //点击关闭按钮时恢复初始状态

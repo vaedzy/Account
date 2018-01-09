@@ -187,12 +187,22 @@ body{
 	/*cursor: text;*/
 /*}*/
 
+
+#up_img_box{
+	width: 760px;
+	height: 300px;
+}
+.up_img{
+	width: 150px;
+	height: 150px;
+	float: left;
+}
+
 /*上传input*/
 .myUpload
 {
-	position: absolute;
-	width: 130px;
-	height: 100px;
+	width: 150px;
+	height: 150px;
 	opacity: 0;
 	z-index: 100;
 }
@@ -214,14 +224,12 @@ body{
 /*上传的图片*/
 .add
 {
-	position: absolute;
-	width: 130px;
-	height: 100px;
+	width: 150px;
+	height: 150px;
 }
 /*显示上传的图片*/
 .show
 {
-	position: absolute;
-	width: 130px;
-	height: 100px;
+	width: 150px;
+	height: 150px;
 }

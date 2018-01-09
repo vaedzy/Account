@@ -79,16 +79,69 @@
         <!-- 选区 -->
         <div id="aQu"></div>
         <!--上传功能-->
-        <input type="file" name="file" id="file1"/><br/>
-        <input type="file" name="file" id="file1"/><br/>
-        <input type="file" name="file" id="file1"/><br/>
-        <input type="file" name="file" id="file1"/><br/>
-        <input type="file" name="file" id="file1"/><br/>
-        <input type="file" name="file" id="file1"/><br/>
-        <input type="file" name="file" id="file1"/><br/>
-        <input type="file" name="file" id="file1"/><br/>
-        <input type="file" name="file" id="file1"/><br/>
-        <input type="file" name="file" id="file1"/><br/>
+        <div id="up_img_box">
+            <div class="up_img">
+                <input type="file" name="file" class="myUpload" />
+                点击上传
+                <img class="show hide"/>
+            </div>
+            <div class="up_img">
+                <input type="file" name="file" class="myUpload" />
+                点击上传
+                <img class="show hide"/>
+            </div>
+            <div class="up_img">
+                <input type="file" name="file" class="myUpload" />
+                点击上传
+                <img class="show hide"/>
+            </div>
+            <div class="up_img">
+                <input type="file" name="file" class="myUpload" />
+                点击上传
+                <img class="show hide"/>
+            </div>
+            <div class="up_img">
+                <input type="file" name="file" class="myUpload" />
+                点击上传
+                <img class="show hide"/>
+            </div>
+            <div class="up_img">
+                <input type="file" name="file" class="myUpload" />
+                点击上传
+                <img class="show hide"/>
+            </div>
+            <div class="up_img">
+                <input type="file" name="file" class="myUpload" />
+                点击上传
+                <img class="show hide"/>
+            </div>
+            <div class="up_img">
+                <input type="file" name="file" class="myUpload" />
+                点击上传
+                <img class="show hide"/>
+            </div>
+            <div class="up_img">
+                <input type="file" name="file" class="myUpload" />
+                点击上传
+                <img class="show hide"/>
+            </div>
+            <div class="up_img">
+                <input type="file" name="file" class="myUpload" />
+                点击上传
+                <img class="show hide"/>
+            </div>
+
+            <%--<br/>--%>
+            <%--<input type="file" name="file" class="myUpload" /><br/>--%>
+            <%--<input type="file" name="file" class="myUpload" /><br/>--%>
+            <%--<input type="file" name="file" class="myUpload" /><br/>--%>
+            <%--<input type="file" name="file" class="myUpload" /><br/>--%>
+            <%--<input type="file" name="file" class="myUpload" /><br/>--%>
+            <%--<input type="file" name="file" class="myUpload" /><br/>--%>
+            <%--<input type="file" name="file" class="myUpload" /><br/>--%>
+            <%--<input type="file" name="file" class="myUpload" /><br/>--%>
+            <%--<input type="file" name="file" class="myUpload" /><br/>--%>
+        </div>
         ....................
         <!--用户Id-->
         <input type="hidden" name="userId" id="userId" value="${user.id}">
