@@ -65,7 +65,7 @@
     -->
     <logger name="org.quartz" level="ERROR" />
     <root>
-        <level value="INFO" />
+        <level value="DEBUG" />
         <appender-ref ref="STDOUT" />
         <appender-ref ref="FILE" />
         <appender-ref ref="ERROR_FILE" />
