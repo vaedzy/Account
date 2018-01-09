@@ -99,9 +99,7 @@ public class CommodityControler {
                     fileName.substring(fileName.lastIndexOf("."));
                     //获得文件后缀名称
                     String imageName = fileName.substring(fileName.lastIndexOf(".")+1,fileName.length());
-                    System.out.println("拓展名"+imageName);
                     imageName = imageName.toLowerCase();
-
                     if (fileTypes.contains(imageName)) {
                         path = "/static/images/" + uuid + "." + imageName;
                         //如果没有该目录则新建目录
