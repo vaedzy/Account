@@ -78,7 +78,6 @@ $(function(){
     });
 
     $("#quName").bind("change",function(){
-        alert($("#quName").val());
         $.ajax({
             url:"/souAppQu",
             type:"post",

@@ -7,24 +7,26 @@ $(function(){
             flag=true;
         }
         if($("#phone").val().length==11){
-            if(phonezz.test($("#phone").val()) && flag){
-                $("#phone_outer").css("border","rgba(255,255,0,0.2) 2px solid");
-                flag=false;
-                $.ajax({
-                    url:"/getCode",
-                    type:"post",
-                    dataType:"text",
-                    data:"phone="+$("#phone").val(),
-                    success:function(data){
-                        if(data){
-                            $("#phone_outer").css("border","rgba(0,255,0,0.2) 2px solid");
-                        }else{
-                            $("#phone_outer").css("border","rgba(255,0,0,0.2) 2px solid");
+            if(flag){
+                if(phonezz.test($("#phone").val())){
+                    $("#phone_outer").css("border","rgba(255,255,0,0.2) 2px solid");
+                    flag=false;
+                    $.ajax({
+                        url:"/getCode",
+                        type:"post",
+                        dataType:"text",
+                        data:"phone="+$("#phone").val(),
+                        success:function(data){
+                            if(data){
+                                $("#phone_outer").css("border","rgba(0,255,0,0.2) 2px solid");
+                            }else{
+                                $("#phone_outer").css("border","rgba(255,0,0,0.2) 2px solid");
+                            }
                         }
-                    }
-                });
-            }else{
-                $("#phone_outer").css("border","rgba(255,0,0,0.2) 2px solid");
+                    });
+                }else{
+                    $("#phone_outer").css("border","rgba(255,0,0,0.2) 2px solid");
+                }
             }
         }
     });
