@@ -71,7 +71,7 @@ $(function(){
                 $("#goodsinfo").html("");
 				//重新加载页面商品
                 $(data).each(function(i,o){
-                    $("#goodsinfo").append("<div class='goods_box' id='"+o.gId+"'><div class='app_img'><img src='/"+o.gphotourl1+"'></div><div class='app_text'><br/>"+o.remark+"</div></div>");
+                    $("#goodsinfo").append("<div class='goods_box' id='"+o.gId+"'><div class='app_img'><img src='"+o.gphotourl1+"'></div><div class='app_text'><br/>"+o.remark+"</div></div>");
                 });
             }
         })
@@ -90,7 +90,7 @@ $(function(){
                 $("#goodsinfo").html("");
                 //重新加载页面商品
                 $(data).each(function(i,o){
-                    $("#goodsinfo").append("<div class='goods_box' id='"+o.gId+"'><div class='app_img'><img src='/"+o.gphotourl1+"'></div><div class='app_text'><br/>"+o.remark+"</div></div>");
+                    $("#goodsinfo").append("<div class='goods_box' id='"+o.gId+"'><div class='app_img'><img src='"+o.gphotourl1+"'></div><div class='app_text'><br/>"+o.remark+"</div></div>");
                 });
             }
         })
