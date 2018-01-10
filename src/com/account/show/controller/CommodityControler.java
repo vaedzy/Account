@@ -38,10 +38,18 @@ public class CommodityControler {
     public ModelAndView showCommodity(@RequestParam("gId")long gId, HttpServletRequest request){
         //返回到商品详情页 根据id
         GoodsInfo goodsInfo = commodityService.getGoogsById(gId);
+        String quName = "";
+        String appName = "";
         List<AppQu> appQuList = mainService.getAppQu(goodsInfo.getAppId());
+        for (AppQu appQu : appQuList){
+            quName = appQu.getQuName();
+        }
         List<AppName> appNameList = mainService.getAppNameById(goodsInfo.getAppId());
-        request.setAttribute("appQuList",appQuList);
-        request.setAttribute("appNameList",appNameList);
+        for (AppName appName1 : appNameList){
+            appName = appName1.getAppName();
+        }
+        request.setAttribute("appQu",quName);
+        request.setAttribute("appName",appName);
         request.setAttribute("goodsInfo",goodsInfo);
         return new ModelAndView("goodsShow");
     }

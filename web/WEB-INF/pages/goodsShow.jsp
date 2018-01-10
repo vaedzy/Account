@@ -27,7 +27,10 @@
 
 <div id="content">
 
-    <div id="content_nav">>>所有商品/商品详情</div>
+    <div id="content_nav">
+        ${appName}
+        ${appQu}
+    </div>
     <div id="goods_photo">
         <img src="${goodsInfo.gphotourl1}">
     </div>
@@ -43,10 +46,10 @@
                 <div class="wz">介绍:</div>
             </div>
             <div id="goods_info_right">
-                <div class="wz">${goodsInfo.remark}</div>
+                <div class="wz">${appName}</div>
                <input type="text" style="display: none" id="gId" name="gId" value="${goodsInfo.gId}" >
-                <div class="wz">${goodsInfo.appId}</div>
-                <div class="wz"> ${goodsInfo.quId}</div>
+                <div class="wz"> ${appQu}</div>
+                <div class="wz"> ${goodsInfo.remark}</div>
             </div>
             <input type="button" id="pay" value="立即购买">
         </input>
