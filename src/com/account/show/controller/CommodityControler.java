@@ -5,7 +5,7 @@ import com.account.bean.AppName;
 import com.account.bean.AppQu;
 import com.account.bean.GoodsInfo;
 
-import com.account.index.controller.MainControler;
+
 import com.account.index.service.MainService;
 import com.account.show.service.CommodityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
