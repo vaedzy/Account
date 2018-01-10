@@ -17,4 +17,9 @@
          from AppName where MATCH(AppType,AppName,AppPinyin) AGAINST(#{search} IN NATURAL LANGUAGE MODE)
     </select>
 
+    <select id="getAppNameById" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from AppName where AppId = #{appId,jdbcType=BIGINT}
+    </select>
 </mapper>

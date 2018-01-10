@@ -1,8 +1,12 @@
 package com.account.show.controller;
 
 
+import com.account.bean.AppName;
+import com.account.bean.AppQu;
 import com.account.bean.GoodsInfo;
 
+import com.account.index.controller.MainControler;
+import com.account.index.service.MainService;
 import com.account.show.service.CommodityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +29,8 @@ import java.util.UUID;
 public class CommodityControler {
     @Autowired
     private CommodityService commodityService;
+    @Autowired
+    private MainService mainService;
     /**
      * 前台点击商品后查询商品信息后返回商品详情
      */
@@ -33,9 +39,10 @@ public class CommodityControler {
     public ModelAndView showCommodity(@RequestParam("gId")long gId, HttpServletRequest request){
         //返回到商品详情页 根据id
         GoodsInfo goodsInfo = commodityService.getGoogsById(gId);
-
-        System.out.println( goodsInfo.getgName());
-        System.out.println(goodsInfo.getRemark());
+        List<AppQu> appQuList = mainService.getAppQu(goodsInfo.getAppId());
+        List<AppName> appNameList = mainService.getAppNameById(goodsInfo.getAppId());
+        request.setAttribute("appQuList",appQuList);
+        request.setAttribute("appNameList",appNameList);
         request.setAttribute("goodsInfo",goodsInfo);
         return new ModelAndView("test1");
     }

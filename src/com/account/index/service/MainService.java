@@ -15,4 +15,5 @@ public interface MainService {
     List<GoodsInfo> getGoodsInfo(long AppId);
     List<AppQu> getAppQuName(String quName);
     List<GoodsInfo> getGoodsInfoQu(long quId);
+    List<AppName> getAppNameById(long appId);
 }

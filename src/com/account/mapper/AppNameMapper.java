@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface AppNameMapper {
     List<AppName> getAppName(@Param("search") String search);
+    List<AppName> getAppNameById(@Param("appId") long appId);
 }
