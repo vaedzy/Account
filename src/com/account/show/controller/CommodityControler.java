@@ -44,7 +44,7 @@ public class CommodityControler {
         request.setAttribute("appQuList",appQuList);
         request.setAttribute("appNameList",appNameList);
         request.setAttribute("goodsInfo",goodsInfo);
-        return new ModelAndView("test1");
+        return new ModelAndView("goodsShow");
     }
     /**
      * 商品的发布 判断用户是否登陆
