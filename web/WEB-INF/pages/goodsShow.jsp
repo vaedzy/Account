@@ -12,7 +12,7 @@
     <title>单个商品展示页</title>
     <link rel="stylesheet" type="text/css" href="/common/css/goodsShow.css">
     <script src="/common/js/plugin/jquery/jquery-1.9.0.min.js"></script>
-    <script src="/js/add/add.js"></script>
+    <script src="/js/goodsShow/goodsShow.js"></script>
 </head>
 <body>
 <!-- 顶部 -->

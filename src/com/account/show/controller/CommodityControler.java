@@ -164,7 +164,7 @@ public class CommodityControler {
 
 
         @RequestMapping("Seckill")
-        public String seckillGoods(@RequestParam("gId")long gId) throws InterruptedException {
+        public String seckillGoods(@RequestParam("gId")long gId)throws InterruptedException {
             Boolean seckillOk = commodityService.seckillGoods(gId);
             if (seckillOk==true){
                 return "success";

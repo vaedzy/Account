@@ -55,7 +55,6 @@
     <update id="updateByPrimaryKey" parameterType="com.account.bean.GoodsInfo">
         UPDATE GoodsInfo
         SET
-        gId = #{gId,jdbcType=BIGINT},
         userId = #{userId,jdbcType=BIGINT},
         AppId = #{appId,jdbcType=BIGINT},
         QuId = #{quId,jdbcType=BIGINT},
