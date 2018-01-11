@@ -27,53 +27,65 @@
 
 <div id="context">
     <form action="/addGoods.do" enctype="multipart/form-data" method='post'>
-        <div class="nav_second" id="second_main">
-            <div class="nav_AppIndex">a</div>
-            <div class="nav_AppIndex">b</div>
-            <div class="nav_AppIndex">c</div>
-            <div class="nav_AppIndex">d</div>
-            <div class="nav_AppIndex">e</div>
-            <div class="nav_AppIndex">f</div>
-            <div class="nav_AppIndex">g</div>
-            <div class="nav_AppIndex">h</div>
-            <div class="nav_AppIndex">i</div>
-            <div class="nav_AppIndex">j</div>
-            <div class="nav_AppIndex">k</div>
-            <div class="nav_AppIndex">l</div>
-            <div class="nav_AppIndex">m</div>
-            <div class="nav_AppIndex">n</div>
-            <div class="nav_AppIndex">o</div>
-            <div class="nav_AppIndex">p</div>
-            <div class="nav_AppIndex">q</div>
-            <div class="nav_AppIndex">r</div>
-            <div class="nav_AppIndex">s</div>
-            <div class="nav_AppIndex">t</div>
-            <div class="nav_AppIndex">u</div>
-            <div class="nav_AppIndex">v</div>
-            <div class="nav_AppIndex">w</div>
-            <div class="nav_AppIndex">x</div>
-            <div class="nav_AppIndex">y</div>
-            <div class="nav_AppIndex">z</div>
-            <br>
-            <br>
+        <div class="nav_second">
+            <div style="float: left; background: #3399CC; width: 890px;padding-left:110px; height: 20px;border-bottom: 2px solid #6666CC;">
+                <div class="nav_AppIndex">a</div>
+                <div class="nav_AppIndex">b</div>
+                <div class="nav_AppIndex">c</div>
+                <div class="nav_AppIndex">d</div>
+                <div class="nav_AppIndex">e</div>
+                <div class="nav_AppIndex">f</div>
+                <div class="nav_AppIndex">g</div>
+                <div class="nav_AppIndex">h</div>
+                <div class="nav_AppIndex">i</div>
+                <div class="nav_AppIndex">j</div>
+                <div class="nav_AppIndex">k</div>
+                <div class="nav_AppIndex">l</div>
+                <div class="nav_AppIndex">m</div>
+                <div class="nav_AppIndex">n</div>
+                <div class="nav_AppIndex">o</div>
+                <div class="nav_AppIndex">p</div>
+                <div class="nav_AppIndex">q</div>
+                <div class="nav_AppIndex">r</div>
+                <div class="nav_AppIndex">s</div>
+                <div class="nav_AppIndex">t</div>
+                <div class="nav_AppIndex">u</div>
+                <div class="nav_AppIndex">v</div>
+                <div class="nav_AppIndex">w</div>
+                <div class="nav_AppIndex">x</div>
+                <div class="nav_AppIndex">y</div>
+                <div class="nav_AppIndex">z</div>
+            </div>
             <div id="fieldApp"></div>
         </div>
 
         <!--  上传图片显示 -->
     <%--    <input type="file" class="myUpload" />
         <img src="../images/close.jpg" class="close hide"/>
-        <img src="../images/add.png" class="add "/>
+        <img src="common/img/upload.jpg" class="add "/>
         <img class="show hide"/>--%>
 
         <!--价格-->
         <!--账号名字-->
-        <input type="text" name="gName" placeholder="请起一个名字">
+        <div class="input_box">
+            <input type="text" class="input" name="gName" placeholder="请起一个名字">
+        </div>
+        <!--价格-->
+        <div class="input_box">
+            <input type="text" class="input" name="gprice" placeholder="给你的账号定一个价格">
+        </div>
         <!--用户名-->
-        <input type="text" name="userName" placeholder="请输入您要共享的账号"><br/>
+        <div class="input_box">
+            <input type="text" class="input" name="userName" placeholder="请输入您要共享的账号">
+        </div>
         <!--密码-->
-        <input type="password" name="passWord" placeholder="请输入您要共享的账号密码"><br/>
+        <div class="input_box">
+            <input type="password" class="input" name="passWord" placeholder="请输入您要共享的账号密码">
+        </div>
         <!--简介-->
-        <input type="text" name="remark" placeholder="务必要输入一些关于此账号的信息"><br/>
+        <div class="input_box">
+            <input type="text" class="input" name="remark" placeholder="务必要输入一些关于此账号的信息">
+        </div>
         <!-- 应用id -->
         <input type="hidden" name="appId" id="addId">
         <!-- 选区 -->
@@ -82,71 +94,56 @@
         <div id="up_img_box">
             <div class="up_img">
                 <input type="file" name="file" class="myUpload" />
-                点击上传
+                <img src="common/img/upload.jpg" class="add "/>
                 <img class="show hide"/>
             </div>
             <div class="up_img">
                 <input type="file" name="file" class="myUpload" />
-                点击上传
+                <img src="common/img/upload.jpg" class="add "/>
                 <img class="show hide"/>
             </div>
             <div class="up_img">
                 <input type="file" name="file" class="myUpload" />
-                点击上传
+                <img src="common/img/upload.jpg" class="add "/>
                 <img class="show hide"/>
             </div>
             <div class="up_img">
                 <input type="file" name="file" class="myUpload" />
-                点击上传
+                <img src="common/img/upload.jpg" class="add "/>
                 <img class="show hide"/>
             </div>
             <div class="up_img">
                 <input type="file" name="file" class="myUpload" />
-                点击上传
-                <img class="show hide"/>
+                <img src="common/img/upload.jpg" class="add "/>
+            </div>
+            <div class="up_img" style="clear: left">
+                <input type="file" name="file" class="myUpload" />
+                <img src="common/img/upload.jpg" class="add "/>
             </div>
             <div class="up_img">
                 <input type="file" name="file" class="myUpload" />
-                点击上传
-                <img class="show hide"/>
+                <img src="common/img/upload.jpg" class="add "/>
             </div>
             <div class="up_img">
                 <input type="file" name="file" class="myUpload" />
-                点击上传
-                <img class="show hide"/>
+                <img src="common/img/upload.jpg" class="add "/>
             </div>
             <div class="up_img">
                 <input type="file" name="file" class="myUpload" />
-                点击上传
-                <img class="show hide"/>
+                <img src="common/img/upload.jpg" class="add "/>
             </div>
             <div class="up_img">
                 <input type="file" name="file" class="myUpload" />
-                点击上传
-                <img class="show hide"/>
-            </div>
-            <div class="up_img">
-                <input type="file" name="file" class="myUpload" />
-                点击上传
-                <img class="show hide"/>
+                <img src="common/img/upload.jpg" class="add "/>
             </div>
 
-            <%--<br/>--%>
-            <%--<input type="file" name="file" class="myUpload" /><br/>--%>
-            <%--<input type="file" name="file" class="myUpload" /><br/>--%>
-            <%--<input type="file" name="file" class="myUpload" /><br/>--%>
-            <%--<input type="file" name="file" class="myUpload" /><br/>--%>
-            <%--<input type="file" name="file" class="myUpload" /><br/>--%>
-            <%--<input type="file" name="file" class="myUpload" /><br/>--%>
-            <%--<input type="file" name="file" class="myUpload" /><br/>--%>
-            <%--<input type="file" name="file" class="myUpload" /><br/>--%>
-            <%--<input type="file" name="file" class="myUpload" /><br/>--%>
         </div>
-        ....................
         <!--用户Id-->
         <input type="hidden" name="userId" id="userId" value="${user.id}">
         <input type="hidden" name="status" id="status" value="1">
-        <input type="submit" value="上传商品">
+        <div class="input_box" style="border: none; padding: 0px">
+        <input type="submit" id="uploadGoods" value="上传商品">
+        </div>
     </form>
 </div>
 

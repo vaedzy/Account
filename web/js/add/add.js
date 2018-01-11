@@ -73,8 +73,8 @@ $(function(){
                             $(data).each(function(i,o){
                             htm=htm+"<option value='"+o.quId+"'>"+o.quName+"</option>";
                             });
+                            $("#aQu").css("display","block");
                             $("#aQu").append("<select name='quId' id='quName'>"+htm+"</select>");
-                            alert($("#quName").val());
                         }
                     });
                     //location.href="/souApp?search="+$(this).html();
@@ -90,8 +90,8 @@ $(function(){
         $(".myUpload").change(function()
         {
             var src=getObjectURL(this.files[0]);//获取上传文件的路径
-            $(".close").removeClass('hide');
-            $(".add").addClass('hide');
+            //$(".close").removeClass('hide');
+            //$(".add").addClass('hide');
             $(this).parent().append("<img src='"+src+"' class='show'>");
             // $(".show").removeClass('hide');
             // $(this.id: last-child).attr('src',src);//把路径赋值给img标签
