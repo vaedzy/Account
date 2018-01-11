@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -59,11 +60,12 @@ public class CommodityServiceImpl implements CommodityService{
         //获取id
         long id = goodsInfo.getgId();
         //判断是否被上锁 上锁返回false
+        if (ResourceLock.tryLock(id)) {
             //上锁
             ResourceLock.accquireWrite(id);
             try {
                 System.out.println("等待付款");
-                Thread.sleep(10000000);
+                Thread.sleep(30000);
                 System.out.println("付款成功");
                 goodsInfo.setStatus(0);
                 //更改状态
@@ -78,6 +80,8 @@ public class CommodityServiceImpl implements CommodityService{
                 return false;
             }
         }
+        return false;
+    }
 
 }
 

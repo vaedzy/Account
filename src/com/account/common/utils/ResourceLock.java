@@ -19,5 +19,8 @@ public class ResourceLock {
         lock.unlock();
         rtLockPool.releaseLock(lock);
     }
-
+    public static Boolean tryLock(long resourceID) {
+        SysnKeyLock lock = rtLockPool.getLock(resourceID);
+        return  lock.tryLock();
+    }
 }

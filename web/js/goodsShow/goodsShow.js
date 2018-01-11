@@ -6,7 +6,6 @@ $(function () {
            dataType:"text",
            data:"gId="+$("#gId").val(),
            success:function(data){
-
            }
         });
     });

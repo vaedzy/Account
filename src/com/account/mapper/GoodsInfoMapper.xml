@@ -73,13 +73,12 @@
         gphotourl9 = #{gphotourl9,jdbcType=VARCHAR},
         gphotourl10 = #{gphotourl10,jdbcType=VARCHAR},
         remark = #{remark,jdbcType=VARCHAR},
-        status = #{status,jdbcType=INTEGER})
+        status = #{status,jdbcType=INTEGER}
          WHERE gId = #{gId,jdbcType=BIGINT}
     </update>
     <update id="deleteByPrimaryKey" parameterType="com.account.bean.GoodsInfo">
          UPDATE GoodsInfo
         SET
-        gId = #{gId,jdbcType=BIGINT},
         userId = #{userId,jdbcType=BIGINT},
         AppId = #{appId,jdbcType=BIGINT},
         QuId = #{quId,jdbcType=BIGINT},
@@ -98,7 +97,7 @@
         gphotourl9 = #{gphotourl9,jdbcType=VARCHAR},
         gphotourl10 = #{gphotourl10,jdbcType=VARCHAR},
         remark = #{remark,jdbcType=VARCHAR},
-        status = #{status,jdbcType=INTEGER})
+        status = #{status,jdbcType=INTEGER}
         WHERE gId = #{gId,jdbcType=BIGINT}
     </update>
 </mapper>

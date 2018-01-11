@@ -162,7 +162,15 @@ public class CommodityControler {
         return new ModelAndView("redirect:/index.jsp");
         }
 
+    @RequestMapping("SeckillLoginUser")
+    public ModelAndView loginUserSeckill(HttpServletRequest request, HttpSession httpSession){
+        if (httpSession.getAttribute("user")==null){
+            return new ModelAndView("redirect:/toLogin");
+        }
+        return new ModelAndView("redirect:/Seckill");
 
+    }
+        @ResponseBody
         @RequestMapping("Seckill")
         public String seckillGoods(@RequestParam("gId")long gId)throws InterruptedException {
             Boolean seckillOk = commodityService.seckillGoods(gId);
