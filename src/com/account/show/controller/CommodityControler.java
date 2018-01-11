@@ -162,4 +162,13 @@ public class CommodityControler {
         return new ModelAndView("redirect:/index.jsp");
         }
 
+
+        @RequestMapping("Seckill")
+        public String seckillGoods(@RequestParam("gId")long gId){
+            Boolean seckillOk = commodityService.seckillGoods(gId);
+            if (seckillOk==true){
+                return "success";
+            }
+            return "error";
+        }
 }

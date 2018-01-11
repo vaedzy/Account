@@ -10,7 +10,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Account</title>
+    <title>Account-信用无价</title>
     <link rel="stylesheet" type="text/css" href="common/css/search.css">
     <script src="common/js/plugin/jquery/jquery-1.9.0.min.js"></script>
     <script src="js/index/search.js"></script>

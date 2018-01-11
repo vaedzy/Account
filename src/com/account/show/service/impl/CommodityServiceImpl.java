@@ -36,4 +36,27 @@ public class CommodityServiceImpl implements CommodityService{
        int delete =  goodsInfoMapper.deleteByPrimaryKey(record);
         return delete;
     }
+
+    /**
+     * 锁商品
+     * @param gId
+     * @return
+     */
+    @Override
+    public synchronized boolean seckillGoods(long gId) throws InterruptedException {
+        //查询商品是否存在
+        GoodsInfo goodsInfo = goodsInfoMapper.getGoodsById(gId);
+        //判断商品是否被购买
+        if (goodsInfo.getStatus()!=1){
+            return false;
+        }
+        //没有被购买 执行pay中方法 并获取是否成功
+        System.out.println("等待付款");
+        Thread.sleep(1000);
+        //如果成功 设置下架 并更新数据库
+        goodsInfo.setStatus(0);
+        goodsInfoMapper.updateByPrimaryKey(goodsInfo);
+        return true;
+    }
+
 }

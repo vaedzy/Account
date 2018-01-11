@@ -78,7 +78,7 @@
         <div id="addGoods" class="nav_on_box">添加商品</div>
     </div>
     <div id="nav_btn"></div>   <!-- 导航按钮.... -->
-
+</div>
 </div>
 </body>
 </html>

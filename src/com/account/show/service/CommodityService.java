@@ -30,4 +30,11 @@ public interface CommodityService {
      * @return
      */
     int deleteByPrimaryKey(GoodsInfo record);
+
+    /**
+     * 下单处理
+     * @param gId
+     * @return
+     */
+    boolean seckillGoods(long gId) throws InterruptedException;
 }
