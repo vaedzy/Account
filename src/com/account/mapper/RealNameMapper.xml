@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.account.mapper.RealNameMapper">
+    <cache eviction="LRU" type="com.account.common.utils.RedisCache" />
+    <resultMap id="BaseResultMap" type="com.account.bean.RealName">
+        <id column="ID" jdbcType="BIGINT" property="id"/>
+        <result column="Name" jdbcType="VARCHAR" property="name"/>
+        <result column="IdCard" jdbcType="CHAR" property="idCard"/>
+        <result column="Alipay" jdbcType="VARCHAR" property="alipay"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="com.account.bean.RealName" keyProperty="id" useGeneratedKeys="true" keyColumn="GENERATED_KEY">
+      insert into AC_RealName (ID, Name,IdCard,Alipay)
+    values (#{id,jdbcType=BIGINT}, #{Name,jdbcType=VARCHAR}, #{IdCard,jdbcType=CHAR},
+      #{Alipay,jdbcType=VARCHAR})
+  </insert>
+
+    <sql id="Base_Column_List">
+        ID, Name, IdCard, Alipay
+  </sql>
+    <select id="getRealNameByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from AC_RealName
+        where ID = #{id,jdbcType=BIGINT}
+    </select>
+</mapper>
