@@ -7,16 +7,19 @@
         <result column="Name" jdbcType="VARCHAR" property="name"/>
         <result column="IdCard" jdbcType="CHAR" property="idCard"/>
         <result column="Alipay" jdbcType="VARCHAR" property="alipay"/>
+        <result column="idCardUrl1" jdbcType="VARCHAR" property="idCardUrl1"/>
+        <result column="idCardUrl2" jdbcType="VARCHAR" property="idCardUrl2"/>
+        <result column="PersonId" jdbcType="BIGINT" property="PersonId"/>
     </resultMap>
 
     <insert id="insert" parameterType="com.account.bean.RealName" keyProperty="id" useGeneratedKeys="true" keyColumn="GENERATED_KEY">
-      insert into AC_RealName (ID, Name,IdCard,Alipay)
-    values (#{id,jdbcType=BIGINT}, #{Name,jdbcType=VARCHAR}, #{IdCard,jdbcType=CHAR},
-      #{Alipay,jdbcType=VARCHAR})
+      insert into AC_RealName (ID, Name,IdCard,Alipay,idCardUrl1,idCardUrl2,PersonId)
+    values (#{id,jdbcType=BIGINT}, #{Name,jdbcType=VARCHAR}, #{IdCard,jdbcType=VAECHAR},
+      #{Alipay,jdbcType=VARCHAR}, #{idCardUrl1,jdbcType=VARCHAR},#{idCardUrl2,jdbcType=VARCHAR}),#{PersonId,jdbcType=BIGINT}
   </insert>
 
     <sql id="Base_Column_List">
-        ID, Name, IdCard, Alipay
+        ID, Name, IdCard, Alipay,idCardUrl1,idCardUrl2,PersonId
   </sql>
     <select id="getRealNameByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
         select

@@ -6,6 +6,7 @@ import com.account.bean.AppQu;
 import com.account.bean.GoodsInfo;
 
 
+
 import com.account.index.service.MainService;
 import com.account.show.service.CommodityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -165,14 +166,12 @@ public class CommodityControler {
 
         @ResponseBody
         @RequestMapping("Seckill")
-        public String seckillGoods(@RequestParam("gId")long gId,HttpSession httpSession)throws InterruptedException {
+        public String seckillGoods(@RequestParam("gId")long gId, HttpSession httpSession)throws InterruptedException {
             if (httpSession.getAttribute("user")==null){
                return "noLogin";
             }
-            Boolean seckillOk = commodityService.seckillGoods(gId);
-            if (seckillOk==true){
-                return "success";
-            }
-            return "error";
+           String commod = commodityService.seckillGoods(gId,httpSession);
+
+            return commod;
         }
 }

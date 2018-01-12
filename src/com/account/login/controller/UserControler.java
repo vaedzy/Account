@@ -1,6 +1,7 @@
 package com.account.login.controller;
 
 import com.account.bean.Person;
+import com.account.bean.RealName;
 import com.account.common.base.BaseController;
 import com.account.common.utils.MobileMessageCheck;
 import com.account.common.utils.PhoneFormatCheckUtils;
@@ -9,6 +10,7 @@ import com.account.login.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -200,4 +202,14 @@ public class UserControler extends BaseController {
         //跳转到首页
         return new ModelAndView("redirect:/index.jsp");
     }
+
+    @ResponseBody
+    @RequestMapping("realName")
+    public String realName(RealName realName ,@RequestParam(value="file",required=false) MultipartFile[] file,
+                           HttpServletRequest request)throws Exception{
+       String ok= userService.insertRealName(realName,file,request);
+       return ok;
+    }
+
+    
 }
