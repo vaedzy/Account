@@ -279,6 +279,7 @@ body{
 	left: 0;
 	width: 150px;
 	height: 150px;
+	z-index: 2;
 }
 
 #uploadGoods{
