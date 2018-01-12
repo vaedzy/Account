@@ -62,8 +62,12 @@ public class CommodityControler {
         if (httpSession.getAttribute("user")==null){
             return new ModelAndView("redirect:/toLogin");
         }
-        return new ModelAndView("add");
 
+        Boolean realName = commodityService.RealName(httpSession);
+        if (realName) {
+            return new ModelAndView("add");
+        }
+        return new ModelAndView("mycenter");
     }
 
 
@@ -100,7 +104,6 @@ public class CommodityControler {
         fileTypes.add("bmp");
         fileTypes.add("gif");
         fileTypes.add("png");
-
         if (file!=null) {
             //获得物理路径webapp所在路径
             String pathRoot = request.getSession().getServletContext().getRealPath("");

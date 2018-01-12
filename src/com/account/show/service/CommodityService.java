@@ -34,6 +34,7 @@ public interface CommodityService {
      */
     int deleteByPrimaryKey(GoodsInfo record);
 
+    Boolean RealName(HttpSession session);
     /**
      * 下单处理
      * @param gId

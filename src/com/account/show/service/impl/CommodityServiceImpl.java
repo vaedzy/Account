@@ -50,6 +50,21 @@ public class CommodityServiceImpl implements CommodityService{
     }
 
     /**
+     * 发布商品前确认实名认证
+     * @param id
+     * @return
+     */
+    @Override
+    public Boolean RealName(HttpSession httpSession) {
+        Person person = (Person) httpSession.getAttribute("user");
+        RealName realName = realNameMapper.getRealNameByPrimaryKey(person.getId());
+        if (realName!=null){
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * 锁商品
      * @param gId
      * @return
