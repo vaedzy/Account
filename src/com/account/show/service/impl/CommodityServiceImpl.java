@@ -1,15 +1,19 @@
 package com.account.show.service.impl;
 
 import com.account.bean.GoodsInfo;
+import com.account.bean.Person;
+import com.account.bean.RealName;
 import com.account.bean.SysnKeyLock;
 import com.account.common.utils.ResourceLock;
 import com.account.mapper.GoodsInfoMapper;
+import com.account.mapper.RealNameMapper;
 import com.account.show.service.CommodityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -18,6 +22,8 @@ import java.util.concurrent.locks.ReentrantLock;
 public class CommodityServiceImpl implements CommodityService{
     @Autowired
     private GoodsInfoMapper goodsInfoMapper;
+    @Autowired
+    private RealNameMapper realNameMapper;
     @Override
     public GoodsInfo getGoogsById(long gId) {
         GoodsInfo goodsInfo = goodsInfoMapper.getGoodsById(gId);
@@ -49,13 +55,19 @@ public class CommodityServiceImpl implements CommodityService{
      * @return
      */
     @Override
-    public boolean seckillGoods(long gId) throws InterruptedException {
+    public String seckillGoods(long gId,HttpSession httpSession) throws InterruptedException {
         //查询商品是否存在
         GoodsInfo goodsInfo = goodsInfoMapper.getGoodsById(gId);
+        //查询下单用户是否实名认证
+        Person person = (Person) httpSession.getAttribute("user");
+        RealName realName = realNameMapper.getRealNameByPrimaryKey(person.getId());
+        if (realName==null){
+            return "noRealName";
+        }
         //判断商品是否被购买
         if (goodsInfo.getStatus() != 1) {
             //被购买返回false
-            return false;
+            return "noGoods";
         }
         //获取id
         long id = goodsInfo.getgId();
@@ -73,14 +85,14 @@ public class CommodityServiceImpl implements CommodityService{
                 //解锁
                 ResourceLock.releaseWrite(id);
                 //支付成功 返回true
-                return true;
+                return "success";
             } finally {
                 //如果异常 解锁
                 ResourceLock.releaseWrite(id);
-                return false;
+                return "noseckillGoods";
             }
         }
-        return false;
+        return "noseckillGoods";
     }
 
 }

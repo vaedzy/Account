@@ -1,6 +1,9 @@
 package com.account.show.service;
 
 import com.account.bean.GoodsInfo;
+import com.account.bean.RealName;
+
+import javax.servlet.http.HttpSession;
 
 public interface CommodityService {
     /**
@@ -36,5 +39,5 @@ public interface CommodityService {
      * @param gId
      * @return
      */
-    boolean seckillGoods(long gId) throws InterruptedException;
+    String seckillGoods(long gId,HttpSession httpSession) throws InterruptedException;
 }

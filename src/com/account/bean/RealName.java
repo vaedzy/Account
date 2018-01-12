@@ -8,9 +8,27 @@ public class RealName implements Serializable {
     private String name;
     private String idCard;
     private String alipay;
-
+    private String idCardUrl1;
+    private String idCardUrl2;
+    private Long PersonId;
     public static long getSerialVersionUID() {
         return serialVersionUID;
+    }
+
+    public String getIdCardUrl1() {
+        return idCardUrl1;
+    }
+
+    public String getIdCardUrl2() {
+        return idCardUrl2;
+    }
+
+    public void setIdCardUrl1(String idCardUrl1) {
+        this.idCardUrl1 = idCardUrl1;
+    }
+
+    public void setIdCardUrl2(String idCardUrl2) {
+        this.idCardUrl2 = idCardUrl2;
     }
 
     public void setName(String name) {
@@ -43,5 +61,13 @@ public class RealName implements Serializable {
 
     public void setIdCard(String idCard) {
         this.idCard = idCard;
+    }
+
+    public Long getPersonId() {
+        return PersonId;
+    }
+
+    public void setPersonId(Long personId) {
+        PersonId = personId;
     }
 }

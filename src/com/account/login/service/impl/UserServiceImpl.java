@@ -1,22 +1,31 @@
 package com.account.login.service.impl;
 
 import com.account.bean.Person;
+import com.account.bean.RealName;
 import com.account.common.constant.SystemConstant;
 import com.account.common.utils.IpUtil;
 import com.account.login.service.UserService;
 import com.account.mapper.PersonMapper;
+import com.account.mapper.RealNameMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.UUID;
 
 @Service("userService")
 @Transactional(rollbackFor = Exception.class)
 public class UserServiceImpl implements UserService{
     @Autowired(required = false)
     private PersonMapper personMapper;
+    @Autowired(required = false)
+    private RealNameMapper realNameMapper;
     /**
      * 通过手机号查找人员，
      * 如果该人员不存在则自动保存改手机号信息
@@ -58,6 +67,54 @@ public class UserServiceImpl implements UserService{
         personMapper.updateByPrimaryKey(person);
         return user;
     }
+
+    @Override
+    public String insertRealName(RealName realName, MultipartFile[] file, HttpServletRequest request)  throws Exception {
+        List<String> fileTypes = new ArrayList<String>();
+        fileTypes.add("jpg");
+        fileTypes.add("jpeg");
+        fileTypes.add("bmp");
+        fileTypes.add("png");
+        if (file != null) {
+            //获得物理路径webapp所在路径
+            String pathRoot = request.getSession().getServletContext().getRealPath("");
+            String path = "";
+            int i = 1;
+            for (MultipartFile mf : file) {
+                if (!mf.isEmpty()) {
+                    //生成uuid作为文件名称
+                    String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+                    String fileName = mf.getOriginalFilename();
+                    fileName.substring(fileName.lastIndexOf("."));
+                    //获得文件后缀名称
+                    String imageName = fileName.substring(fileName.lastIndexOf(".") + 1, fileName.length());
+                    imageName = imageName.toLowerCase();
+                    if (fileTypes.contains(imageName)) {
+                        path = "/static/images/" + uuid + "." + imageName;
+                        //如果没有该目录则新建目录
+                        if (!new File(pathRoot + "/static/images/").isDirectory()) {
+                            new File(pathRoot + "/static/images/").mkdirs();
+                        }
+                        mf.transferTo(new File(pathRoot + path));
+                        if (i == 1) {
+                            realName.setIdCardUrl1(path);
+                            i++;
+                        } else if (i == 2) {
+                            realName.setIdCardUrl2(path);
+                            i++;
+                        }
+                    }
+                }
+            }
+            int ok = realNameMapper.insert(realName);
+            if (ok == 1) {
+                return "success";
+            }
+            return "error";
+        }
+        return "error";
+    }
+
 
 
 }
