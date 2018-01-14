@@ -1,5 +1,9 @@
 package com.account.common.utils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -7,10 +11,12 @@ import java.util.Locale;
 
 /**
  * 日期工具类
+ *
  * @author yin
  * @date 2017/11/22
  */
 public class DateUtil {
+    private static final Logger log= LoggerFactory.getLogger(DateUtil.class);
     /**
      * 中国以周一为每周的第一天
      */
@@ -57,30 +63,26 @@ public class DateUtil {
     }
 
 
-
     /**
      * 将日期转化为字符型日期字符串
      * "yyyy-MM-dd HH:mm:ss"
+     *
      * @param date
      * @param params 日期格式
      * @return
      */
     public static String formatIntToDateString(Date date, String params) {
-        SimpleDateFormat format;
-        String strtime;
+        String str= "";
         if (date != null) {
             try {
-                format = new SimpleDateFormat(params, Locale
+                DateFormat format = new SimpleDateFormat(params, Locale
                         .getDefault());
-                strtime = format.format(date);
+                str = format.format(date);
             } catch (Exception ex) {
-                strtime = "";
-                ex.printStackTrace();
+                log.error("日期转换失败",ex);
             }
-        }else{
-            strtime = "";
         }
-        return strtime;
+        return str;
     }
 
     /**

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.account.mapper.AcOrderMapper">
+    <resultMap id="BaseResultMap" type="com.account.bean.AcOrder">
+        <id column="ID" jdbcType="BIGINT" property="id"/>
+        <result column="O_CODE" jdbcType="VARCHAR" property="oCode"/>
+        <result column="O_PAY_TYPE" jdbcType="VARCHAR" property="oPayType"/>
+        <result column="O_USER_CODE" jdbcType="VARCHAR" property="oUserCode"/>
+        <result column="O_CREATE_TIME" jdbcType="TIMESTAMP" property="oCreateTime"/>
+        <result column="O_GI_ID" jdbcType="BIGINT" property="oGiId"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from AC_ORDER
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+    <insert id="insert" parameterType="com.account.bean.AcOrder">
+    insert into AC_ORDER (ID, O_CODE, O_PAY_TYPE, 
+      O_USER_CODE,O_CREATE_TIME,O_GI_ID)
+    values (#{id,jdbcType=BIGINT}, #{oCode,jdbcType=VARCHAR}, #{oPayType,jdbcType=VARCHAR}, 
+      #{oUserCode,jdbcType=VARCHAR}, #{oCreateTime,jdbcType=TIMESTAMP},#{oGiId,jdbcType=BIGINT})
+  </insert>
+    <update id="updateByPrimaryKey" parameterType="com.account.bean.AcOrder">
+    update AC_ORDER
+    set O_CODE = #{oCode,jdbcType=VARCHAR},
+      O_PAY_TYPE = #{oPayType,jdbcType=VARCHAR},
+      O_USER_CODE = #{oUserCode,jdbcType=VARCHAR},
+      O_CREATE_TIME =#{oCreateTime,jdbcType=TIMESTAMP},
+      O_GI_ID =#{oGiId,jdbcType=BIGINT}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select ID, O_CODE, O_PAY_TYPE, O_USER_CODE,O_CREATE_TIME, O_GI_ID
+    from AC_ORDER
+    where ID = #{userCode,jdbcType=VARCHAR}
+  </select>
+    <select id="getLastOrderNow" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select ID, O_CODE, O_PAY_TYPE, O_USER_CODE,O_CREATE_TIME, O_GI_ID
+    from AC_ORDER
+    where O_CODE = #{id,jdbcType=BIGINT}
+      AND  DATE_FORMAT(NOW(),'%Y-%m-%d')= DATE_FORMAT(O_CREATE_TIME,'%Y-%m-%d')
+      ORDER BY O_CREATE_TIME DESC
+      LiMIT 0 ,1
+  </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+    select ID, O_CODE, O_PAY_TYPE, O_USER_CODE,O_CREATE_TIME, O_GI_ID
+    from AC_ORDER
+  </select>
+</mapper>
