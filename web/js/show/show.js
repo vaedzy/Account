@@ -94,5 +94,17 @@ $(function(){
             }
         })
     });
+    $("#userlog").click(function () {
+        window.location.href="/toLogin"
+    });
+
+    $("#logout").click(function () {
+        window.location.href="/logout"
+    });
+
+    $("#addGoods").click(function () {
+        window.location.href="/addGoods"
+    });
+
 
 })

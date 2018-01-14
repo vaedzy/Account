@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>个人中心</title>
     <link rel="stylesheet" type="text/css" href="/common/css/mycenter.css">
     <script src="/common/js/plugin/jquery/jquery-1.9.0.min.js"></script>
     <script src="/js/mycenter/mycenter.js"></script>
@@ -70,12 +70,6 @@
             </div>
         </div>
 
-        <div class="info">
-            <div class="text">电子邮箱：</div>
-            <div class="input_box">
-                <input id="pEmail" class="input" type="text" name="pEmail" placeholder="请输入你的电子邮箱">
-            </div>
-        </div>
 
         <div style="width: 330px;height: 40px;margin: 20px auto;">
             <input type="submit" class="upload" value="保存">
@@ -104,12 +98,12 @@
             <div id="up_img_box">
                 <div class="up_img">
                     <input type="file" name="file" class="myUpload" />
-                    <img src="common/img/upload.jpg" class="add "/>
+                    <img src="../../common/img/upload.jpg" class="add "/>
                     <img class="show hide"/>
                 </div>
                 <div class="up_img">
                     <input type="file" name="file" class="myUpload" />
-                    <img src="common/img/upload.jpg" class="add "/>
+                    <img src="../../common/img/upload.jpg" class="add "/>
                     <img class="show hide"/>
                 </div>
             </div>
@@ -131,13 +125,13 @@
             </c:if>
             <c:if test="${user==null?false:true}">
                 <span id="uuser">尊敬的:${user.pFullname}</span>
-                <div id="logout">
-                    <span>退出登录</span>
-                </div>
             </c:if>
         </div>
         <div id="nav_main" class="nav_on_box">主导航</div>
         <div id="addGoods" class="nav_on_box">添加商品</div>
+        <c:if test="${user==null?false:true}">
+            <div id="logout" class="nav_on_box">退出登录</div>
+        </c:if>
     </div>
     <div id="nav_btn"></div>   <!-- 导航按钮.... -->
 </div>

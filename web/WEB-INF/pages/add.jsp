@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>商品添加</title>
     <link rel="stylesheet" type="text/css" href="/common/css/add.css">
     <script src="/common/js/plugin/jquery/jquery-1.9.0.min.js"></script>
     <script src="/js/add/add.js"></script>
@@ -158,11 +158,13 @@
             </c:if>
             <c:if test="${user==null?false:true}">
                 <span id="uuser">尊敬的:${user.pFullname}</span>
-                <div id="logout">
-                    <span>退出登录</span>
-                </div>
             </c:if>
         </div>
+        <div id="nav_main" class="nav_on_box">主导航</div>
+        <div id="addGoods" class="nav_on_box">添加商品</div>
+        <c:if test="${user==null?false:true}">
+            <div id="logout" class="nav_on_box">退出登录</div>
+        </c:if>
     </div>
 
 <div id="nav_btn"></div>   <!-- 导航按钮.... -->

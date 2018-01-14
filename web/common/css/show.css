@@ -12,6 +12,12 @@ body{
 	z-index: 50;
 	box-shadow: #000 0px 5px 8px;
 }
+
+#uuser{
+	text-align:left;
+	color:#FFF;
+	font-size:16px;
+}
 #logo{
 	width: 100px;
 	height: 100px;

@@ -158,7 +158,11 @@ body{
     margin: 0 auto;
 }
 
-
+#uuser{
+    text-align:left;
+    color:#FFF;
+    font-size:16px;
+}
 
 
 /*上传input*/

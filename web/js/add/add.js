@@ -123,7 +123,17 @@ $(function(){
             url = window.webkitURL.createObjectURL(file);
         }
         return url;
-    }
+    };
 
-    
+    $("#userlog").click(function () {
+        window.location.href="/toLogin"
+    });
+
+    $("#logout").click(function () {
+        window.location.href="/logout"
+    });
+
+    $("#addGoods").click(function () {
+        window.location.href="/addGoods"
+    });
 })

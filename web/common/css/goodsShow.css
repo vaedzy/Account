@@ -6,7 +6,11 @@ body{
     background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
 }
 
-
+#uuser{
+    text-align:left;
+    color:#FFF;
+    font-size:16px;
+}
 #top{
     position: fixed;
     top: 0px;
