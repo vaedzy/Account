@@ -1,6 +1,6 @@
 *{padding: 0 ;margin: 0}
 body{
-	background:#e0fcff;
+	/*background:#e0fcff;*/
 }
 #top{
 	position: fixed;
@@ -137,9 +137,9 @@ body{
 
 
 #goodsinfo{
-	margin: 120px 0px 0px 14%;
+	margin: 120px 0 0 6%;
 	height: 1px;
-	width: 800px;
+	width: 75%;
 }
 .goods_box{
 	margin: 20px;
@@ -167,7 +167,6 @@ body{
 	font-size: 12px;
 	float: left;
 }
-
 
 #conditions select{
 	margin: 10px;
