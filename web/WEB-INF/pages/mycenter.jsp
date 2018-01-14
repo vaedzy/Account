@@ -30,6 +30,7 @@
     <form action="">
         <div id="certification">
             <div class="input_box">
+                
                 <input type="text" maxlength="18" class="input" name="idcard" id="idcard" placeholder="请输入你的身份证号码">
             </div>
             <div id="up_img_box">
@@ -42,6 +43,7 @@
                     <input type="file" name="file" class="myUpload" />
                     <img src="common/img/upload.jpg" class="add "/>
                     <img class="show hide"/>
+                    <input type="hidden" name="PersonId" id="userId" value="${user.id}">
                 </div>
             </div>
             <div class="input_box" style="border: none; padding: 0px">

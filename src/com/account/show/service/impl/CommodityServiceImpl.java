@@ -1,10 +1,12 @@
 package com.account.show.service.impl;
 
+import com.account.bean.Deposit;
 import com.account.bean.GoodsInfo;
 import com.account.bean.Person;
 import com.account.bean.RealName;
-import com.account.bean.SysnKeyLock;
+
 import com.account.common.utils.ResourceLock;
+import com.account.mapper.DepositMapper;
 import com.account.mapper.GoodsInfoMapper;
 import com.account.mapper.RealNameMapper;
 import com.account.show.service.CommodityService;
@@ -12,10 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
+
 
 @Service("commodityService")
 @Transactional(rollbackFor = Exception.class)
@@ -24,6 +24,8 @@ public class CommodityServiceImpl implements CommodityService{
     private GoodsInfoMapper goodsInfoMapper;
     @Autowired
     private RealNameMapper realNameMapper;
+    @Autowired
+    private DepositMapper depositMapper;
     @Override
     public GoodsInfo getGoogsById(long gId) {
         GoodsInfo goodsInfo = goodsInfoMapper.getGoodsById(gId);
@@ -51,7 +53,7 @@ public class CommodityServiceImpl implements CommodityService{
 
     /**
      * 发布商品前确认实名认证
-     * @param id
+     * @param httpSession
      * @return
      */
     @Override
@@ -78,6 +80,21 @@ public class CommodityServiceImpl implements CommodityService{
         RealName realName = realNameMapper.getRealNameByPrimaryKey(person.getId());
         if (realName==null){
             return "noRealName";
+        }
+        //查询下单用户是否缴纳押金
+        Deposit deposit = depositMapper.getDepositByPrimaryKey(person.getId());
+        if (deposit==null){
+            //缴纳押金
+
+            //支付环节
+            try{
+
+                //成功存数据库
+                depositMapper.insert(deposit);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
         }
         //判断商品是否被购买
         if (goodsInfo.getStatus() != 1) {

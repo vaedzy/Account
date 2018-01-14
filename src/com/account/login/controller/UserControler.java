@@ -211,5 +211,4 @@ public class UserControler extends BaseController {
        return ok;
     }
 
-    
 }
