@@ -106,9 +106,27 @@ $(function() {
             url = window.webkitURL.createObjectURL(file);
         }
         return url;
-    }
+    };
 
+    $("#left").css("height",window.screen.availHeight-187);
 
-
-
+    $("#center_btn").css({"margin-left":"10px"});
+    $("#center_btn").click(function(){
+        $(".content").css("display","none");
+        $(".option").css({"margin-left":"0px"});
+        $("#center").css("display","block");
+        $("#center_btn").css({"margin-left":"10px"});
+    });
+    $("#autonym_btn").click(function(){
+        $(".content").css("display","none");
+        $(".option").css({"margin-left":"0px"});
+        $("#autonym").css("display","block");
+        $("#autonym_btn").css({"margin-left":"10px"});
+    });
+    $("#pledge_btn").click(function(){
+        $(".content").css("display","none");
+        $(".option").css({"margin-left":"0px"});
+        $("#pledge").css("display","block");
+        $("#pledge_btn").css({"margin-left":"10px"});
+    });
 })
