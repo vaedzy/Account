@@ -67,4 +67,8 @@
            }
         });
     });
-})
+
+    $(".img").mouseover(function () {
+       $("#gphoto").attr('src',$(this).attr('src'));
+    })
+ })

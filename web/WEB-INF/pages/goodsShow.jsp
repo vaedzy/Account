@@ -28,11 +28,11 @@
 <div id="content">
 
     <div id="content_nav">
-        ${appName}
+        ${appName}>>
         ${appQu}
     </div>
     <div id="goods_photo">
-        <img src="${goodsInfo.gphotourl1}">
+        <img width="100%" height="100%" id="gphoto" src="${goodsInfo.gphotourl1}">
     </div>
     <div id="goods_right">
         <div id="goods_wz">
@@ -51,12 +51,63 @@
                 <div class="wz"> ${appQu}</div>
                 <div class="wz"> ${goodsInfo.remark}</div>
             </div>
-            <input type="button" id="pay" value="立即购买">
-        </input>
+            <input type="button" id="pay" value="立即下单"/>
+        </div>
+
     </div>
-
+    <div id="photos">
+        <c:if test="${goodsInfo.gphotourl1 != null}">
+        <div style="width: 50px;height: 50px " class="photo">
+            <img width="100%" height="100%" class="img" src="${goodsInfo.gphotourl1}">
+        </div>
+        </c:if>
+        <c:if test="${goodsInfo.gphotourl2 != null}">
+            <div style="width: 50px;height: 50px " class="photo">
+                <img width="100%" height="100%" class="img" src="${goodsInfo.gphotourl2}">
+            </div>
+        </c:if>
+        <c:if test="${goodsInfo.gphotourl3 != null}">
+            <div style="width: 50px;height: 50px " class="photo">
+                <img width="100%" height="100%" class="img" src="${goodsInfo.gphotourl3}">
+            </div>
+        </c:if>
+        <c:if test="${goodsInfo.gphotourl4 != null}">
+            <div style="width: 50px;height: 50px " class="photo">
+                <img width="100%" height="100%" class="img" src="${goodsInfo.gphotourl4}">
+            </div>
+        </c:if>
+        <c:if test="${goodsInfo.gphotourl5 != null}">
+            <div style="width: 50px;height: 50px " class="photo">
+                <img width="100%" height="100%" class="img" src="${goodsInfo.gphotourl5}">
+            </div>
+        </c:if>
+        <c:if test="${goodsInfo.gphotourl6 != null}">
+            <div style="width: 50px;height: 50px " class="photo">
+                <img width="100%" height="100%" class="img" src="${goodsInfo.gphotourl6}">
+            </div>
+        </c:if>
+        <c:if test="${goodsInfo.gphotourl7 != null}">
+            <div style="width: 50px;height: 50px " class="photo">
+                <img width="100%" height="100%" class="img" src="${goodsInfo.gphotourl7}">
+            </div>
+        </c:if>
+        <c:if test="${goodsInfo.gphotourl8 != null}">
+            <div style="width: 50px;height: 50px " class="photo">
+                <img width="100%" height="100%" class="img" src="${goodsInfo.gphotourl8}">
+            </div>
+        </c:if>
+        <c:if test="${goodsInfo.gphotourl9 != null}">
+            <div style="width: 50px;height: 50px " class="photo">
+                <img width="100%" height="100%" class="img" src="${goodsInfo.gphotourl9}">
+            </div>
+        </c:if>
+        <c:if test="${goodsInfo.gphotourl10 != null}">
+            <div style="width: 50px;height: 50px " class="photo">
+                <img width="100%" height="100%" class="img" src="${goodsInfo.gphotourl10}">
+            </div>
+        </c:if>
+    </div>
 </div>
-
 
 <div id="nav_box">
 
@@ -78,7 +129,6 @@
         </c:if>
     </div>
     <div id="nav_btn"></div>   <!-- 导航按钮.... -->
-</div>
 </div>
 </body>
 </html>

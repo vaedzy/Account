@@ -52,7 +52,7 @@
             <div class="goods_box" id="${g.gId}">
                 <div class="app_img">
                     <%-- 这里放一张截图 --%>
-                    <img src="${g.gphotourl1}">
+                    <img width="100%" height="100%" src="${g.gphotourl1}">
                 </div>
                 <div class="app_text">
                    账号介绍：
@@ -76,7 +76,6 @@
                 <span id="uuser">尊敬的:${user.pFullname}</span>
             </c:if>
         </div>
-        <div id="nav_main" class="nav_on_box">主导航</div>
         <div id="addGoods" class="nav_on_box">添加商品</div>
         <c:if test="${user==null?false:true}">
             <div id="logout" class="nav_on_box">退出登录</div>
