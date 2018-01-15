@@ -8,8 +8,10 @@ public class GoodsInfo  implements Serializable {
     private long gId;
     private long appId;
     private long quId;
-    private String gName;
+    private long userId;
     private double gprice;
+    private Integer status;
+    private String gName;
     private String gphotourl1;
     private String gphotourl2;
     private String gphotourl3;
@@ -21,10 +23,8 @@ public class GoodsInfo  implements Serializable {
     private String gphotourl9;
     private String gphotourl10;
     private String remark;
-    private Integer status;
     private String userName;
     private String passWord;
-    private long userId;
 
     public void setAppId(long appId) {
         this.appId = appId;

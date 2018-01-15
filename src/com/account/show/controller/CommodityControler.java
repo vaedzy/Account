@@ -5,8 +5,6 @@ import com.account.bean.AppName;
 import com.account.bean.AppQu;
 import com.account.bean.GoodsInfo;
 
-
-
 import com.account.index.service.MainService;
 import com.account.show.service.CommodityService;
 import org.springframework.beans.factory.annotation.Autowired;
