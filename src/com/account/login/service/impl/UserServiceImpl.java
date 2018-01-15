@@ -68,6 +68,14 @@ public class UserServiceImpl implements UserService{
         return user;
     }
 
+    /**
+     * 实名认证
+     * @param realName
+     * @param file
+     * @param request
+     * @return
+     * @throws Exception
+     */
     @Override
     public String insertRealName(RealName realName, MultipartFile[] file, HttpServletRequest request)  throws Exception {
         List<String> fileTypes = new ArrayList<String>();
