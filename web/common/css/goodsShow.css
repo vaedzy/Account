@@ -87,7 +87,7 @@ body{
 #goods_photo{
     width:430px;
     height:430px;
-    margin:50px 50px 0 50px;
+    margin:20px 50px 0 50px;
     float:left;
     border: 1px solid #8c8c8c;
     overflow:hidden;
@@ -158,6 +158,7 @@ body{
 #photos{
     width:530px;
     height:50px;
+    margin-top: -40px;
     float:left;
 }
 

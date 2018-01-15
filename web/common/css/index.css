@@ -3,7 +3,7 @@ a:link{text-decoration: none; color:#000;}
 a:visited{ color:#000;}
 *{padding: 0 ; margin: 0;}
 body{
-	background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+	/*background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);*/
 }
 #content{
 	position:fixed;
@@ -26,7 +26,7 @@ body{
 }
 #search{
 	outline: none;
-	background: #b4d9fe;
+	/*background: #b4d9fe;*/
 	width: 330px;
 	height: 40px;
 	border: 2px solid #98fdec;
@@ -43,7 +43,7 @@ body{
 #search_btn{
 	float: left;
 	outline: none;
-	background:#b4d9fe;
+	/*background:#b4d9fe;*/
 	width: 80px;
 	height: 40px;
 	cursor:pointer;
@@ -132,8 +132,8 @@ body{
 .nav_second{
 	position:absolute;
 	top:-180px;
-	left:-875px;
-	width:700px;
+	left:-965px;
+	width:790px;
 	height:210px;
 	border-radius:8px;
 	display:none;
@@ -169,13 +169,36 @@ body{
 	/*cursor:pointer;*/
 /*}*/
 .nav_AppIndex{
-	width: 25px;
-	height: 20px;
+	width: 30px;
+	height: 30px;
 	float: left;
 	color: white;
 	cursor: pointer;
 	text-align: center;
-	line-height: 20px;
-	margin-left:1px;
-	margin-top:2px;
+	line-height: 30px;
+	background: #3399CC;
+	transition:background 0.3s;
+	border-bottom: 1px solid #6666CC;
+}
+.nav_AppIndex:hover{
+	background: #33CCCC;
+}
+
+#fieldApp{
+	width: 900px;
+	margin: 0 auto;
+	padding-top: 30px;
+	cursor: pointer;
+}
+.nr{
+	text-align: center;
+	width: 80px;
+	height: 30px;
+	margin: 2px;
+	cursor: pointer;
+	color: #202020;
+	transition: color 0.3s;
+}
+.nr:hover{
+	color: #5d5d5d;
 }

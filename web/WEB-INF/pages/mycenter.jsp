@@ -127,9 +127,8 @@
                 <span id="uuser">尊敬的:${user.pFullname}</span>
             </c:if>
         </div>
-        <div id="nav_main" class="nav_on_box">主导航</div>
-        <div id="addGoods" class="nav_on_box">添加商品</div>
         <c:if test="${user==null?false:true}">
+            <div id="addGoods" class="nav_on_box">添加商品</div>
             <div id="logout" class="nav_on_box">退出登录</div>
         </c:if>
     </div>

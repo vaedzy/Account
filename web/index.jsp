@@ -11,7 +11,7 @@
 <html>
 <head>
     <title>Account-信用无价</title>
-    <link rel="stylesheet" type="text/css" href="common/css/search.css">
+    <link rel="stylesheet" type="text/css" href="common/css/index.css">
     <script src="common/js/plugin/jquery/jquery-1.9.0.min.js"></script>
     <script src="js/index/index.js"></script>
     <!--[if IE]>
@@ -27,7 +27,7 @@
     <div id="logo">LOGO</div>
     <div id="search_box">
         <form action="/souApp" method="post">
-            <input type="text" id="search" name="search" placeholder="请输入关键字">
+            <input type="text" autocomplete="off" id="search" name="search" placeholder="请输入关键字">
             <input type="submit" id="search_btn" value="GO">
         </form>
     </div>
@@ -47,8 +47,9 @@
             </c:if>
         </div>
         <div id="nav_main" class="nav_on_box">主导航</div>
-        <div id="addGoods" class="nav_on_box">添加商品</div>
+
         <c:if test="${user==null?false:true}">
+            <div id="addGoods" class="nav_on_box">添加商品</div>
             <div id="logout" class="nav_on_box">退出登录</div>
         </c:if>
     </div>
@@ -57,60 +58,34 @@
     <div class="nav_second" id="second_shoppingcar">
     </div>
     <div class="nav_second" id="second_main">
-        <%--<a href="#">A</a>
-        <a href="#">B</a>
-        <a href="#">C</a>
-        <a href="#">D</a>
-        <a href="#">E</a>
-        <a href="#">F</a>
-        <a href="#">G</a>
-        <a href="#">H</a>
-        <a href="#">I</a>
-        <a href="#">J</a>
-        <a href="#">K</a>
-        <a href="#">L</a>
-        <a href="#">M</a>
-        <a href="#">N</a>
-        <a href="#">O</a>
-        <a href="#">P</a>
-        <a href="#">Q</a>
-        <a href="#">R</a>
-        <a href="#">S</a>
-        <a href="#">T</a>
-        <a href="#">U</a>
-        <a href="#">V</a>
-        <a href="#">W</a>
-        <a href="#">X</a>
-        <a href="#">Y</a>
-        <a href="#">Z</a>--%>
-        <div class="nav_AppIndex">a</div>
-        <div class="nav_AppIndex">b</div>
-        <div class="nav_AppIndex">c</div>
-        <div class="nav_AppIndex">d</div>
-        <div class="nav_AppIndex">e</div>
-        <div class="nav_AppIndex">f</div>
-        <div class="nav_AppIndex">g</div>
-        <div class="nav_AppIndex">h</div>
-        <div class="nav_AppIndex">i</div>
-        <div class="nav_AppIndex">j</div>
-        <div class="nav_AppIndex">k</div>
-        <div class="nav_AppIndex">l</div>
-        <div class="nav_AppIndex">m</div>
-        <div class="nav_AppIndex">n</div>
-        <div class="nav_AppIndex">o</div>
-        <div class="nav_AppIndex">p</div>
-        <div class="nav_AppIndex">q</div>
-        <div class="nav_AppIndex">r</div>
-        <div class="nav_AppIndex">s</div>
-        <div class="nav_AppIndex">t</div>
-        <div class="nav_AppIndex">u</div>
-        <div class="nav_AppIndex">v</div>
-        <div class="nav_AppIndex">w</div>
-        <div class="nav_AppIndex">x</div>
-        <div class="nav_AppIndex">y</div>
-        <div class="nav_AppIndex">z</div>
-        <br>
-        <br>
+        <div style="float: left; background: #3399CC; width: 785px;padding-left:5px; height: 30px;border-bottom: 2px solid #6666CC; border-radius:8px 8px 0 0;">
+            <div class="nav_AppIndex">a</div>
+            <div class="nav_AppIndex">b</div>
+            <div class="nav_AppIndex">c</div>
+            <div class="nav_AppIndex">d</div>
+            <div class="nav_AppIndex">e</div>
+            <div class="nav_AppIndex">f</div>
+            <div class="nav_AppIndex">g</div>
+            <div class="nav_AppIndex">h</div>
+            <div class="nav_AppIndex">i</div>
+            <div class="nav_AppIndex">j</div>
+            <div class="nav_AppIndex">k</div>
+            <div class="nav_AppIndex">l</div>
+            <div class="nav_AppIndex">m</div>
+            <div class="nav_AppIndex">n</div>
+            <div class="nav_AppIndex">o</div>
+            <div class="nav_AppIndex">p</div>
+            <div class="nav_AppIndex">q</div>
+            <div class="nav_AppIndex">r</div>
+            <div class="nav_AppIndex">s</div>
+            <div class="nav_AppIndex">t</div>
+            <div class="nav_AppIndex">u</div>
+            <div class="nav_AppIndex">v</div>
+            <div class="nav_AppIndex">w</div>
+            <div class="nav_AppIndex">x</div>
+            <div class="nav_AppIndex">y</div>
+            <div class="nav_AppIndex">z</div>
+        </div>
         <div id="fieldApp"></div>
     </div>
 
