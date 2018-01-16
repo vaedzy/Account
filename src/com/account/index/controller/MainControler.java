@@ -30,12 +30,8 @@ public class MainControler {
     @ResponseBody
     @RequestMapping("mainNav")
     public List<App> mainNav(@RequestParam("mainNav")String mainNav,HttpServletRequest request){
-        System.out.println(mainNav);
         List<App> appList = mainService.appList(mainNav);
-        //是否需要判断传来的数据是a-z中的哪一个
-        //将查找到的数据存入session中 从页面获取
-       request.getSession().setAttribute("appList",appList);
-       return appList;
+        return appList;
     }
 
     /**
@@ -62,46 +58,25 @@ public class MainControler {
     /**
      * 查询app区下的商品
      * @param quName
-     * @param request
      * @return
      */
     @ResponseBody
     @RequestMapping("souAppQu")
-    public List<GoodsInfo> souAppQu(@RequestParam("quName")String quName,HttpServletRequest request){
-        List<AppQu> appQuList = mainService.getAppQuName(quName);
-        long quId = -1;
-        for (AppQu appQu : appQuList){
-            quId = appQu.getQuId();
-        }
-        List<GoodsInfo> goodsInfoList = mainService.getGoodsInfoQu(quId);
+    public List<GoodsInfo> souAppQu(@RequestParam("quName")String quName){
+       List<GoodsInfo> goodsInfoList = mainService.getAppQuGoods(quName);
         return goodsInfoList;
-    }
-
-    /**
-     * 精准的应用名 来源于主导航
-     * @param AppName
-     * @return
-     */
-    @RequestMapping("preciseApp")
-    public ModelAndView preciseApp(@RequestParam("AppName")String AppName){
-        System.out.println(AppName);
-        return new ModelAndView();
     }
 
     /**
      * 根据id查询所有区
      * @param AppId
-     * @param request
      * @return
      */
     @ResponseBody
     @RequestMapping("searchTypeAndAppName")
-    public List<AppQu> searchTypeAndAppName(@RequestParam("AppId")long AppId,HttpServletRequest request){
+    public List<AppQu> searchTypeAndAppName(@RequestParam("AppId")long AppId){
         //根据id查询区
-        List<AppQu> appQuList = mainService.getAppQu(AppId);
-        if (appQuList !=null && !appQuList.isEmpty()){
-            return appQuList;
-        }
-       return null;
+        List<AppQu> appQuList = mainService.getAppQuList(AppId);
+       return appQuList;
     }
 }

@@ -72,46 +72,26 @@ public class MainServiceImpl implements MainService{
     }
 
     /**
-     * 根据AppId查询区
-     * @param AppId
+     * 实现根据区名称获取商品
+     * @param quName
      * @return
      */
     @Override
-    public List<AppQu> getAppQu(long AppId) {
+    public List<GoodsInfo> getAppQuGoods(String quName) {
+        //根据QuName查询
+        AppQu appQu = appQuMapper.getAppQuName(quName);
+        //获取分秒时
+        String startTime = DateUtil.formatIntToDateString(new Date(),"HH:mm:ss");
+        List<GoodsInfo> goodsInfoList = goodsInfoMapper.getGoodsInfoQu(appQu.getQuId(),startTime);
+        return goodsInfoList;
+    }
+
+
+    @Override
+    public List<AppQu> getAppQuList(long AppId) {
         List<AppQu> appQuList = appQuMapper.getAppQu(AppId);
         return appQuList;
     }
 
-    /**
-     * 根据AppId查询商品
-     * @param AppId
-     * @return
-     */
-    @Override
-    public List<GoodsInfo> getGoodsInfo(long AppId) {
-        List<GoodsInfo> goodsInfoList = goodsInfoMapper.getGoodsByAppId(AppId);
-        return goodsInfoList;
-    }
 
-    /**
-     * 获取App区
-     * @param quName
-     * @return
-     */
-    public List<AppQu> getAppQuName(String quName){
-        List<AppQu> appQuList = appQuMapper.getAppQuName(quName);
-        return appQuList;
-    }
-
-    @Override
-    public List<GoodsInfo> getGoodsInfoQu(long quId) {
-        List<GoodsInfo> goodsInfoQu = goodsInfoMapper.getGoodsInfoQu(quId);
-        return goodsInfoQu;
-    }
-
-    @Override
-    public List<AppName> getAppNameById(long appId) {
-        List<AppName> appNameList = appNameMapper.getAppNameById(appId);
-        return appNameList;
-    }
 }

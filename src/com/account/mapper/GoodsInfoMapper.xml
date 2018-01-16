@@ -28,11 +28,19 @@
     <sql id="Base_Column_List">
         gId,AppId,userId,QuId,gName,userName,passWord,gprice,gphotourl1,gphotourl2,gphotourl3,gphotourl4,gphotourl5,gphotourl6,gphotourl7,gphotourl8,gphotourl9,gphotourl10,remark,status,terminalTime,startTime
     </sql>
+
     <!--根据AppId查询所有上架的商品 数据交付于搜索后的展示页-->
     <select id="getGoodsByAppId" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
          from AC_GOODSINFO where AppId = #{AppId,jdbcType=BIGINT} AND status = 1 AND startTime >= #{startTime,jdbcType=TIME}
+    </select>
+
+    <!--根据QuId查询所有上架的商品 数据交付于搜索后的展示页-->
+    <select id="getGoodsByAppId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from AC_GOODSINFO where QuId = #{QuId,jdbcType=BIGINT} AND status = 1 AND startTime >= #{startTime,jdbcType=TIME}
     </select>
 
     <!--根据gid查询商品 数据交付于搜索页中用户点击后的商品展示页-->
@@ -41,6 +49,7 @@
         <include refid="Base_Column_List"/>
         FROM AC_GOODSINFO WHERE gId = #{gId,jdbcType=BIGINT}
     </select>
+
     <!--插入商品-->
     <insert id="insert" parameterType="com.account.bean.GoodsInfo" keyProperty="gId" useGeneratedKeys="true" keyColumn="GENERATED_KEY">
         INSERT INTO AC_GOODSINFO
@@ -48,6 +57,7 @@
         (#{gId,jdbcType=BIGINT},#{userId,jdbcType=BIGINT},#{appId,jdbcType=BIGINT},#{quId,jdbcType=BIGINT},#{gName,jdbcType=VARCHAR},#{userName,jdbcType=VARCHAR},#{passWord,jdbcType=VARCHAR},#{gprice,jdbcType=DOUBLE},#{gphotourl1,jdbcType=VARCHAR},#{gphotourl2,jdbcType=VARCHAR},#{gphotourl3,jdbcType=VARCHAR},#{gphotourl4,jdbcType=VARCHAR},
         #{gphotourl5,jdbcType=VARCHAR},#{gphotourl6,jdbcType=VARCHAR},#{gphotourl7,jdbcType=VARCHAR},#{gphotourl8,jdbcType=VARCHAR},#{gphotourl9,jdbcType=VARCHAR},#{gphotourl10,jdbcType=VARCHAR},#{remark,jdbcType=VARCHAR},#{status,jdbcType=INTEGER},#{startTime,jdbcType=TIME},#{terminalTime,jdbcType=TIME})
     </insert>
+
     <!--修改商品-->
     <update id="updateByPrimaryKey" parameterType="com.account.bean.GoodsInfo">
         UPDATE AC_GOODSINFO
@@ -75,6 +85,7 @@
         terminalTime =#{terminalTime,jdbcType=TIME}
          WHERE gId = #{gId,jdbcType=BIGINT}
     </update>
+
     <update id="deleteByPrimaryKey" parameterType="com.account.bean.GoodsInfo">
          UPDATE AC_GOODSINFO
         SET

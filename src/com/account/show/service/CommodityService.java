@@ -2,7 +2,9 @@ package com.account.show.service;
 
 import com.account.bean.GoodsInfo;
 import com.account.bean.RealName;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 public interface CommodityService {
@@ -11,7 +13,7 @@ public interface CommodityService {
      * @param gId
      * @return
      */
-    GoodsInfo getGoogsById(long gId);
+    void getGoogsById(long gId, HttpServletRequest request);
 
     /**
      * 更改商品信息
@@ -25,7 +27,7 @@ public interface CommodityService {
      * @param record
      * @return
      */
-    int insert(GoodsInfo record);
+    Boolean insert(GoodsInfo record,MultipartFile[] file,HttpServletRequest request) throws Exception;
 
     /**
      * 删除商品 其实是修改商品的上下架情况
