@@ -1,5 +1,9 @@
 package com.account.bean;
 
+import com.account.common.constant.DateConsts;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -29,10 +33,13 @@ public class GoodsInfo  implements Serializable {
     private Date startTime;
     private Date terminalTime;
 
+    @DateTimeFormat(pattern = DateConsts.TIME_PATTERN)
+    @JsonFormat(pattern = DateConsts.TIME_PATTERN, timezone = DateConsts.TIME_ZERO)
     public Date getStartTime() {
         return startTime;
     }
-
+    @DateTimeFormat(pattern = DateConsts.TIME_PATTERN)
+    @JsonFormat(pattern = DateConsts.TIME_PATTERN, timezone = DateConsts.TIME_ZERO)
     public Date getTerminalTime() {
         return terminalTime;
     }

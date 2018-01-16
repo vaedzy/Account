@@ -4,6 +4,7 @@ import com.account.bean.App;
 import com.account.bean.AppName;
 import com.account.bean.AppQu;
 import com.account.bean.GoodsInfo;
+import com.account.common.utils.DateUtil;
 import com.account.index.service.MainService;
 import com.account.mapper.AppMapper;
 import com.account.mapper.AppNameMapper;
@@ -13,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.List;
 
 @Service("mainService")
@@ -44,9 +47,36 @@ public class MainServiceImpl implements MainService{
      * @return
      */
     @Override
-    public List<AppName> getAppName(String search) {
+    public Boolean getAppName(String search, HttpServletRequest request) {
         List<AppName> appNameList = appNameMapper.getAppName(search);
-        return appNameList;
+        //如果存在
+        if(appNameList!=null && !appNameList.isEmpty()){
+            //存入应用表数据
+            request.setAttribute("appNameList",appNameList);
+            //给appid赋值
+            long AppId = -1;
+            //循环遍历出应用名
+            for (AppName app : appNameList){
+                //app的id 用这个去查区服以及商品
+                AppId = app.getAppId();
+            }
+            //根据AppId查询区服信息
+            List<AppQu> appQuList = appQuMapper.getAppQu(AppId);
+            //存入request
+            request.setAttribute("appQuList",appQuList);
+            //字符串拼接
+            DateUtil.formatIntToDateString(new Date(),"yyyy-yyyy-MM-dd HH:mm:ss");
+            //根据appId查询下列商品
+            List<GoodsInfo> goodsInfoList = goodsInfoMapper.getGoodsByAppId(AppId);
+
+            request.setAttribute("goodsInfoList",goodsInfoList);
+            return true;
+        }else{
+            //不存在
+            return false;
+        }
+
+
     }
 
     /**

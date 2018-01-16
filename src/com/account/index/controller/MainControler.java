@@ -45,32 +45,11 @@ public class MainControler {
             //返回首页
             return new ModelAndView("redirect:/index.jsp");
         }
-        //如果不是空
-        //查询是否存在这个应用
-        List<AppName> appNameList = mainService.getAppName(search);
-        //如果存在
-        if(appNameList!=null && !appNameList.isEmpty()){
-            //存入应用表数据
-          //  session.setAttribute("appNameList",appNameList);
-            request.setAttribute("appNameList",appNameList);
-            //给appid赋值
-            long AppId = -1;
-            //循环遍历出应用名
-            for (AppName app : appNameList){
-                //app的id 用这个去查区服以及商品
-                AppId = app.getAppId();
-            }
-            List<AppQu> appQuList = mainService.getAppQu(AppId);
-           // session.setAttribute("appQuList",appQuList);
-            request.setAttribute("appQuList",appQuList);
-            List<GoodsInfo> goodsInfoList = mainService.getGoodsInfo(AppId);
-           // session.setAttribute("goodsInfoList",goodsInfoList);
-            request.setAttribute("goodsInfoList",goodsInfoList);
+        Boolean searchOk = mainService.getAppName(search,request);
+        if (searchOk){
             return new ModelAndView("show");
-        }else{
-           //不存在
-            return new ModelAndView("redirect:/index.jsp");
         }
+        return new ModelAndView("redirect:/index.jsp");
     }
 
     /**
