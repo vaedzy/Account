@@ -48,34 +48,26 @@ public class MainServiceImpl implements MainService{
      */
     @Override
     public Boolean getAppName(String search, HttpServletRequest request) {
-        List<AppName> appNameList = appNameMapper.getAppName(search);
+        AppName appName = appNameMapper.getAppName(search);
         //如果存在
-        if(appNameList!=null && !appNameList.isEmpty()){
+        if(appName!=null  ){
             //存入应用表数据
-            request.setAttribute("appNameList",appNameList);
-            //给appid赋值
-            long AppId = -1;
-            //循环遍历出应用名
-            for (AppName app : appNameList){
-                //app的id 用这个去查区服以及商品
-                AppId = app.getAppId();
-            }
+            request.setAttribute("appName",appName);
+
             //根据AppId查询区服信息
-            List<AppQu> appQuList = appQuMapper.getAppQu(AppId);
+            List<AppQu> appQuList = appQuMapper.getAppQu(appName.getAppId());
             //存入request
             request.setAttribute("appQuList",appQuList);
-            //字符串拼接
-            DateUtil.formatIntToDateString(new Date(),"yyyy-yyyy-MM-dd HH:mm:ss");
+            //获取分秒时
+           String startTime = DateUtil.formatIntToDateString(new Date(),"HH:mm:ss");
             //根据appId查询下列商品
-            List<GoodsInfo> goodsInfoList = goodsInfoMapper.getGoodsByAppId(AppId);
-
+            List<GoodsInfo> goodsInfoList = goodsInfoMapper.getGoodsByAppId(appName.getAppId(),startTime);
             request.setAttribute("goodsInfoList",goodsInfoList);
             return true;
         }else{
             //不存在
             return false;
         }
-
 
     }
 
