@@ -1,6 +1,7 @@
 package com.account.bean;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class GoodsInfo  implements Serializable {
 
@@ -25,6 +26,24 @@ public class GoodsInfo  implements Serializable {
     private String remark;
     private String userName;
     private String passWord;
+    private Date startTime;
+    private Date terminalTime;
+
+    public Date getStartTime() {
+        return startTime;
+    }
+
+    public Date getTerminalTime() {
+        return terminalTime;
+    }
+
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
+    }
+
+    public void setTerminalTime(Date terminalTime) {
+        this.terminalTime = terminalTime;
+    }
 
     public void setAppId(long appId) {
         this.appId = appId;
