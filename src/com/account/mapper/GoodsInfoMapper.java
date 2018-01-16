@@ -1,12 +1,13 @@
 package com.account.mapper;
 
 import com.account.bean.GoodsInfo;
+import org.apache.ibatis.annotations.Param;
 
 
 import java.util.List;
 
 public interface GoodsInfoMapper {
-    List<GoodsInfo> getGoodsByAppId(long AppId);
+    List<GoodsInfo> getGoodsByAppId(@Param("AppId") long AppId, @Param("startTime") String startTime);
     List<GoodsInfo> getByName();
     List<GoodsInfo> getGoodsInfoQu(long quId);
     GoodsInfo getGoodsById(long gId);

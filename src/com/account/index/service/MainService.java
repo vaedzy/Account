@@ -35,7 +35,7 @@ public interface MainService {
      * @param AppId
      * @return
      */
-    List<GoodsInfo> getGoodsInfo(long AppId);
+//    List<GoodsInfo> getGoodsInfo(long AppId);
 
     /**
      * 获取App区
@@ -56,5 +56,5 @@ public interface MainService {
      * @param appId
      * @return
      */
-    List<AppName> getAppNameById(long appId);
+//    List<AppName> getAppNameById(long appId);
 }

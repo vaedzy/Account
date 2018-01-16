@@ -3,7 +3,6 @@
 <mapper namespace="com.account.mapper.GoodsInfoMapper">
     <resultMap id="BaseResultMap" type="com.account.bean.GoodsInfo">
         <id column="gId" jdbcType="BIGINT" property="gId"/>
-
         <result column="userId" jdbcType="BIGINT" property="userId"/>
         <result column="AppId" jdbcType="BIGINT" property="appId"/>
         <result column="QuId" jdbcType="BIGINT" property="quId"/>
@@ -23,37 +22,35 @@
         <result column="gphotourl10" jdbcType="VARCHAR" property="gphotourl10"/>
         <result column="remark" jdbcType="VARCHAR" property="remark"/>
         <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="startTime" jdbcType="TIME" property="startTime"/>
+        <result column="terminalTime" jdbcType="TIME" property="terminalTime"/>
     </resultMap>
     <sql id="Base_Column_List">
-        gId,AppId,QuId,gName,userName,passWord,gprice,gphotourl1,gphotourl2,gphotourl3,gphotourl4,gphotourl5,gphotourl6,gphotourl7,gphotourl8,gphotourl9,gphotourl10,remark,status
+        gId,AppId,userId,QuId,gName,userName,passWord,gprice,gphotourl1,gphotourl2,gphotourl3,gphotourl4,gphotourl5,gphotourl6,gphotourl7,gphotourl8,gphotourl9,gphotourl10,remark,status,terminalTime,startTime
     </sql>
     <!--根据AppId查询所有上架的商品 数据交付于搜索后的展示页-->
     <select id="getGoodsByAppId" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-         from GoodsInfo where AppId = #{AppId,jdbcType=BIGINT} AND status = 1
+         from AC_GOODSINFO where AppId = #{AppId,jdbcType=BIGINT} AND status = 1 AND startTime >= #{startTime,jdbcType=TIME}
     </select>
-    <!--根据AppId查询所有上架的商品 数据交付于搜索后的展示页-->
-    <select id="getGoodsInfoQu" resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from GoodsInfo where QuId = #{quId,jdbcType=BIGINT} AND status = 1
-    </select>
+
     <!--根据gid查询商品 数据交付于搜索页中用户点击后的商品展示页-->
     <select id="getGoodsById" resultMap="BaseResultMap">
         SELECT
         <include refid="Base_Column_List"/>
-        FROM GoodsInfo WHERE gId = #{gId,jdbcType=BIGINT}
+        FROM AC_GOODSINFO WHERE gId = #{gId,jdbcType=BIGINT}
     </select>
     <!--插入商品-->
     <insert id="insert" parameterType="com.account.bean.GoodsInfo" keyProperty="gId" useGeneratedKeys="true" keyColumn="GENERATED_KEY">
-        INSERT INTO GoodsInfo
-        (gId,userId,AppId,QuId,gName,userName,passWord,gprice,gphotourl1,gphotourl2,gphotourl3,gphotourl4,gphotourl5,gphotourl6,gphotourl7,gphotourl8,gphotourl9,gphotourl10,remark,status)values(#{gId,jdbcType=BIGINT},#{userId,jdbcType=BIGINT},#{appId,jdbcType=BIGINT},#{quId,jdbcType=BIGINT},#{gName,jdbcType=VARCHAR},#{userName,jdbcType=VARCHAR},#{passWord,jdbcType=VARCHAR},#{gprice,jdbcType=DOUBLE},#{gphotourl1,jdbcType=VARCHAR},#{gphotourl2,jdbcType=VARCHAR},#{gphotourl3,jdbcType=VARCHAR},#{gphotourl4,jdbcType=VARCHAR},
-        #{gphotourl5,jdbcType=VARCHAR},#{gphotourl6,jdbcType=VARCHAR},#{gphotourl7,jdbcType=VARCHAR},#{gphotourl8,jdbcType=VARCHAR},#{gphotourl9,jdbcType=VARCHAR},#{gphotourl10,jdbcType=VARCHAR},#{remark,jdbcType=VARCHAR},#{status,jdbcType=INTEGER})
+        INSERT INTO AC_GOODSINFO
+        (gId,userId,AppId,QuId,gName,userName,passWord,gprice,gphotourl1,gphotourl2,gphotourl3,gphotourl4,gphotourl5,gphotourl6,gphotourl7,gphotourl8,gphotourl9,gphotourl10,remark,status,startTime,terminalTime)values
+        (#{gId,jdbcType=BIGINT},#{userId,jdbcType=BIGINT},#{appId,jdbcType=BIGINT},#{quId,jdbcType=BIGINT},#{gName,jdbcType=VARCHAR},#{userName,jdbcType=VARCHAR},#{passWord,jdbcType=VARCHAR},#{gprice,jdbcType=DOUBLE},#{gphotourl1,jdbcType=VARCHAR},#{gphotourl2,jdbcType=VARCHAR},#{gphotourl3,jdbcType=VARCHAR},#{gphotourl4,jdbcType=VARCHAR},
+        #{gphotourl5,jdbcType=VARCHAR},#{gphotourl6,jdbcType=VARCHAR},#{gphotourl7,jdbcType=VARCHAR},#{gphotourl8,jdbcType=VARCHAR},#{gphotourl9,jdbcType=VARCHAR},#{gphotourl10,jdbcType=VARCHAR},#{remark,jdbcType=VARCHAR},#{status,jdbcType=INTEGER},#{startTime,jdbcType=TIME},#{terminalTime,jdbcType=TIME})
     </insert>
     <!--修改商品-->
     <update id="updateByPrimaryKey" parameterType="com.account.bean.GoodsInfo">
-        UPDATE GoodsInfo
+        UPDATE AC_GOODSINFO
         SET
         userId = #{userId,jdbcType=BIGINT},
         AppId = #{appId,jdbcType=BIGINT},
@@ -73,11 +70,13 @@
         gphotourl9 = #{gphotourl9,jdbcType=VARCHAR},
         gphotourl10 = #{gphotourl10,jdbcType=VARCHAR},
         remark = #{remark,jdbcType=VARCHAR},
-        status = #{status,jdbcType=INTEGER}
+        status = #{status,jdbcType=INTEGER},
+        startTime =#{startTime,jdbcType=TIME},
+        terminalTime =#{terminalTime,jdbcType=TIME}
          WHERE gId = #{gId,jdbcType=BIGINT}
     </update>
     <update id="deleteByPrimaryKey" parameterType="com.account.bean.GoodsInfo">
-         UPDATE GoodsInfo
+         UPDATE AC_GOODSINFO
         SET
         userId = #{userId,jdbcType=BIGINT},
         AppId = #{appId,jdbcType=BIGINT},
@@ -97,7 +96,9 @@
         gphotourl9 = #{gphotourl9,jdbcType=VARCHAR},
         gphotourl10 = #{gphotourl10,jdbcType=VARCHAR},
         remark = #{remark,jdbcType=VARCHAR},
-        status = #{status,jdbcType=INTEGER}
+        status = #{status,jdbcType=INTEGER},
+        startTime =#{startTime,jdbcType=TIME},
+        terminalTime =#{terminalTime,jdbcType=TIME}
         WHERE gId = #{gId,jdbcType=BIGINT}
     </update>
 </mapper>

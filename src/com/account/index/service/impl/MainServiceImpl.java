@@ -111,22 +111,12 @@ public class MainServiceImpl implements MainService{
         return appQuList;
     }
 
-    /**
-     * 根据区id获取商品
-     * @param quId
-     * @return
-     */
     @Override
     public List<GoodsInfo> getGoodsInfoQu(long quId) {
         List<GoodsInfo> goodsInfoQu = goodsInfoMapper.getGoodsInfoQu(quId);
         return goodsInfoQu;
     }
 
-    /**
-     * 根据appid获取应用
-     * @param appId
-     * @return
-     */
     @Override
     public List<AppName> getAppNameById(long appId) {
         List<AppName> appNameList = appNameMapper.getAppNameById(appId);

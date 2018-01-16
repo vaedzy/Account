@@ -7,6 +7,6 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface AppNameMapper {
-    List<AppName> getAppName(@Param("search") String search);
-    List<AppName> getAppNameById(@Param("appId") long appId);
+    AppName getAppName(@Param("search") String search);
+    AppName getAppNameById(@Param("appId") long appId);
 }
