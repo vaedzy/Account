@@ -23,6 +23,9 @@ public class MainControler {
 
     /**
      * 主导航点击 a-z
+     * @param mainNav
+     * @param request
+     * @return
      */
     @ResponseBody
     @RequestMapping("mainNav")
@@ -37,6 +40,10 @@ public class MainControler {
 
     /**
      * 搜索框
+     * @param search
+     * @param request
+     * @param session
+     * @return
      */
     @RequestMapping("souApp")
     public ModelAndView souApp(@RequestParam("search")String search, HttpServletRequest request, HttpSession session){
@@ -54,6 +61,9 @@ public class MainControler {
 
     /**
      * 查询app区下的商品
+     * @param quName
+     * @param request
+     * @return
      */
     @ResponseBody
     @RequestMapping("souAppQu")
@@ -69,6 +79,8 @@ public class MainControler {
 
     /**
      * 精准的应用名 来源于主导航
+     * @param AppName
+     * @return
      */
     @RequestMapping("preciseApp")
     public ModelAndView preciseApp(@RequestParam("AppName")String AppName){
@@ -76,6 +88,12 @@ public class MainControler {
         return new ModelAndView();
     }
 
+    /**
+     * 根据id查询所有区
+     * @param AppId
+     * @param request
+     * @return
+     */
     @ResponseBody
     @RequestMapping("searchTypeAndAppName")
     public List<AppQu> searchTypeAndAppName(@RequestParam("AppId")long AppId,HttpServletRequest request){
