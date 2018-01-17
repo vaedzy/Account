@@ -53,7 +53,6 @@ public class MainServiceImpl implements MainService{
         if(appName!=null  ){
             //存入应用表数据
             request.setAttribute("appName",appName);
-
             //根据AppId查询区服信息
             List<AppQu> appQuList = appQuMapper.getAppQu(appName.getAppId());
             //存入request

@@ -40,15 +40,12 @@ public class CommodityControler {
      */
     @RequestMapping("addGoods")
     public ModelAndView loginAddGoods(HttpServletRequest request, HttpSession httpSession){
-        if (httpSession.getAttribute("user")==null){
-            return new ModelAndView("redirect:/toLogin");
-        }
 
         Boolean realName = commodityService.RealName(httpSession);
         if (realName) {
             return new ModelAndView("add");
         }
-        return new ModelAndView("mycenter");
+        return new ModelAndView("add");
     }
 
 
