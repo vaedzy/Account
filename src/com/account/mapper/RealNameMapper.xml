@@ -13,7 +13,7 @@
     </resultMap>
 
     <insert id="insert" parameterType="com.account.bean.RealName" keyProperty="id" useGeneratedKeys="true" keyColumn="GENERATED_KEY">
-      insert into AC_RealName (ID, Name,IdCard,Alipay,idCardUrl1,idCardUrl2,PersonId)
+      insert into AC_REALNAME (ID, Name,IdCard,Alipay,idCardUrl1,idCardUrl2,PersonId)
     values (#{id,jdbcType=BIGINT}, #{Name,jdbcType=VARCHAR}, #{IdCard,jdbcType=VARCHAR},
       #{Alipay,jdbcType=VARCHAR}, #{idCardUrl1,jdbcType=VARCHAR},#{idCardUrl2,jdbcType=VARCHAR}),#{PersonId,jdbcType=BIGINT}
   </insert>
@@ -24,7 +24,7 @@
     <select id="getRealNameByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from AC_RealName
+        from AC_REALNAME
         where PersonId = #{PersonId,jdbcType=BIGINT}
     </select>
 </mapper>

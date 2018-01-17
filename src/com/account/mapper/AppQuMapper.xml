@@ -11,27 +11,22 @@
     <sql id="Base_Column_List">
        QuId,ParentId,QuName,AppId
     </sql>
-    <select id="getAppQu" resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-         from AppQu where AppId = #{AppId,jdbcType=BIGINT}
-    </select>
 
     <select id="getAppQuName" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from AppQu where QuName = #{QuName,jdbcType=VARCHAR}
+        from AC_APPQU where QuName = #{QuName,jdbcType=VARCHAR}
     </select>
 
     <select id="getAppQu" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from AppQu where AppId = #{AppId,jdbcType=BIGINT}
+        from AC_APPQU where AppId = #{AppId,jdbcType=BIGINT}
     </select>
 
-    <select id="getAppQu" resultType="java.lang.String">
+    <select id="getAppQuNameByQuId" resultType="java.lang.String">
         select
         QuName
-        from AppQu where QuId = #{QuId,jdbcType=BIGINT}
+        from AC_APPQU where QuId = #{QuId,jdbcType=BIGINT}
     </select>
 </mapper>

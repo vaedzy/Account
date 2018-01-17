@@ -13,7 +13,7 @@
     <select id="getAll" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-         from App where aAppIndex = #{aAppIndex,jdbcType=VARCHAR}
+         from AC_APPINDEX where aAppIndex = #{aAppIndex,jdbcType=VARCHAR}
     </select>
 
 
