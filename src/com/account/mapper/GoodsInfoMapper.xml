@@ -33,7 +33,7 @@
     <select id="getGoodsByAppId" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-         from AC_GOODSINFO where AppId = #{AppId,jdbcType=BIGINT} AND status = AND startTime>=#{startTime,jdbcType=TIME} OR terminalTime>#{startTime,jdbcType=TIME}
+         from AC_GOODSINFO where AppId = #{AppId,jdbcType=BIGINT} AND status = 1 AND startTime>=#{startTime,jdbcType=TIME} OR terminalTime>#{startTime,jdbcType=TIME}
     </select>
 
     <!--根据QuId查询所有上架的商品 数据交付于搜索后的展示页-->
