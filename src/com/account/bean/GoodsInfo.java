@@ -30,26 +30,23 @@ public class GoodsInfo  implements Serializable {
     private String remark;
     private String userName;
     private String passWord;
-    private Date startTime;
-    private Date terminalTime;
+    private String startTime;
+    private String terminalTime;
 
-    @DateTimeFormat(pattern = DateConsts.TIME_PATTERN)
-    @JsonFormat(pattern = DateConsts.TIME_PATTERN, timezone = DateConsts.TIME_ZERO)
-    public Date getStartTime() {
-        return startTime;
-    }
-    @DateTimeFormat(pattern = DateConsts.TIME_PATTERN)
-    @JsonFormat(pattern = DateConsts.TIME_PATTERN, timezone = DateConsts.TIME_ZERO)
-    public Date getTerminalTime() {
-        return terminalTime;
+    public void setTerminalTime(String terminalTime) {
+        this.terminalTime = terminalTime;
     }
 
-    public void setStartTime(Date startTime) {
+    public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
 
-    public void setTerminalTime(Date terminalTime) {
-        this.terminalTime = terminalTime;
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public String getTerminalTime() {
+        return terminalTime;
     }
 
     public void setAppId(long appId) {
