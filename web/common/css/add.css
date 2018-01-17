@@ -147,17 +147,7 @@ body{
 	background-color:#07496c;
 	cursor:pointer;
 }
-#logout{
-	width:200px;
-	height:40px;
-	text-align:center;
-	line-height:40px;
-	color:#FFF;
-	font-size:24px;
-	border-radius:8px 8px 0 0;
-	background-color:#07496c;
-	cursor:pointer;
-}
+
 .nav_AppIndex{
 	width: 30px;
 	height: 20px;
@@ -180,12 +170,32 @@ body{
 	width: 1000px;
 }
 
+.info{
+	margin: 20px auto;
+	width: 450px;
+	height: 45px;
+}
+.text{
+	width: 80px;
+	height: 45px;
+	text-align: left;
+	line-height: 40px;
+	float: left;
+}
+
 .input_box{
-	border: 2px solid #CC3333;
+	float: left;
+	width: 350px;
+	height: 40px;
+}
+
+.input{
+	outline: none;
 	width: 330px;
 	height: 40px;
+	cursor: text;
 	padding-left: 20px;
-	margin: 20px auto;
+	border: 2px solid #CC3333;
 }
 #fieldApp{
 	width: 900px;
@@ -208,20 +218,9 @@ body{
 
 
 
-.input{
-	outline: none;
-	width: 330px;
-	height: 40px;
-	cursor: text;
-	border: none;
-}
+
 #aQu{
 	display: none;
-	border: 2px solid #CC3333;
-	margin: 20px auto;
-	width: 330px;
-	height: 40px;
-	padding-left: 20px;
 }
 #quName{
 	outline: none;
@@ -278,7 +277,7 @@ body{
 /*显示上传的图片*/
 .show
 {	position: relative;
-	top: -150px;
+	top: -300px;
 	left: 0;
 	width: 150px;
 	height: 150px;

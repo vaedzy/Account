@@ -71,10 +71,10 @@ $(function(){
                             data=jQuery.parseJSON(data);
                             var htm='';
                             $(data).each(function(i,o){
-                            htm=htm+"<option value='"+o.quId+"'>"+o.quName+"</option>";
+                            htm=htm+" <option value='"+o.quId+"'>"+o.quName+"</option>";
                             });
                             $("#aQu").css("display","block");
-                            $("#aQu").append("<select name='quId' id='quName'>"+htm+"</select>");
+                            $("#aQu").append("<div class='text'>大区：</div><div class='input_box'><select class='input' name='quId'>"+htm+"</select></div>");
                         }
                     });
                     //location.href="/souApp?search="+$(this).html();

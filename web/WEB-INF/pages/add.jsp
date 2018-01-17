@@ -65,31 +65,61 @@
         <img src="common/img/upload.jpg" class="add "/>
         <img class="show hide"/>--%>
 
-        <!--价格-->
         <!--账号名字-->
-        <div class="input_box">
-            <input type="text" class="input" name="gName" placeholder="请起一个名字">
+        <div class="info">
+            <div class="text">账号名字：</div>
+            <div class="input_box">
+                <input type="text" class="input" name="gName" placeholder="请起一个名字">
+            </div>
         </div>
         <!--价格-->
-        <div class="input_box">
-            <input type="text" class="input" name="gprice" placeholder="给你的账号定一个价格">
+        <div class="info">
+            <div class="text">价格：</div>
+            <div class="input_box">
+                <input type="text" class="input" name="gprice" placeholder="给你的账号定一个价格">
+            </div>
         </div>
         <!--用户名-->
-        <div class="input_box">
-            <input type="text" class="input" name="userName" placeholder="请输入您要共享的账号">
+        <div class="info">
+            <div class="text">用户名：</div>
+            <div class="input_box">
+                <input type="text" class="input" name="userName" placeholder="请输入您要共享的账号">
+            </div>
         </div>
         <!--密码-->
-        <div class="input_box">
-            <input type="password" class="input" name="passWord" placeholder="请输入您要共享的账号密码">
+        <div class="info">
+            <div class="text">密码：</div>
+            <div class="input_box">
+                <input type="password" class="input" name="passWord" placeholder="请输入您要共享的账号密码">
+            </div>
+        </div>
+        <!--开始时间-->
+        <div class="info">
+            <div class="text">开始时间：</div>
+            <div class="input_box">
+                <input type="time" class="input" name="startTime" placeholder="请选择您账号共享的开始时间">
+            </div>
+        </div>
+        <!--结束时间-->
+        <div class="info">
+            <div class="text">结束时间：</div>
+            <div class="input_box">
+                <input type="time" class="input" name="terminalTime" placeholder="请选择您账号共享的结束时间">
+            </div>
         </div>
         <!--简介-->
-        <div class="input_box">
-            <input type="text" class="input" name="remark" placeholder="务必要输入一些关于此账号的信息">
+        <div class="info">
+            <div class="text">简介：</div>
+            <div class="input_box">
+                <input type="text" class="input" name="remark" placeholder="务必要输入一些关于此账号的信息">
+            </div>
         </div>
         <!-- 应用id -->
         <input type="hidden" name="appId" id="addId">
         <!-- 选区 -->
-        <div id="aQu"></div>
+        <div class="info" id="aQu">
+
+        </div>
         <!--上传功能-->
         <div id="up_img_box">
             <div class="up_img">
@@ -141,8 +171,8 @@
         <!--用户Id-->
         <input type="hidden" name="userId" id="userId" value="${user.id}">
         <input type="hidden" name="status" id="status" value="1">
-        <div class="input_box" style="border: none; padding: 0px">
-        <input type="submit" id="uploadGoods" value="上传商品">
+        <div  style="width: 330px;height: 40px;margin: 20px auto;">
+            <input type="submit" id="uploadGoods" value="上传商品">
         </div>
     </form>
 </div>
