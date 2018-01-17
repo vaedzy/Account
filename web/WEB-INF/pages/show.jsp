@@ -77,13 +77,17 @@
                                         <figure>
                                                 <%-- 这里放一张截图 --%>
                                                 <img width="100%" height="100%" src="${g.gphotourl1}">
-
                                             <figcaption>
                                                 <div class="goods_box" id="${g.gId}">
                                                     <div class="app_text">
                                                         账号介绍：
                                                         <br/>
                                                             ${g.remark}
+                                                    </div>
+                                                        <div class="app_text">
+                                                            价格：
+                                                            <br/>
+                                                            ${g.gprice}/小时
                                                     </div>
                                                 </div>
                                             </figcaption>
