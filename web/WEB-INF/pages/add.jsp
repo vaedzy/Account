@@ -13,6 +13,12 @@
     <link rel="stylesheet" type="text/css" href="/common/css/add.css">
     <script src="/common/js/plugin/jquery/jquery-1.9.0.min.js"></script>
     <script src="/js/add/add.js"></script>
+    <script type="text/javascript" src="/common/js/plugin/jquery/jquery-clock-timepicker.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.time').clockTimePicker({});
+        });
+    </script>
 </head>
 <body>
 <!-- 顶部 -->
@@ -98,6 +104,7 @@
             <div class="text">开始时间：</div>
             <div class="input_box">
                 <input type="time" class="input" name="startTime" placeholder="请选择您账号共享的开始时间">
+                <input class="time" type="text" value="14:30" onchange="console.log('Time changed')" />
             </div>
         </div>
         <!--结束时间-->

@@ -9,5 +9,5 @@ import java.util.List;
 public interface AppQuMapper {
     List<AppQu> getAppQu(@Param("AppId") long AppId);
     AppQu getAppQuName(@Param("QuName")String quName);
-    String getAppQuNameByQuId(@Param("quId")long quId);
+    String getAppQuNameByQuId(@Param("QuId")long QuId);
 }

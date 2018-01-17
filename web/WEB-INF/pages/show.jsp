@@ -11,8 +11,17 @@
 <html>
 <head>
     <title>商品展示</title>
-    <link rel="stylesheet" type="text/css" href="/common/css/show.css">
+    <link rel="stylesheet" type="text/css" href="/common/css/show/show.css">
+    <link href="/common/css/show/reset.css" rel="stylesheet" type="text/css" />
+    <link href="/common/css/show/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/common/css/show/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/js/show/modernizr.custom.js"></script>
     <script src="/common/js/plugin/jquery/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="/common/js/plugin/jquery/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="/common/js/plugin/jquery/jquery.contentcarousel.js"></script>
+    <script type="text/javascript">
+        $('#latest-news-container').contentcarousel();;
+    </script>
 </head>
 <body>
 <!-- 顶部 -->
@@ -31,13 +40,6 @@
         <div id="conditions_title">条件查找</div>
         <%-- 应用名 --%>
         ${appName.appName}
-        <%--<select name="appName" id="appName">--%>
-            <%--<c:forEach var="a" items="${appName}">--%>
-                <%--<option value="${a.appId}">${a.appName}</option>--%>
-                <%--<option>${appName.getAppname}</option>--%>
-            <%--</c:forEach>--%>
-        <%--</select>--%>
-
         <%-- 大区 --%>
         <select name="appQu" id="quName">
             <c:forEach var="q" items="${appQuList}">
@@ -48,20 +50,51 @@
 
 
     </div>
+    <%--<div id="goodsinfo">--%>
+        <%--<c:forEach var="g" items="${goodsInfoList}">--%>
+            <%--<div class="goods_box" id="${g.gId}">--%>
+                <%--<div class="app_img">--%>
+                    <%--&lt;%&ndash; 这里放一张截图 &ndash;%&gt;--%>
+                    <%--<img width="100%" height="100%" src="${g.gphotourl1}">--%>
+                <%--</div>--%>
+                <%--<div class="app_text">--%>
+                   <%--账号介绍：--%>
+                    <%--<br/>--%>
+                        <%--${g.remark}--%>
+                <%--</div>--%>
+            <%--</div>--%>
+        <%--</c:forEach>--%>
+    <%--</div>--%>
+
     <div id="goodsinfo">
+        <div id="latest-news-container" class="latest-news-container">
         <c:forEach var="g" items="${goodsInfoList}">
-            <div class="goods_box" id="${g.gId}">
-                <div class="app_img">
-                    <%-- 这里放一张截图 --%>
-                    <img width="100%" height="100%" src="${g.gphotourl1}">
-                </div>
-                <div class="app_text">
-                   账号介绍：
-                    <br/>
-                        ${g.remark}
-                </div>
-            </div>
+                    <div class="single-item single-item-1">
+                        <div class="single-item-main">
+                            <div class="single-icon">
+                                <ul class="grid cs-style-5">
+                                    <li>
+                                        <figure>
+                                                <%-- 这里放一张截图 --%>
+                                                <img width="100%" height="100%" src="${g.gphotourl1}">
+
+                                            <figcaption>
+                                                <div class="goods_box" id="${g.gId}">
+                                                    <div class="app_text">
+                                                        账号介绍：
+                                                        <br/>
+                                                            ${g.remark}
+                                                    </div>
+                                                </div>
+                                            </figcaption>
+                                        </figure>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
         </c:forEach>
+        <div id="clear"></div>
     </div>
 </div>
 

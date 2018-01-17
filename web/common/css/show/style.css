@@ -1,0 +1,428 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+a { 
+-webkit-transition: all 0.3s ease-in;
+-moz-transition: all 0.3s ease-in;
+-o-transition: all 0.3s ease-in;
+}
+
+/* STYLE */
+@keyframes columns {
+from {box-shadow:0 0 0 0 #26C9FF;}
+  to {box-shadow:0 0 0 20px transparent;}
+}
+
+@-webkit-keyframes columns {
+from {box-shadow:0 0 0 0 #26C9FF;}
+to {box-shadow:0 0 0 20px transparent;}
+}
+
+/* Link Hovers */
+#latest-news-container a {
+	color:#000;
+	text-decoration:none;
+}
+
+#latest-news-container a:hover {
+	color:#26C9FF;
+}
+
+/* Circular Content Carousel Style */
+#latest-news-container {
+ 	max-width:1180px;
+	height:236px;
+	position:relative;
+	margin:50px auto 70px auto;
+    font-family: 'kalingaregular';
+}
+
+#latest-news-container .single-wrapper {
+	max-width:1139px;
+	height:236px; /* Adjust Height On Single Wrapper / ( You Need To Change Height on ".single-item" bellow too, for the height to take effect ) */
+	position:relative;
+	margin:0 auto;
+}
+	
+/* Slide Width / Properties */	
+#latest-news-container .single-item {
+	width:285px;
+	height:236px; /* Adjust Height On Slide / To Your Needs */
+	position:relative;
+	float:left;
+	text-align:center;
+}
+
+/* Slide Hover Effect */
+#latest-news-container .single-item:hover {
+		/*animation*/
+-webkit-animation:columns 0.3s;
+   -moz-animation:columns 0.3s;
+    -ms-animation:columns 0.3s;
+     -o-animation:columns 0.3s;
+        animation:columns 0.3s;
+/*transform*/
+-webkit-transform:scale(0.9);
+   -moz-transform:scale(0.9);
+    -ms-transform:scale(0.9);
+     -o-transform:scale(0.9);
+        transform:scale(0.9);
+}
+
+#latest-news-container .single-more{
+	position: absolute;
+	bottom: 10px;
+	right:0px;
+	padding:4px 15px;
+	font-weight:bold;
+	background: #ccbda2;
+	text-align:center;
+	color: white;
+	font-family: 'kalingaregular';
+	font-style:italic;
+	text-shadow:1px 1px 1px #897c63;
+}
+#latest-news-container .single-item-main{
+	padding:0px;
+	margin:0px 2px 0px 0px;
+	position:absolute;
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	background:#fff;
+	overflow:hidden;
+	border:#EEEEEE thin solid;
+	border-width:1px;
+}
+
+/* Single Item Circle Style Date */  
+#latest-news-container .single-item-main .date {
+	width:85px;
+	height:65px;
+	border-radius:50%;
+	border:#26C9FF thin solid;
+	border-width:3px;
+	position:absolute;
+	bottom:-45px;
+	left:34%;
+	background:#FFF;
+	font-size:12px;
+	text-align:center;
+	padding:20px 0px 0px 0px;
+}
+
+/* Single Item Circle Style Date Hover Effect */
+#latest-news-container .single-item-main .date:hover {
+		/*animation*/
+-webkit-animation:columns 0.3s;
+   -moz-animation:columns 0.3s;
+    -ms-animation:columns 0.3s;
+     -o-animation:columns 0.3s;
+        animation:columns 0.3s;
+/*transform*/
+-webkit-transform:scale(1.1);
+   -moz-transform:scale(1.1);
+    -ms-transform:scale(1.1);
+     -o-transform:scale(1.1);
+        transform:scale(1.1);
+}
+
+
+/* Slide Text */
+#latest-news-container .single-item-main .text {
+	font-family: 'kalingaregular';
+	font-size:12px;
+	text-align:center;
+	padding:15px 20px 20px 20px;
+	margin:10px 20px;
+	line-height:18px;
+}
+
+/* Slide Image Size and properties */
+#latest-news-container .single-icon {
+	width:285px;
+	height:236px;
+	position:relative;
+	margin:0 auto;
+	border-bottom:#26C9FF thin solid;
+	border-bottom-width:3px;
+}
+
+#latest-news-container .single-icon .grid li {
+	display: inline-block;
+	width: 285px;
+	margin: 0;
+	padding: 0px;
+	text-align: left;
+	position: relative;
+}
+
+#latest-news-container .single-icon .grid figure {
+	margin: 0;
+	position: relative;
+}
+
+#latest-news-container .single-icon .grid figure img {
+	max-width: 100%;
+	display: block;
+	position: relative;
+}
+
+#latest-news-container .single-icon .grid figcaption {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 5px;
+	background: #F7F7F7;
+	color: #ed4e6e;
+}
+
+#latest-news-container .single-icon .grid figcaption h3 {
+	margin: 0;
+	padding: 10px;
+	color: #000;
+}
+
+#latest-news-container .single-icon .grid figcaption span {
+	display:block;
+	width:100%;
+	text-align:center;
+	text-shadow:none;
+	color:#09C;
+}
+
+#latest-news-container .single-icon .grid figcaption span:before {
+	content: 'by ';
+}
+
+#latest-news-container .single-icon .grid figcaption a {
+	text-align: center;
+	padding: 5px 10px;
+	border-radius: 2px;
+	display: inline-block;
+	background: none;
+	color: #fff;
+}
+
+.cs-style-5 figure img {
+	z-index: 10;
+	-webkit-transition: -webkit-transform 0.4s;
+	-moz-transition: -moz-transform 0.4s;
+	transition: transform 0.4s;
+}
+
+.no-touch .cs-style-5 figure:hover img,
+.cs-style-5 figure.cs-hover img {
+	-webkit-transform: scale(0.4);
+	-moz-transform: scale(0.4);
+	-ms-transform: scale(0.4);
+	transform: scale(0.4);
+}
+
+.cs-style-5 figcaption {
+	width:285px;
+	height:236px;
+	opacity: 0;
+	-webkit-transform: scale(0.7);
+	-moz-transform: scale(0.7);
+	-ms-transform: scale(0.7);
+	transform: scale(0.7);
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transition: -webkit-transform 0.4s, opacity 0.4s;
+	-moz-transition: -moz-transform 0.4s, opacity 0.4s;
+	transition: transform 0.4s, opacity 0.4s;
+}
+
+.no-touch .cs-style-5 figure:hover figcaption,
+.cs-style-5 figure.cs-hover figcaption {
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);
+	opacity: 1;
+}
+
+.cs-style-5 figure a {
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+}
+
+/* Slide Title */
+#latest-news-container .single-item h3 { 
+	font-family: 'kalingaregular';
+	font-size:16px;
+	color:#000;
+	margin:15px 0px 0px 0px;
+	padding:0px 20px 0px 20px;
+	height:auto;
+	text-align:center;
+	text-shadow: 0px 1px 1px #e4ebe9;
+}
+
+#latest-news-container .single-button {
+	margin:30px 0px 20px 0px;
+}
+
+#latest-news-container .single-content-wrapper {
+	background:#b0ccc6;
+	position:absolute;
+	width:0px; /* expands to width of the wrapper minus 1 element */
+	height:522px;
+	top:5px;
+	text-align:left;
+	z-index:10000;
+	overflow:hidden;
+}
+
+#latest-news-container .single-content{
+	width:660px;
+	overflow:hidden;
+}
+
+/* Navigation Arrows */
+#latest-news-container .single-nav span{
+	width:26px;
+	height:26px;
+	background:transparent url(../images/arrowsSquare.fw.png) no-repeat top left;
+	position:absolute;
+	top:0;
+	margin-top:-35px;
+	right:49px;
+	text-indent:-9000px;
+	opacity:0.7;
+	cursor:pointer;
+	z-index:100;
+}
+
+#latest-news-container .single-nav span.single-nav-next{
+	background-position:top right;
+	top:0;
+	left:auto;
+	right:22px;
+}
+
+#latest-news-container .single-nav span:hover{
+	opacity:1.0;
+}
+
+/* ########################################## */
+/* ########################################## */
+/* ############## Button Style ############## */
+/* ########################################## */
+/* ########################################## */
+
+/* General button style (reset) */
+.btn {
+	font-family: 'kalingaregular';
+	border: none;
+	border-radius:3px;
+	-moz-border-radius:3px;
+	color: inherit;
+	background: none;
+	cursor: pointer;
+	padding: 12px 18px;
+	display: inline-block;
+	margin: 0px 30px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: normal;
+	outline: none;
+	position: relative;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.btn:after {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+/* Pseudo elements for icons */
+.btn:before,
+.icon-heart:after,
+.icon-star:after,
+.icon-plus:after,
+.icon-file:before {
+    font-family: 'FontAwesome';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	position: relative;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Button blue */
+.btn-blue {
+	background: #26C9FF;
+	color: #FFF;
+	box-shadow:none;
+}
+
+.btn-blue:hover {
+	background: #75C5FF;
+	box-shadow:none;
+	color:#FFF;
+}
+
+.btn-blue:active {
+	background: #75C5FF;
+	top: 2px;
+}
+
+.btn-blue:before {
+	position: absolute;
+	height: 100%;
+	left: 0;
+	top: 2px;
+	line-height: 2;
+	font-size: 140%;
+	width: 25px;
+}
+
+/* Button 3blue */
+.btn-3blue {
+	padding: 15px 70px 10px 15px;
+	overflow: hidden;
+}
+
+.btn-3blue:before {
+	left: auto;
+	right: 10px;
+	z-index: 2;
+}
+
+.btn-3blue:after {
+	width: 30%;
+	height: 200%;
+	background: rgba(31,141,204,0.5);
+	z-index: 1;
+	right: 0;
+	top: 0;
+	margin: -5px 0 0 -5px;
+	-webkit-transform-origin: 0 0;
+	-webkit-transform: rotate(-20deg);
+	-moz-transform-origin: 0 0;
+	-moz-transform: rotate(-20deg);
+	-ms-transform-origin: 0 0;
+	-ms-transform: rotate(-20deg);
+	transform-origin: 0 0;
+	transform: rotate(-20deg);
+}
+
+.btn-3blue:hover:after {
+	width: 35%;
+}

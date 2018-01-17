@@ -48,7 +48,7 @@
             <div id="goods_info_right">
                 <div class="wz">${appName}</div>
                <input type="text" style="display: none" id="gId" name="gId" value="${goodsInfo.gId}" >
-                <div class="wz"> ${appQu}</div>
+                <div class="wz"> ${quName}</div>
                 <div class="wz"> ${goodsInfo.remark}</div>
             </div>
             <input type="button" id="pay" value="立即下单"/>
