@@ -1,13 +1,14 @@
 package com.account.deposit.service.impl;
 
 import com.account.bean.Deposit;
-import com.account.bean.Person;
 import com.account.deposit.service.DepositService;
 import com.account.mapper.DepositMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
 
+@Service
 public class DepositServiceImpl implements DepositService{
     @Autowired
     private DepositMapper depositMapper;
