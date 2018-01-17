@@ -30,12 +30,13 @@
     <div id="conditions">
         <div id="conditions_title">条件查找</div>
         <%-- 应用名 --%>
-        <select name="appName" id="appName">
-            <c:forEach var="a" items="${appNameList}">
+        ${appName.appName}
+        <%--<select name="appName" id="appName">--%>
+            <%--<c:forEach var="a" items="${appName}">--%>
                 <%--<option value="${a.appId}">${a.appName}</option>--%>
-                <option>${a.appName}</option>
-            </c:forEach>
-        </select>
+                <%--<option>${appName.getAppname}</option>--%>
+            <%--</c:forEach>--%>
+        <%--</select>--%>
 
         <%-- 大区 --%>
         <select name="appQu" id="quName">
