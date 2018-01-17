@@ -40,7 +40,7 @@
     <select id="getGoodsInfoQu" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from AC_GOODSINFO where QuId = #{QuId,jdbcType=BIGINT} AND status = 1 AND startTime >= #{startTime,jdbcType=TIME}
+        from AC_GOODSINFO where QuId = #{QuId,jdbcType=BIGINT} AND status = 1 AND startTime >= #{startTime,jdbcType=TIME}  OR terminalTime>#{startTime,jdbcType=TIME}
     </select>
 
     <!--根据gid查询商品 数据交付于搜索页中用户点击后的商品展示页-->

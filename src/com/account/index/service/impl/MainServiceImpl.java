@@ -89,6 +89,7 @@ public class MainServiceImpl implements MainService{
 
     @Override
     public List<AppQu> getAppQuList(long AppId) {
+
         List<AppQu> appQuList = appQuMapper.getAppQu(AppId);
         return appQuList;
     }
