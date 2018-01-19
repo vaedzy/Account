@@ -40,12 +40,14 @@ public class CommodityControler {
      */
     @RequestMapping("addGoods")
     public ModelAndView loginAddGoods(HttpServletRequest request, HttpSession httpSession){
-
-        Boolean realName = commodityService.RealName(httpSession);
-        if (realName) {
-            return new ModelAndView("add");
+        if (httpSession.getAttribute("user")!=null) {
+            Boolean realName = commodityService.RealName(httpSession);
+            if (realName) {
+                return new ModelAndView("add");
+            }
+            return new ModelAndView("mycenter");
         }
-        return new ModelAndView("add");
+        return new ModelAndView("redirect:/toLogin");
     }
 
 
@@ -78,9 +80,9 @@ public class CommodityControler {
                               HttpServletRequest request)throws Exception{
        Boolean insertOk = commodityService.insert(goodsInfo,file,request);
        if (insertOk){
-           return new ModelAndView("");
+           return new ModelAndView("currency");
        }
-       return new ModelAndView("");
+       return new ModelAndView("currency");
     }
 
 

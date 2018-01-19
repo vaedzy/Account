@@ -117,12 +117,15 @@ public class CommodityServiceImpl implements CommodityService{
                             System.gc();
                         }
                     }else {
+                        request.setAttribute("currency","添加失败 请上传图片");
                         return false;
                     }
                 }
             }
         }
+
        int insert =  goodsInfoMapper.insert(record);
+        request.setAttribute("currency","添加成功");
         return true;
     }
 
