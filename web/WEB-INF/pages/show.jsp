@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+﻿<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
@@ -11,6 +11,7 @@
 <html>
 <head>
     <title>商品展示</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" type="text/css" href="/common/css/show/show.css">
     <link href="/common/css/show/reset.css" rel="stylesheet" type="text/css" />
     <link href="/common/css/show/font-awesome.css" rel="stylesheet" type="text/css" />
@@ -39,7 +40,7 @@
     <div id="conditions">
         <div id="conditions_title">条件查找</div>
         <%-- 应用名 --%>
-        ${appName.appName}
+        应用：&nbsp;${appName.appName}
         <%-- 大区 --%>
         <select name="appQu" id="quName">
             <c:forEach var="q" items="${appQuList}">
@@ -50,57 +51,59 @@
 
 
     </div>
-    <%--<div id="goodsinfo">--%>
-        <%--<c:forEach var="g" items="${goodsInfoList}">--%>
-            <%--<div class="goods_box" id="${g.gId}">--%>
-                <%--<div class="app_img">--%>
-                    <%--&lt;%&ndash; 这里放一张截图 &ndash;%&gt;--%>
-                    <%--<img width="100%" height="100%" src="${g.gphotourl1}">--%>
-                <%--</div>--%>
-                <%--<div class="app_text">--%>
-                   <%--账号介绍：--%>
-                    <%--<br/>--%>
-                        <%--${g.remark}--%>
-                <%--</div>--%>
-            <%--</div>--%>
-        <%--</c:forEach>--%>
-    <%--</div>--%>
-
     <div id="goodsinfo">
-        <div id="latest-news-container" class="latest-news-container">
         <c:forEach var="g" items="${goodsInfoList}">
-                    <div class="single-item single-item-1">
-                        <div class="single-item-main">
-                            <div class="single-icon">
-                                <ul class="grid cs-style-5">
-                                    <li>
-                                        <figure>
-                                                <%-- 这里放一张截图 --%>
-                                                <img width="100%" height="100%" src="${g.gphotourl1}">
-                                            <figcaption>
-                                                <div class="goods_box" id="${g.gId}">
-                                                    <div class="app_text">
-                                                        账号介绍：
-                                                        <br/>
-                                                            ${g.remark}
-                                                    </div>
-                                                        <div class="app_text">
-                                                            价格：
-                                                            <br/>
-                                                            ${g.gprice}/小时
-                                                    </div>
-                                                </div>
-                                            </figcaption>
-                                        </figure>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+            <div class="goods_box" id="${g.gId}">
+                <div class="app_img">
+                    <%-- 这里放一张截图 --%>
+                    <img width="100%" height="100%" src="${g.gphotourl1}">
+                </div>
+                <div class="app_text">
+                    价格：&nbsp;${g.gprice}/小时
+                    <br/>
+                    账号介绍：
+                    <br/>
+                    &nbsp;&nbsp;   ${g.remark}
+                </div>
+            </div>
         </c:forEach>
-        <div id="clear"></div>
     </div>
-</div>
+
+    <%--<div id="goodsinfo">--%>
+        <%--<div id="latest-news-container" class="latest-news-container">--%>
+        <%--<c:forEach var="g" items="${goodsInfoList}">--%>
+                    <%--<div class="single-item single-item-1">--%>
+                        <%--<div class="single-item-main">--%>
+                            <%--<div class="single-icon">--%>
+                                <%--<ul class="grid cs-style-5">--%>
+                                    <%--<li>--%>
+                                        <%--<figure>--%>
+                                                <%--&lt;%&ndash; 这里放一张截图 &ndash;%&gt;--%>
+                                                <%--<img width="100%" height="100%" src="${g.gphotourl1}">--%>
+                                            <%--<figcaption>--%>
+                                                <%--<div class="goods_box" id="${g.gId}">--%>
+                                                    <%--<div class="app_text">--%>
+                                                        <%--账号介绍：--%>
+                                                        <%--<br/>--%>
+                                                            <%--${g.remark}--%>
+                                                    <%--</div>--%>
+                                                        <%--<div class="app_text">--%>
+                                                            <%--价格：--%>
+                                                            <%--<br/>--%>
+                                                            <%--${g.gprice}/小时--%>
+                                                    <%--</div>--%>
+                                                <%--</div>--%>
+                                            <%--</figcaption>--%>
+                                        <%--</figure>--%>
+                                    <%--</li>--%>
+                                <%--</ul>--%>
+                            <%--</div>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+        <%--</c:forEach>--%>
+            <%--<div id="clear"></div>--%>
+        <%--</div>--%>
+    <%--</div>--%>
 
 <div id="nav_box">
 
