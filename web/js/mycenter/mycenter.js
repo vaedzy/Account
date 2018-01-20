@@ -129,6 +129,12 @@ $(function() {
         $("#pledge").css("display","block");
         $("#pledge_btn").css({"margin-left":"10px"});
     });
+    $("#order_btn").click(function(){
+        $(".content").css("display","none");
+        $(".option").css({"margin-left":"0px"});
+        $("#order").css("display","block");
+        $("#order_btn").css({"margin-left":"10px"});
+    });
 
 
     $("#userlog").click(function () {

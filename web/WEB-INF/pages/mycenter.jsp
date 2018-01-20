@@ -36,6 +36,9 @@
     <div class="option" id="pledge_btn">
         押金管理
     </div>
+    <div class="option" id="order_btn">
+        订单管理
+    </div>
 </div>
 <div class="content" id="center">
     <form>
@@ -77,7 +80,15 @@
     </form>
 </div>
 <div class="content" id="pledge">
-    asdssss
+    <%-- 从后台获取数据判断是否缴纳押金 --%>
+    <%-- 如果缴纳则显示已缴纳  反之亦然 --%>
+    <div style="width: 100px;height: 30px; margin: 0 auto;">押金已缴纳</div>
+    <div style="width: 330px;height: 40px;margin: 20px auto;">
+        <input type="button" style="background-color: red" class="upload" value="申请退款">
+    </div>
+</div>
+<div class="content" id="order">
+    <div style="width: 100px;height: 30px; margin: 0 auto;">这是一个订单页面</div>
 </div>
 
 <div class="content" id="autonym">
@@ -128,6 +139,7 @@
             </c:if>
         </div>
         <c:if test="${user==null?false:true}">
+            <div id="myCenter" class="nav_on_box">个人中心</div>
             <div id="addGoods" class="nav_on_box">添加商品</div>
             <div id="logout" class="nav_on_box">退出登录</div>
         </c:if>

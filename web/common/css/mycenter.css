@@ -93,7 +93,9 @@ body{
 #pledge{
     display: none;
 }
-
+#order{
+    display: none;
+}
 
 
 

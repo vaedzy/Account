@@ -101,14 +101,19 @@
         </div>
         <!--开始时间-->
         <div class="info">
-            开始时间：
-            <input class="time" type="text"   name="startTime"  value="00:00" onchange="console.log('Time changed')" />
-
+            <div class="text">开始时间：</div>
+            <div class="input_box">
+                <%--<input type="time" class="input" name="startTime" placeholder="请选择您账号共享的开始时间">--%>
+                <input class="time" name="startTime" type="text" value="14:30" onchange="console.log('Time changed')" />
+            </div>
         </div>
         <!--结束时间-->
         <div class="info">
-            结束时间：
-                <input class="time" type="text"   name="terminalTime"  value="23:59" onchange="console.log('Time changed')" />
+            <div class="text">结束时间：</div>
+            <div class="input_box">
+                <%--<input type="time" class="input" name="terminalTime" placeholder="请选择您账号共享的结束时间">--%>
+                <input class="time" name="terminalTime" type="text" value="14:30" onchange="console.log('Time changed')" />
+            </div>
         </div>
         <!--简介-->
         <div class="info">
@@ -194,6 +199,7 @@
             </c:if>
         </div>
         <c:if test="${user==null?false:true}">
+            <div id="myCenter" class="nav_on_box">个人中心</div>
             <div id="addGoods" class="nav_on_box">添加商品</div>
             <div id="logout" class="nav_on_box">退出登录</div>
         </c:if>

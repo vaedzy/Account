@@ -119,6 +119,7 @@
         </div>
 
         <c:if test="${user==null?false:true}">
+            <div id="myCenter" class="nav_on_box">个人中心</div>
             <div id="addGoods" class="nav_on_box">添加商品</div>
             <div id="logout" class="nav_on_box">退出登录</div>
         </c:if>

@@ -197,6 +197,14 @@ body{
 	padding-left: 20px;
 	border: 2px solid #CC3333;
 }
+.time{
+	outline: none;
+	width: 330px;
+	height: 40px;
+	cursor: text;
+	padding-left: 20px;
+	border: 2px solid #CC3333;
+}
 #fieldApp{
 	width: 900px;
 	margin: 0 auto;
