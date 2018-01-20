@@ -130,6 +130,7 @@ body{
 	left:79.3%;
 	width: 200px;
 	height: 220px;
+	text-align: center;
 	background: #8d96b4;
 	border: 1px solid #000;
 	border-radius:8px;
@@ -148,10 +149,9 @@ body{
 	background: #bde4f4;
 	cursor: pointer;
 	float: left;
+	color:#fff;
 }
 .goods_box:hover{
-	color:#fff;
-	background: #ff7a73;
 	box-shadow: #9d9d9d 0 0 15px;
 }
 .app_img{
@@ -164,8 +164,8 @@ body{
 }
 .app_text{
 	margin:0 10px;
-	font-size: 12px;
-	float: left;
+	font-size: 14px;
+	color: #000;
 }
 
 #conditions select{
