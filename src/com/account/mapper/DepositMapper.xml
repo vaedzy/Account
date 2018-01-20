@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.account.mapper.DepositMapper">
-    <cache eviction="LRU" type="com.account.common.utils.RedisCache" />
+    <!--<cache eviction="LRU" type="com.account.common.utils.RedisCache" />-->
     <resultMap id="BaseResultMap" type="com.account.bean.Deposit">
         <id column="ID" jdbcType="BIGINT" property="id"/>
         <result column="PersonId" jdbcType="BIGINT" property="PersonId"/>
