@@ -203,6 +203,26 @@ public class UserControler extends BaseController {
         return new ModelAndView("redirect:/index.jsp");
     }
 
+    /**
+     * 跳转到个人中心
+     * @return
+     */
+    @RequestMapping("toMycenter")
+    public ModelAndView toMycenter(HttpSession httpSession){
+        //检测是否登录
+        if (httpSession.getAttribute("user")!=null) {
+            return new ModelAndView("mycenter");
+        }
+        return new ModelAndView("redirect:/toLogin");
+    }
+    /**
+     * 实名认证
+     * @param realName
+     * @param file
+     * @param request
+     * @return
+     * @throws Exception
+     */
     @ResponseBody
     @RequestMapping("realName")
     public String realName(RealName realName ,@RequestParam(value="file",required=false) MultipartFile[] file,
@@ -210,5 +230,6 @@ public class UserControler extends BaseController {
        String ok= userService.insertRealName(realName,file,request);
        return ok;
     }
+
 
 }

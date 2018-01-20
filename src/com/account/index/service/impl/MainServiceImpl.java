@@ -81,6 +81,7 @@ public class MainServiceImpl implements MainService{
         AppQu appQu = appQuMapper.getAppQuName(quName);
         //获取分秒时
         String startTime = DateUtil.formatIntToDateString(new Date(),"HH:mm:ss");
+        System.out.println(appQu.getQuId());
         List<GoodsInfo> goodsInfoList = goodsInfoMapper.getGoodsInfoQu(appQu.getQuId(),startTime);
         return goodsInfoList;
     }

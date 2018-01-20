@@ -79,4 +79,5 @@ public class MainControler {
         List<AppQu> appQuList = mainService.getAppQuList(AppId);
        return appQuList;
     }
+
 }
