@@ -227,9 +227,15 @@ public class UserControler extends BaseController {
     @RequestMapping("realName")
     public String realName(RealName realName ,@RequestParam(value="file",required=false) MultipartFile[] file,
                            HttpServletRequest request)throws Exception{
-       String ok= userService.insertRealName(realName,file,request);
-       return ok;
+       String insertRealName= userService.insertRealName(realName,file,request);
+       return insertRealName;
     }
 
+    @ResponseBody
+    @RequestMapping("selectRealName")
+    public String selectRealName(HttpSession httpSession,@RequestParam("id")long id){
+        String selectRealName = userService.selectRealName(httpSession,id);
+        return selectRealName;
+    }
 
 }

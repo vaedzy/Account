@@ -5,6 +5,7 @@ import com.account.bean.RealName;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 public interface UserService {
 
@@ -34,5 +35,11 @@ public interface UserService {
      */
     String insertRealName(RealName realName, MultipartFile[] file, HttpServletRequest request) throws Exception;
 
-
+    /**
+     * 查询实名认证
+     * @param httpSession
+     * @param id
+     * @return
+     */
+    String selectRealName(HttpSession httpSession,long id);
 }

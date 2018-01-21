@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
@@ -123,6 +124,19 @@ public class UserServiceImpl implements UserService{
         return "error";
     }
 
+    /**
+     * 查询实名认证
+     * @param httpSession
+     * @param id
+     * @return
+     */
+    @Override
+    public String selectRealName(HttpSession httpSession, long id) {
+        if (realNameMapper.getRealNameByPrimaryKey(id)!=null){
+            return "success";
+        }
+        return "noRealName";
+    }
 
 
 }
