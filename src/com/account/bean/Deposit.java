@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Deposit implements Serializable {
     private static final long serialVersionUID = 1L;
+
     private Long id;
     private Long PersonId;
     private String pIsRegistered;

@@ -1,6 +1,6 @@
 package com.account.deposit.service;
 
-import javax.servlet.http.HttpSession;
+
 
 public interface DepositService {
     /**
@@ -16,4 +16,11 @@ public interface DepositService {
      * @return
      */
     String insertDeposit(long id);
+
+    /**
+     * 退订押金
+     * @param id
+     * @return
+     */
+    String unsubscribeDeposit(long id);
 }

@@ -40,4 +40,14 @@ public class DepositServiceImpl implements DepositService{
         return null;
     }
 
+    /**
+     * 退订押金
+     * @param id
+     * @return
+     */
+    @Override
+    public String unsubscribeDeposit(long id) {
+        return null;
+    }
+
 }

@@ -28,4 +28,19 @@ public class DepositController {
        return selectDepositResult;
     }
 
+    @ResponseBody
+    @RequestMapping("payDeposit")
+    public String payDeposit(@RequestParam("id") long id){
+        return "";
+    }
+    /**
+     * 退订押金
+     * @param id
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("unsubscribeDeposit")
+    public String unsubscribeDeposit(@RequestParam("id") long id){
+        return "";
+    }
 }
