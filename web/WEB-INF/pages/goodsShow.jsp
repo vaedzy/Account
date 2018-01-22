@@ -13,6 +13,12 @@
     <link rel="stylesheet" type="text/css" href="/common/css/goodsShow.css">
     <script src="/common/js/plugin/jquery/jquery-1.9.0.min.js"></script>
     <script src="/js/goodsShow/goodsShow.js"></script>
+    <script type="text/javascript" src="/common/js/plugin/jquery/jquery-clock-timepicker.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.time').clockTimePicker({});
+        });
+    </script>
 </head>
 <body>
 <!-- 顶部 -->
@@ -44,13 +50,19 @@
                 <div class="wz">游戏名:</div>
                 <div class="wz">大区:</div>
                 <div class="wz">介绍:</div>
+
             </div>
+
             <div id="goods_info_right">
                 <div class="wz">${appName}</div>
-               <input type="text" style="display: none" id="gId" name="gId" value="${goodsInfo.gId}" >
+               <input type="text" style="display: none" id="gId" name="gId" value="${goodsInfo.gId}" />
                 <div class="wz"> ${quName}</div>
                 <div class="wz"> ${goodsInfo.remark}</div>
+                开始: <input class="time" name="startTime" type="text" value="00:00" onchange="console.log('Time changed')" />
+                结束: <input class="time" name="terminalTime" type="text" value="23:59" onchange="console.log('Time changed')" />
             </div>
+
+
             <input type="button" id="pay" value="立即下单"/>
         </div>
 
