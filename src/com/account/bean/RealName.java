@@ -10,7 +10,7 @@ public class RealName implements Serializable {
     private String alipay;
     private String idCardUrl1;
     private String idCardUrl2;
-    private Long PersonId;
+    private Long personId;
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
@@ -64,10 +64,10 @@ public class RealName implements Serializable {
     }
 
     public Long getPersonId() {
-        return PersonId;
+        return personId;
     }
 
     public void setPersonId(Long personId) {
-        PersonId = personId;
+        personId = personId;
     }
 }

@@ -84,19 +84,13 @@ body{
 }
 
 
+
+.content{
+    display: none;
+}
 #center{
     display: block;
 }
-#autonym{
-    display: none;
-}
-#pledge{
-    display: none;
-}
-#order{
-    display: none;
-}
-
 
 
 

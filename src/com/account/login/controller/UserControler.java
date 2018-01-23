@@ -81,47 +81,60 @@ public class UserControler extends BaseController {
     @RequestMapping("/login.do")
     public String login(@RequestParam("phone") String phone, String code, HttpServletRequest request,
                         HttpServletResponse response) throws ServletException, IOException {
-        //判断手机号是否为空
-        if (phone == null || phone.equals("")) {
-            return "errorUser";
-        }
-        //判断验证码是否为空
-        if (code == null || code.equals("")) {
-            //让login.jsp页面中的code框清空
-            return "errorCode";
-        }
-        //判断传入的手机号是不是刚才获取验证码的手机号
-        if (phone.equals(Tphone)) {
-            //判断验证码是否正确
-            if (Ccode.equals(code)) {
-                //执行查询操作
-                Person user = userService.getUser(phone, request);
-                //如果username为空 则跳转到注册
-                if (user.getpFullname() == null || user.getpFullname().equals("")) {
-                    //那么这个人没有注册 是新用户 设置一个session 这个session防止了用户访问到注册页面
-                    HttpSession session = request.getSession();
-                    session.setAttribute("success", "success");
-                    return "register";
-                }
-                //返回user对象 设置cookie与session
-                Cookie cookie = new Cookie("user", user.getpPhone().toString());
-                //一天的cookie有效期
-                cookie.setMaxAge(24 * 60 * 60);
-                //cookie的作用域
-                cookie.setPath("/");
-                //发送cookie
-                response.addCookie(cookie);
-                //设置session
-                HttpSession session = request.getSession();
-                session.setAttribute("user", user);
-                return "login";
-            } else {
-                //不是 ? 是否让用户重新获取或者是重新发送
-                return "errorCode";
-            }
-        } else {
-            return "errorPhone";
-        }
+//        //判断手机号是否为空
+//        if (phone == null || phone.equals("")) {
+//            return "errorUser";
+//        }
+//        //判断验证码是否为空
+//        if (code == null || code.equals("")) {
+//            //让login.jsp页面中的code框清空
+//            return "errorCode";
+//        }
+//        //判断传入的手机号是不是刚才获取验证码的手机号
+//        if (phone.equals(Tphone)) {
+//            //判断验证码是否正确
+//            if (Ccode.equals(code)) {
+//                //执行查询操作
+//                Person user = userService.getUser(phone, request);
+//                //如果username为空 则跳转到注册
+//                if (user.getpFullname() == null || user.getpFullname().equals("")) {
+//                    //那么这个人没有注册 是新用户 设置一个session 这个session防止了用户访问到注册页面
+//                    HttpSession session = request.getSession();
+//                    session.setAttribute("success", "success");
+//                    return "register";
+//                }
+//                //返回user对象 设置cookie与session
+//                Cookie cookie = new Cookie("user", user.getpPhone().toString());
+//                //一天的cookie有效期
+//                cookie.setMaxAge(24 * 60 * 60);
+//                //cookie的作用域
+//                cookie.setPath("/");
+//                //发送cookie
+//                response.addCookie(cookie);
+//                //设置session
+//                HttpSession session = request.getSession();
+//                session.setAttribute("user", user);
+//                return "login";
+//            } else {
+//                //不是 ? 是否让用户重新获取或者是重新发送
+//                return "errorCode";
+//            }
+//        } else {
+//            return "errorPhone";
+//        }
+        Person user = userService.getUser(phone, request);
+        //返回user对象 设置cookie与session
+        Cookie cookie = new Cookie("user", user.getpPhone().toString());
+        //一天的cookie有效期
+        cookie.setMaxAge(24 * 60 * 60);
+        //cookie的作用域
+        cookie.setPath("/");
+        //发送cookie
+        response.addCookie(cookie);
+        //设置session
+        HttpSession session = request.getSession();
+        session.setAttribute("user", user);
+        return "login";
     }
 
 

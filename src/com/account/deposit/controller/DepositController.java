@@ -25,6 +25,7 @@ public class DepositController {
     public String selectDeposit(@RequestParam("id")long id){
 
        String selectDepositResult = depositService.selectDeposit(id);
+        System.out.println(selectDepositResult);
        return selectDepositResult;
     }
 

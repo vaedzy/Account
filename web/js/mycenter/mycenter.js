@@ -117,12 +117,50 @@ $(function() {
         $("#center").css("display","block");
         $("#center_btn").css({"margin-left":"10px"});
     });
+// selectRealName实名认证查询渠道
     $("#autonym_btn").click(function(){
         $(".content").css("display","none");
         $(".option").css({"margin-left":"0px"});
-        $("#autonym").css("display","block");
         $("#autonym_btn").css({"margin-left":"10px"});
+        $.ajax({
+            url: "/selectRealName",
+            type: "post",
+            dataType: "text",
+            data: "id=" + $("#uid").val(),
+            success: function (data) {
+                if(data == 'noRealName'){
+                    $("#autonym1").css("display","none");
+                    $("#autonym2").css("display","block");
+                }else{
+                    $("#autonym2").css("display","none");
+                    $("#autonym1").css("display","block");
+                }
+            }
+        });
     });
+    // selectDeposit 这个是押金查询的渠道
+    $("#pledge_btn").click(function(){
+        $(".content").css("display","none");
+        $(".option").css({"margin-left":"0px"});
+        $("#pledge_btn").css({"margin-left":"10px"});
+        $.ajax({
+            url: "/selectDeposit",
+            type: "post",
+            dataType: "text",
+            data: "id=" + $("#uid").val(),
+            success: function (data) {
+                alert(data);
+                if(data == 'noRealName'){
+                    $("#pledge1").css("display","none");
+                    $("#pledge2").css("display","block");
+                }else{
+                    $("#pledge2").css("display","none");
+                    $("#pledge1").css("display","block");
+                }
+            }
+        });
+    });
+    // selectDeposit 这个是押金查询的渠道 selectRealName实名认证查询渠道
     $("#pledge_btn").click(function(){
         $(".content").css("display","none");
         $(".option").css({"margin-left":"0px"});

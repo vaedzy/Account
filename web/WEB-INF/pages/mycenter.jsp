@@ -91,7 +91,10 @@
     <div style="width: 100px;height: 30px; margin: 0 auto;">这是一个订单页面</div>
 </div>
 
-<div class="content" id="autonym">
+<div class="content" id="autonym1">
+    <div>你没有实名认证</div>
+</div>
+<div class="content" id="autonym2">
     <form action="">
         <div id="certification">
             <div class="info">
@@ -136,6 +139,7 @@
             </c:if>
             <c:if test="${user==null?false:true}">
                 <span id="uuser">尊敬的:${user.pFullname}</span>
+                <input hidden type="text" id="uid" value="${user.id}">
             </c:if>
         </div>
         <c:if test="${user==null?false:true}">

@@ -9,22 +9,22 @@
         <result column="Alipay" jdbcType="VARCHAR" property="alipay"/>
         <result column="idCardUrl1" jdbcType="VARCHAR" property="idCardUrl1"/>
         <result column="idCardUrl2" jdbcType="VARCHAR" property="idCardUrl2"/>
-        <result column="PersonId" jdbcType="BIGINT" property="PersonId"/>
+        <result column="personId" jdbcType="BIGINT" property="personId"/>
     </resultMap>
 
     <insert id="insert" parameterType="com.account.bean.RealName" keyProperty="id" useGeneratedKeys="true" keyColumn="GENERATED_KEY">
-      insert into AC_REALNAME (ID, Name,IdCard,Alipay,idCardUrl1,idCardUrl2,PersonId)
+      insert into AC_REALNAME (ID, Name,IdCard,Alipay,idCardUrl1,idCardUrl2,personId)
     values (#{id,jdbcType=BIGINT}, #{Name,jdbcType=VARCHAR}, #{IdCard,jdbcType=VARCHAR},
-      #{Alipay,jdbcType=VARCHAR}, #{idCardUrl1,jdbcType=VARCHAR},#{idCardUrl2,jdbcType=VARCHAR}),#{PersonId,jdbcType=BIGINT}
+      #{Alipay,jdbcType=VARCHAR}, #{idCardUrl1,jdbcType=VARCHAR},#{idCardUrl2,jdbcType=VARCHAR}),#{personId,jdbcType=BIGINT}
   </insert>
 
     <sql id="Base_Column_List">
-        ID, Name, IdCard, Alipay,idCardUrl1,idCardUrl2,PersonId
+        ID, Name, IdCard, Alipay,idCardUrl1,idCardUrl2,personId
   </sql>
     <select id="getRealNameByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from AC_REALNAME
-        where PersonId = #{PersonId,jdbcType=BIGINT}
+        where personId = #{personId,jdbcType=BIGINT}
     </select>
 </mapper>

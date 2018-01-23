@@ -4,7 +4,7 @@ a:visited{ color:#000;}
 *{padding: 0 ; margin: 0;}
 body{
 	/*background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);*/
-	background-color: rgba(50,50,50,1);
+	background-color: #333333;
 }
 #content{
 	position:fixed;
@@ -25,7 +25,7 @@ body{
 	height: 40px;
 	box-shadow: rgba(0,0,0,0.5) 3px 3px 5px;
 	border-radius: 25px;
-	border: 2px solid rgba(255,184,108,0.9);
+	border: 2px solid rgba(255,155,47,0.9);
 }
 #search{
 	outline: none;
@@ -48,7 +48,7 @@ body{
 	width: 80px;
 	height: 40px;
 	cursor:pointer;
-	color: rgba(255,184,108,0.9);
+	color: rgba(255,175,90,0.9);
 	font-size: 20px;
 	font-weight:500;
 	border:none;
