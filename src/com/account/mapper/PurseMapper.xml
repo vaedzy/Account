@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.account.mapper.PurseMapper">
+    <!--<cache eviction="LRU" type="com.account.common.utils.RedisCache" />-->
+    <resultMap id="BaseResultMap" type="com.account.bean.Purse">
+        <id column="ID" jdbcType="BIGINT" property="id"/>
+        <result column="money"  jdbcType="BIGINT" property="money"/>
+        <result column="personId" jdbcType="BIGINT" property="personId"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="com.account.bean.Purse" keyProperty="id" useGeneratedKeys="true" keyColumn="GENERATED_KEY">
+      insert into AC_PURSE (ID, money,personId)
+    values (#{id,jdbcType=BIGINT},#{money,jdbcType=BIGINT}, #{personId,jdbcType=BIGINT})
+  </insert>
+
+    <sql id="Base_Column_List">
+        ID, money, personId
+  </sql>
+    <select id="getMoneyByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from AC_REALNAME
+        where PersonId = #{personId,jdbcType=BIGINT}
+    </select>
+
+    <update id="updateMoney" parameterType="com.account.bean.Purse">
+        UPDATE AC_GOODSINFO
+        SET
+      #{money,jdbcType=BIGINT}
+       WHERE personId = #{personId,jdbcType=BIGINT}
+    </update>
+</mapper>

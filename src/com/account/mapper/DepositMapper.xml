@@ -4,7 +4,7 @@
     <!--<cache eviction="LRU" type="com.account.common.utils.RedisCache" />-->
     <resultMap id="BaseResultMap" type="com.account.bean.Deposit">
         <id column="ID" jdbcType="BIGINT" property="id"/>
-        <result column="PersonId" jdbcType="BIGINT" property="PersonId"/>
+        <result column="PersonId" jdbcType="BIGINT" property="personId"/>
         <result column="pIsRegistered" jdbcType="VARCHAR" property="pIsRegistered"/>
     </resultMap>
 
@@ -17,7 +17,7 @@
         ID,pIsRegistered,PersonId
   </sql>
 
-    <select id="getRealNameByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <select id="getDepositByPrimaryKey" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from AC_Deposit
