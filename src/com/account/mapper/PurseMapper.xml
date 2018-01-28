@@ -16,17 +16,25 @@
     <sql id="Base_Column_List">
         ID, money, personId
   </sql>
+
     <select id="getMoneyByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        from AC_REALNAME
+        from AC_PURSE
         where PersonId = #{personId,jdbcType=BIGINT}
     </select>
 
     <update id="updateMoney" parameterType="com.account.bean.Purse">
-        UPDATE AC_GOODSINFO
+        UPDATE AC_PURSE
         SET
       #{money,jdbcType=BIGINT}
        WHERE personId = #{personId,jdbcType=BIGINT}
+    </update>
+
+    <update id="rechargeMoenry" parameterType="java.lang.Long">
+        UPDATE AC_PURSE
+        SET
+        #{money,jdbcType=BIGINT}
+        WHERE personId = #{personId,jdbcType=BIGINT}
     </update>
 </mapper>

@@ -42,7 +42,7 @@ $(function(){
 			dataType:"text",
 			data:"search="+$("#search").val(),
 			success:function(data){
-					
+
 			}
 		})
 			

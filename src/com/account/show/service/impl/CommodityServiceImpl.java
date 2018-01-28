@@ -45,6 +45,7 @@ public class CommodityServiceImpl implements CommodityService{
         AppName appName =appNameMapper.getAppNameById(goodsInfo.getAppId());
         //查询区名称
         String quName = appQuMapper.getAppQuNameByQuId(goodsInfo.getQuId());
+        System.out.println(quName);
         request.setAttribute("appName",appName.getAppName());
         request.setAttribute("quName",quName);
         request.setAttribute("goodsInfo",goodsInfo);

@@ -41,6 +41,7 @@ public class MainControler {
      * @param session
      * @return
      */
+
     @RequestMapping("souApp")
     public ModelAndView souApp(@RequestParam("search")String search, HttpServletRequest request, HttpSession session){
         //判断传入的是否为空

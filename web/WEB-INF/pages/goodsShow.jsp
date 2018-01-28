@@ -35,7 +35,7 @@
 
     <div id="content_nav">
         ${appName}>>
-        ${appQu}
+        ${quName}
     </div>
     <div id="goods_photo">
         <img width="100%" height="100%" id="gphoto" src="${goodsInfo.gphotourl1}">

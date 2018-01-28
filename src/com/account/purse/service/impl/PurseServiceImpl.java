@@ -12,10 +12,29 @@ import org.springframework.transaction.annotation.Transactional;
 public class PurseServiceImpl implements PurseService {
     @Autowired
     private PurseMapper purseMapper;
-    @Override
-    public String selectMoney(long id) {
-       Purse purse =  purseMapper.getMoneyByPrimaryKey(id);
 
-        return "";
+    @Override
+    public String insertPurse(long id) {
+        Purse purse = new Purse();
+        purse.setPersonId(id);
+        int i = purseMapper.insert(purse);
+        if (i==1){
+            return "success";
+        }
+       return "error";
     }
+
+    @Override
+    public Double selectMoney(long id) {
+       Purse purse =  purseMapper.getMoneyByPrimaryKey(id);
+        double money = purse.getMoney();
+        return money;
+    }
+
+    @Override
+    public Double rechargeMoenry(long id,double money) {
+        //支付
+        return null;
+    }
+
 }

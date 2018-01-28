@@ -13,13 +13,24 @@ public class PurseController {
     private PurseService purseService;
 
     /**
+     * 注册钱包
+     * @param id
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("purse")
+    public String insertPurse(@RequestParam("id") long id){
+        String insertPurse = purseService.insertPurse(id);
+        return insertPurse;
+    }
+    /**
      * 查询余额
      * @return
      */
     @ResponseBody
     @RequestMapping("selectMoney")
-    public String selectMoney(@RequestParam("id") long id){
-       String money =  purseService.selectMoney(id);
+    public Double selectMoney(@RequestParam("id") long id){
+       Double money =  purseService.selectMoney(id);
         return money;
     }
 
