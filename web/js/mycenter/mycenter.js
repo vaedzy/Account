@@ -117,7 +117,7 @@ $(function() {
         $("#center").css("display","block");
         $("#center_btn").css({"margin-left":"10px"});
     });
-// selectRealName实名认证查询渠道
+    // selectRealName实名认证查询渠道
     $("#autonym_btn").click(function(){
         $(".content").css("display","none");
         $(".option").css({"margin-left":"0px"});
@@ -173,6 +173,14 @@ $(function() {
         $("#order").css("display","block");
         $("#order_btn").css({"margin-left":"10px"});
     });
+    $("#shared_btn").click(function(){
+        $(".content").css("display","none");
+        $(".option").css({"margin-left":"0px"});
+        $("#shared").css("display","block");
+        $("#shared_btn").css({"margin-left":"10px"});
+    });
+
+
 
 
     $("#userlog").click(function () {

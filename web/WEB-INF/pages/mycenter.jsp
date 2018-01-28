@@ -39,6 +39,9 @@
     <div class="option" id="order_btn">
         订单管理
     </div>
+    <div class="option" id="shared_btn">
+        我的共享
+    </div>
 </div>
 <div class="content" id="center">
     <form>
@@ -128,7 +131,9 @@
     </form>
 </div>
 
-
+<div class="content" id="shared">
+    <div>这是你的共享账号页面</div>
+</div>
 
 <div id="nav_box">
     <!-- 一级导航 -->
